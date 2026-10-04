@@ -564,3 +564,5 @@ h2 { font-size: clamp(2.3rem, 4vw, 4.8rem); line-height: .94; }
 .plate-ask { margin: .9rem 0 0; border-top: 1px solid rgba(39,48,58,.2); padding-top: .7rem; }
 .plate-ask a { display: inline-flex; align-items: center; gap: .3rem; border-bottom: 1px solid transparent; color: var(--coral-dark); font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; }
 .plate-ask a:hover, .plate-ask a:focus-visible { border-bottom-color: var(--coral-dark); }
+.margin-actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: .5rem; }
+.margin-actions .button { margin-top: 0; }
