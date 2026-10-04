@@ -12,6 +12,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: julia-actions/setup-julia@v2
         with:
-          version: '1.10'
+          version: '1.11'
       - uses: dtolnay/rust-toolchain@stable
       - run: make check
