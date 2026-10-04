@@ -6,7 +6,7 @@
     "region": "greece",
     "years": "c. 570-c. 495 BCE",
     "role": "philosopher and mathematician",
-    "note": "I put Pythagoras in the hall with care because the right triangle's long history deserves Babylonian tablets and the Chinese gougu tradition beside his name.",
+    "note": "Pythagoras holds a careful place in the hall; the right triangle's long history deserves Babylonian tablets and the Chinese gougu tradition beside his name.",
     "entryIds": [
       "pythagorean-theorem"
     ]
@@ -18,7 +18,7 @@
     "region": "italy",
     "years": "c. 1170-c. 1240",
     "role": "mathematician",
-    "note": "I put Fibonacci in the seed lineage because his book carried Indian and Arabic arithmetic through a world that needed it.",
+    "note": "Fibonacci sits in the seed lineage; his book carried Indian and Arabic arithmetic through a world that needed it.",
     "entryIds": [
       "phyllotaxis"
     ]
@@ -30,7 +30,7 @@
     "region": "germany",
     "years": "1571-1630",
     "role": "astronomer",
-    "note": "I put Kepler's measured ellipses at the sky's first turning because he made patient observation strong enough to move a planet.",
+    "note": "Kepler's measured ellipses open the sky here; patient observation became strong enough to move a planet.",
     "entryIds": [
       "newton-kepler",
       "phyllotaxis"
@@ -43,7 +43,7 @@
     "region": "england",
     "years": "1643-1727",
     "role": "natural philosopher",
-    "note": "I put Newton's law beside Kepler's ellipses because his synthesis made the sky answer to the same gravity as the earth.",
+    "note": "Beside Kepler's ellipses stands Newton's law, because his synthesis made the sky answer to the same gravity as the earth.",
     "entryIds": [
       "newton-kepler",
       "three-body-problem"
@@ -56,7 +56,7 @@
     "region": "england",
     "years": "c. 1701-1761",
     "role": "minister and mathematician",
-    "note": "I put Bayes at the first turn of belief because his quiet essay gave uncertainty a way to learn from evidence.",
+    "note": "I placed Bayes at the first turn of belief; his quiet essay gave uncertainty a way to learn from evidence.",
     "entryIds": [
       "bayes-theorem"
     ]
@@ -68,7 +68,7 @@
     "region": "switzerland",
     "years": "1707-1783",
     "role": "mathematician",
-    "note": "I put Euler's identity in the spiral because his fearless fluency made five constants sound like one note.",
+    "note": "Euler's identity rests in the spiral; his fearless fluency made five constants sound like one note.",
     "entryIds": [
       "eulers-identity"
     ],
@@ -84,7 +84,7 @@
     "region": "france",
     "years": "1717-1783",
     "role": "mathematician and physicist",
-    "note": "I put d'Alembert at the plucked string because his equation let a moving disturbance keep its own shape.",
+    "note": "At the plucked string stands d'Alembert, whose equation let a moving disturbance keep its own shape.",
     "entryIds": [
       "wave-equation"
     ]
@@ -96,7 +96,7 @@
     "region": "wales",
     "years": "1723-1791",
     "role": "philosopher and minister",
-    "note": "I put Price beside Bayes because his editorial care carried the essay into print and made its argument reach us.",
+    "note": "Price keeps his place beside Bayes; his editorial care carried the essay into print and made its argument reach us.",
     "entryIds": [
       "bayes-theorem"
     ]
@@ -108,7 +108,7 @@
     "region": "france",
     "years": "1749-1827",
     "role": "mathematician and astronomer",
-    "note": "I put Laplace at the tide because he carried celestial mechanics' rigor into the breathing ocean.",
+    "note": "Laplace followed the tide; he carried celestial mechanics' rigor into the breathing ocean.",
     "entryIds": [
       "laplace-tides"
     ]
@@ -120,7 +120,7 @@
     "region": "italy",
     "years": "1765-1822",
     "role": "mathematician and physician",
-    "note": "I put Ruffini at the quintic because he saw that the missing radical formula was a mathematical fact, not a gap to fill.",
+    "note": "Ruffini settles the quintic question; the missing radical formula was a mathematical fact, not a gap to fill.",
     "entryIds": [],
     "solvedIds": [
       "quintic-refusal"
@@ -133,7 +133,7 @@
     "region": "france",
     "years": "1768-1830",
     "role": "mathematician and physicist",
-    "note": "I put Fourier in the ear because his heat equation gave complex shapes a chorus of simple waves.",
+    "note": "Fourier gave the ear its mathematics; his heat equation turned complex shapes into a chorus of simple waves.",
     "entryIds": [
       "fourier-series"
     ]
@@ -145,7 +145,7 @@
     "region": "germany",
     "years": "1777-1855",
     "role": "mathematician and physicist",
-    "note": "I put Gauss at the surface because intrinsic curvature let geometry learn to measure itself.",
+    "note": "Gauss opens the surface chapter; intrinsic curvature let geometry learn to measure itself.",
     "entryIds": [
       "gauss-bonnet"
     ]
@@ -157,7 +157,7 @@
     "region": "france",
     "years": "1785-1836",
     "role": "engineer and physicist",
-    "note": "I put Navier at the moving water because he dared to give viscosity a mathematical voice.",
+    "note": "Navier stands at the moving water; he dared to give viscosity a mathematical voice.",
     "entryIds": [
       "navier-stokes"
     ]
@@ -169,7 +169,7 @@
     "region": "england",
     "years": "1791-1867",
     "role": "experimental scientist",
-    "note": "I put Faraday's field lines beside Maxwell because the experimental imagination came before the equations and deserves its own light.",
+    "note": "Faraday's field lines hold their own light beside Maxwell; the experimental imagination came before the equations.",
     "entryIds": [
       "maxwell-equations"
     ]
@@ -181,7 +181,7 @@
     "region": "norway",
     "years": "1802-1829",
     "role": "mathematician",
-    "note": "I put Abel beside Ruffini because his clear impossibility proof gave the quintic's refusal its lasting form.",
+    "note": "Abel's impossibility proof stands beside Ruffini; it gave the quintic's refusal its lasting form.",
     "entryIds": [],
     "solvedIds": [
       "quintic-refusal"
@@ -194,7 +194,7 @@
     "region": "ireland",
     "years": "1819-1903",
     "role": "mathematician and physicist",
-    "note": "I put Stokes beside Navier because his extension helped turn a working fluid model into a lasting law.",
+    "note": "Stokes extends the fluid line beside Navier; his work turned a working model into a lasting law.",
     "entryIds": [
       "navier-stokes"
     ]
@@ -206,7 +206,7 @@
     "region": "france",
     "years": "1819-1892",
     "role": "mathematician",
-    "note": "I put Bonnet in the theorem's full name because his boundary term completes the conversation Gauss began.",
+    "note": "Bonnet earns the theorem's other name; his boundary term completes the conversation Gauss began.",
     "entryIds": [
       "gauss-bonnet"
     ]
@@ -218,7 +218,7 @@
     "region": "germany",
     "years": "1826-1866",
     "role": "mathematician",
-    "note": "I put Riemann at the still-open line because his daring zeta function joined primes to the deep shape of analysis.",
+    "note": "I keep Riemann at the still-open line; his daring zeta function joined primes to the deep shape of analysis.",
     "entryIds": [
       "riemann-zeta"
     ]
@@ -230,7 +230,7 @@
     "region": "scotland",
     "years": "1831-1879",
     "role": "physicist",
-    "note": "I put Maxwell among the fields because his synthesis let electricity and magnetism travel as light.",
+    "note": "Maxwell belongs among the fields; his synthesis let electricity and magnetism travel as light.",
     "entryIds": [
       "maxwell-equations"
     ]
@@ -242,7 +242,7 @@
     "region": "austria",
     "years": "1844-1906",
     "role": "physicist",
-    "note": "I put Boltzmann's logarithm beside entropy because he gave the invisible multitude of molecular states a measure.",
+    "note": "Boltzmann's logarithm stands beside entropy; he gave the invisible multitude of molecular states a measure.",
     "entryIds": [
       "boltzmann-entropy"
     ]
@@ -254,7 +254,7 @@
     "region": "france",
     "years": "1854-1912",
     "role": "mathematician and physicist",
-    "note": "I place Poincaré at the point where celestial mechanics met a limit: his nonintegrability result forbids a general integral, not the special periodic dances found later.",
+    "note": "Poincaré holds the point where celestial mechanics met a limit: his nonintegrability result forbids a general integral, not the special periodic dances found later.",
     "entryIds": [
       "three-body-problem"
     ]
@@ -266,7 +266,7 @@
     "region": "germany",
     "years": "1858-1947",
     "role": "physicist",
-    "note": "I put Planck's reluctant quantum at the century's hinge because one careful mathematical rescue opened a new physics.",
+    "note": "Planck's reluctant quantum sits at the century's hinge; one careful mathematical rescue opened a new physics.",
     "entryIds": [
       "planck-blackbody"
     ]
@@ -278,7 +278,7 @@
     "region": "italy",
     "years": "1860-1940",
     "role": "mathematician and physicist",
-    "note": "I put Volterra beside Lotka because his model made ecological conflict move in equations and in real fisheries.",
+    "note": "Volterra works beside Lotka; his model made ecological conflict move in equations and in real fisheries.",
     "entryIds": [
       "lotka-volterra"
     ]
@@ -290,7 +290,7 @@
     "region": "germany",
     "years": "1862-1937",
     "role": "physician",
-    "note": "I put Weinberg beside Hardy because his independent insight gave the equilibrium a second, equally deserved origin.",
+    "note": "Weinberg shares the origin beside Hardy; his independent insight gave the equilibrium a second, equally deserved origin.",
     "entryIds": [
       "hardy-weinberg"
     ]
@@ -302,7 +302,7 @@
     "region": "france",
     "years": "1865-1963",
     "role": "mathematician",
-    "note": "I put Hadamard beside the prime number theorem because his 1896 zero-free argument made prime density yield to complex analysis.",
+    "note": "Hadamard stands at the prime number theorem; his 1896 zero-free argument made prime density yield to complex analysis.",
     "entryIds": [],
     "solvedIds": [
       "prime-number-theorem"
@@ -315,7 +315,7 @@
     "region": "belgium",
     "years": "1866-1962",
     "role": "mathematician",
-    "note": "I put de la Vallée Poussin beside Hadamard because his independent proof gave the same landmark a second route.",
+    "note": "De la Vallée Poussin reached the same landmark by a second route, beside Hadamard.",
     "entryIds": [],
     "solvedIds": [
       "prime-number-theorem"
@@ -328,7 +328,7 @@
     "region": "england",
     "years": "1877-1947",
     "role": "mathematician",
-    "note": "I put Hardy at the inheritance balance because his algebra made a useful law visible, even beyond the field he loved.",
+    "note": "Hardy holds the inheritance balance; his algebra made a useful law visible, even beyond the field he loved.",
     "entryIds": [
       "hardy-weinberg"
     ]
@@ -340,7 +340,7 @@
     "region": "england",
     "years": "1877-1946",
     "role": "physicist, astronomer, and mathematician",
-    "note": "I keep Jeans's stability criterion near the cold cloud, where the contest between sound-crossing time and gravitational collapse becomes a mass scale.",
+    "note": "Jeans's stability criterion rests near the cold cloud, where the contest between sound-crossing time and gravitational collapse becomes a mass scale.",
     "entryIds": [
       "jeans-mass"
     ]
@@ -352,7 +352,7 @@
     "region": "united states",
     "years": "1880-1949",
     "role": "mathematician and biophysicist",
-    "note": "I put Lotka in the predator-prey rhythm because he saw a mathematical ecology in chemistry's changing concentrations.",
+    "note": "Lotka keeps the predator-prey rhythm; he saw a mathematical ecology in chemistry's changing concentrations.",
     "entryIds": [
       "lotka-volterra"
     ]
@@ -364,7 +364,7 @@
     "region": "england",
     "years": "1882-1944",
     "role": "astronomer and physicist",
-    "note": "I place Eddington at the balance between radiation and gravity, while leaving the assumptions about opacity visible on the page.",
+    "note": "Eddington holds the balance between radiation and gravity, with the assumptions about opacity left visible on the page.",
     "entryIds": [
       "eddington-luminosity"
     ]
@@ -376,7 +376,7 @@
     "region": "germany",
     "years": "1882-1935",
     "role": "mathematician",
-    "note": "I put Noether's theorem at the center because symmetry and conservation deserve a center.",
+    "note": "Noether's theorem takes the center; symmetry and conservation deserve one.",
     "entryIds": [
       "noether-theorem"
     ]
@@ -388,7 +388,7 @@
     "region": "austria",
     "years": "1887-1961",
     "role": "physicist",
-    "note": "I put Schrödinger in the wave's path because his equation gave quantum change a form the imagination could follow.",
+    "note": "Schrödinger's equation gave quantum change a form the imagination could follow.",
     "entryIds": [
       "schrodinger-equation"
     ]
@@ -400,7 +400,7 @@
     "region": "united states",
     "years": "1889-1953",
     "role": "astronomer",
-    "note": "I put Hubble's careful measures beside Lemaître's theory because he made expansion visible, and the shared history deserves both names.",
+    "note": "Hubble's careful measures stand beside Lemaître's theory; he made expansion visible, and the shared history deserves both names.",
     "entryIds": [
       "hubble-lemaitre"
     ]
@@ -412,7 +412,7 @@
     "region": "belgium",
     "years": "1894-1966",
     "role": "physicist and priest",
-    "note": "I put Lemaître beside the expanding universe because his 1927 derivation deserves to be read before the name the world learned later.",
+    "note": "I set Lemaître beside the expanding universe; his 1927 derivation deserves to be read before the name the world learned later.",
     "entryIds": [
       "hubble-lemaitre"
     ]
@@ -424,7 +424,7 @@
     "region": "switzerland and united states",
     "years": "1898-1974",
     "role": "astronomer and physicist",
-    "note": "I keep Zwicky's 1933 Coma-cluster discrepancy beside the later rotation curves because unseen mass entered astronomy before the spiral galaxies made the case vivid.",
+    "note": "Zwicky's 1933 Coma-cluster discrepancy predates the later rotation curves it sits beside; unseen mass entered astronomy before the spiral galaxies made the case vivid.",
     "entryIds": [
       "galaxy-rotation-curves"
     ]
@@ -436,7 +436,7 @@
     "region": "germany",
     "years": "1901-1976",
     "role": "physicist",
-    "note": "I put Heisenberg's limit in the structure of states because he turned a measurement boundary into a law, not a flaw.",
+    "note": "Heisenberg's limit is written into the structure of states; he turned a measurement boundary into a law, not a flaw.",
     "entryIds": [
       "uncertainty-principle"
     ]
@@ -448,7 +448,7 @@
     "region": "austria",
     "years": "1906-1978",
     "role": "mathematician and logician",
-    "note": "I put Gödel at the continuum's boundary because the constructible universe showed that one direction could not be refuted from ZFC.",
+    "note": "Gödel stands at the continuum's boundary; the constructible universe showed that one direction could not be refuted from ZFC.",
     "entryIds": [],
     "solvedIds": [
       "continuum-hypothesis"
@@ -461,7 +461,7 @@
     "region": "england",
     "years": "1912-1954",
     "role": "mathematician and computer scientist",
-    "note": "I put Turing at the edge of a living pattern because his final work showed how reaction and diffusion can make form.",
+    "note": "Turing's final work showed how reaction and diffusion can make form.",
     "entryIds": [
       "turing-patterns"
     ]
@@ -473,7 +473,7 @@
     "region": "england",
     "years": "1914-1998",
     "role": "physiologist",
-    "note": "I put Hodgkin at the axon because his patient measurements let nerve signals become a mechanism we can read.",
+    "note": "Hodgkin's patient measurements at the axon let nerve signals become a mechanism we can read.",
     "entryIds": [
       "hodgkin-huxley"
     ]
@@ -485,7 +485,7 @@
     "region": "united states",
     "years": "1916-2001",
     "role": "mathematician and engineer",
-    "note": "I put Shannon's bit beside surprise because he made information measurable without asking what a message means.",
+    "note": "Shannon's bit sits beside surprise; he made information measurable without asking what a message means.",
     "entryIds": [
       "shannon-entropy"
     ]
@@ -497,7 +497,7 @@
     "region": "england",
     "years": "1917-2012",
     "role": "physiologist",
-    "note": "I put Huxley's gating model beside those measurements because he turned a living membrane into a working mathematical instrument.",
+    "note": "Huxley's gating model completes those measurements; he turned a living membrane into a working mathematical instrument.",
     "entryIds": [
       "hodgkin-huxley"
     ]
@@ -509,7 +509,7 @@
     "region": "united states",
     "years": "1917-2008",
     "role": "meteorologist",
-    "note": "I put Lorenz at the weather because his spare equations made sensitive dependence impossible to ignore.",
+    "note": "Lorenz stayed with the weather; his spare equations made sensitive dependence impossible to ignore.",
     "entryIds": [
       "lorenz-attractor"
     ]
@@ -521,7 +521,7 @@
     "region": "united states",
     "years": "1928-2016",
     "role": "astronomer",
-    "note": "I place Rubin's careful galaxy rotations in the center of the dark-matter story; the Nobel Prize did not follow the work that changed the field.",
+    "note": "Rubin's careful galaxy rotations hold the center of the dark-matter story; the Nobel Prize did not follow the work that changed the field.",
     "entryIds": [
       "galaxy-rotation-curves"
     ]
@@ -533,7 +533,7 @@
     "region": "germany",
     "years": "1928-2022",
     "role": "mathematician",
-    "note": "I put Haken beside Appel because his structural insight helped turn the four-color question into a finite check.",
+    "note": "Haken works beside Appel; his structural insight helped turn the four-color question into a finite check.",
     "entryIds": [],
     "solvedIds": [
       "four-color-theorem"
@@ -546,7 +546,7 @@
     "region": "united states",
     "years": "1932-2013",
     "role": "mathematician",
-    "note": "I put Appel beside Haken because their four-color proof made the computer a visible mathematical witness.",
+    "note": "Appel and Haken share the four-color page, where the computer became a visible mathematical witness.",
     "entryIds": [],
     "solvedIds": [
       "four-color-theorem"
@@ -559,7 +559,7 @@
     "region": "germany",
     "years": "1933-2020",
     "role": "biomathematician",
-    "note": "I put Vogel's spacing rule among the seeds because he gave a striking botanical pattern a clear mathematical shape.",
+    "note": "Vogel's spacing rule runs among the seeds; he gave a striking botanical pattern a clear mathematical shape.",
     "entryIds": [
       "phyllotaxis"
     ]
@@ -571,7 +571,7 @@
     "region": "united states",
     "years": "1934-2007",
     "role": "mathematician",
-    "note": "I put Cohen beside Gödel because forcing showed the other direction could not be settled from ZFC either.",
+    "note": "Cohen answers Gödel; forcing showed the other direction could not be settled from ZFC either.",
     "entryIds": [],
     "solvedIds": [
       "continuum-hypothesis"
@@ -584,7 +584,7 @@
     "region": "france",
     "years": "1943-present",
     "role": "mathematician",
-    "note": "I put Chenciner with Montgomery because their variational proof turned a remarkable numerical orbit into an established periodic solution.",
+    "note": "Chenciner and Montgomery share the proof; their variational argument turned a remarkable numerical orbit into an established periodic solution.",
     "entryIds": [
       "three-body-problem"
     ]
@@ -596,7 +596,7 @@
     "region": "hungary",
     "years": "1944-present",
     "role": "architect and inventor",
-    "note": "I put Rubik in the hall as a designer whose spatial puzzle became a finite group with a precise, reachable state space.",
+    "note": "I gave Rubik a place in the hall as a designer whose spatial puzzle became a finite group with a precise, reachable state space.",
     "entryIds": [
       "rubiks-cube-group"
     ]
@@ -608,7 +608,7 @@
     "region": "belgium",
     "years": "1944-present",
     "role": "mathematician",
-    "note": "I put Deligne at the close of the Weil conjectures because he completed a structure Grothendieck had imagined.",
+    "note": "Deligne closes the Weil conjectures; he completed a structure Grothendieck had imagined.",
     "entryIds": [],
     "solvedIds": [
       "weil-conjectures"
@@ -621,7 +621,7 @@
     "region": "catalonia",
     "years": "1946-present",
     "role": "mathematician",
-    "note": "I place Simó's numerical work near the wider choreography families, where one elegant orbit opens into a much larger catalogue.",
+    "note": "Simó's numerical work widens the choreography families, where one elegant orbit opens into a much larger catalogue.",
     "entryIds": [
       "three-body-problem"
     ]
@@ -633,7 +633,7 @@
     "region": "united states",
     "years": "1948-present",
     "role": "astronomer",
-    "note": "I keep Schechter's 1976 function beside galaxy counts because its faint-end rise and bright-end cutoff remain a useful shared description.",
+    "note": "Schechter's 1976 function sits beside galaxy counts; its faint-end rise and bright-end cutoff remain a useful shared description.",
     "entryIds": [
       "schechter-luminosity-function"
     ]
@@ -645,7 +645,7 @@
     "region": "england",
     "years": "1953-present",
     "role": "mathematician",
-    "note": "I put Wiles on the closed page because his long pursuit joined elliptic curves to modular forms and changed what a proof could reach.",
+    "note": "Wiles holds a closed page; his long pursuit joined elliptic curves to modular forms and changed what a proof could reach.",
     "entryIds": [],
     "solvedIds": [
       "fermat-last-theorem"
@@ -658,7 +658,7 @@
     "region": "united states",
     "years": "1953-present",
     "role": "mathematician",
-    "note": "I keep Montgomery beside the figure eight's existence proof and the geometry of its choreography, rather than letting the numerical discovery stand alone.",
+    "note": "Montgomery stands beside the figure eight's existence proof and the geometry of its choreography; the numerical discovery does not stand alone.",
     "entryIds": [
       "three-body-problem"
     ]
@@ -670,7 +670,7 @@
     "region": "united states",
     "years": "1958-present",
     "role": "mathematician",
-    "note": "I put Hales on the packing page because he turned Kepler's intuition into a proof that survived formal checking.",
+    "note": "Hales's proof fills the packing page; he turned Kepler's intuition into a result that survived formal checking.",
     "entryIds": [],
     "solvedIds": [
       "kepler-conjecture"
@@ -683,7 +683,7 @@
     "region": "england",
     "years": "1962-present",
     "role": "mathematician",
-    "note": "I put Taylor beside Wiles because the repair that made the proof hold was shared work, not a footnote.",
+    "note": "Taylor shares the repair beside Wiles; the fix that made the proof hold was shared work, not a footnote.",
     "entryIds": [],
     "solvedIds": [
       "fermat-last-theorem"
@@ -696,7 +696,7 @@
     "region": "russia",
     "years": "1966-present",
     "role": "mathematician",
-    "note": "I put Perelman in the hall because he carried Ricci flow through the singularities and declined the honors that followed.",
+    "note": "Perelman enters the hall on his own terms; he carried Ricci flow through the singularities and declined the honors that followed.",
     "entryIds": [],
     "solvedIds": [
       "poincare-conjecture"
@@ -709,7 +709,7 @@
     "region": "peru",
     "years": "1977-present",
     "role": "mathematician",
-    "note": "I put Helfgott at weak Goldbach because his blend of analysis and careful computation closed a centuries-old question.",
+    "note": "Helfgott closes weak Goldbach; his blend of analysis and careful computation settled a centuries-old question.",
     "entryIds": [],
     "solvedIds": [
       "weak-goldbach"
@@ -722,7 +722,7 @@
     "region": "united states",
     "years": "active",
     "role": "physicist",
-    "note": "I credit Moore's numerical search with finding the equal-mass figure eight in 1993, before its existence was proved variationally.",
+    "note": "Moore's numerical search found the equal-mass figure eight in 1993, before its existence was proved variationally.",
     "entryIds": [
       "three-body-problem"
     ]
@@ -734,7 +734,7 @@
     "region": "united states",
     "years": "active",
     "role": "computer scientist",
-    "note": "I credit Kunkle and Cooperman for proving that 26 turns suffice in 2007, a distinct step before the exact diameter was known.",
+    "note": "Kunkle and Cooperman proved in 2007 that 26 turns suffice, a distinct step before the exact diameter was known.",
     "entryIds": [
       "rubiks-cube-group"
     ]
@@ -746,7 +746,7 @@
     "region": "united states",
     "years": "active",
     "role": "computer scientist",
-    "note": "I place Cooperman with Kunkle at the 26-move milestone, where search and computation first brought the upper bound close to twenty.",
+    "note": "Cooperman and Kunkle share the 26-move milestone, where search and computation first brought the upper bound close to twenty.",
     "entryIds": [
       "rubiks-cube-group"
     ]
@@ -758,7 +758,7 @@
     "region": "germany",
     "years": "active",
     "role": "mathematician and cubing researcher",
-    "note": "I name Kociemba in the four-author proof of the exact diameter, with Rokicki, Davidson, and Dethridge.",
+    "note": "Kociemba joins the four-author proof of the exact diameter, with Rokicki, Davidson, and Dethridge.",
     "entryIds": [
       "rubiks-cube-group"
     ]
@@ -770,7 +770,7 @@
     "region": "australia",
     "years": "active",
     "role": "computer scientist",
-    "note": "I place Dethridge among the four authors who proved that every legal cube position lies within twenty face turns of solved.",
+    "note": "Dethridge stands among the four authors who proved that every legal cube position lies within twenty face turns of solved.",
     "entryIds": [
       "rubiks-cube-group"
     ]
@@ -782,7 +782,7 @@
     "region": "united states",
     "years": "active",
     "role": "computer scientist",
-    "note": "I place Welborn beside Rokicki for the 23- and 22-move results that narrowed the gap before the 20-move proof.",
+    "note": "Welborn's 23- and 22-move results narrowed the gap beside Rokicki before the 20-move proof.",
     "entryIds": [
       "rubiks-cube-group"
     ]
@@ -794,7 +794,7 @@
     "region": "united states",
     "years": "active",
     "role": "astronomer and instrument builder",
-    "note": "I keep Ford's spectrograph and measurements beside Rubin's analysis; the curve depended on patient instrumentation as much as on interpretation.",
+    "note": "Ford's spectrograph and measurements stand beside Rubin's analysis; the curve depended on patient instrumentation as much as on interpretation.",
     "entryIds": [
       "galaxy-rotation-curves"
     ]
@@ -806,7 +806,7 @@
     "region": "united states",
     "years": "active",
     "role": "cubing researcher",
-    "note": "I credit Reid with the 20-turn lower bound from the superflip, the floor that the later diameter proof had to meet.",
+    "note": "Reid's 20-turn lower bound from the superflip set the floor that the later diameter proof had to meet.",
     "entryIds": [
       "rubiks-cube-group"
     ]
@@ -818,7 +818,7 @@
     "region": "united states",
     "years": "active",
     "role": "mathematician",
-    "note": "I keep Davidson's contribution explicit in the 2010 computation that closed both bounds at twenty face turns.",
+    "note": "I kept Davidson's contribution explicit in the 2010 computation that closed both bounds at twenty face turns.",
     "entryIds": [
       "rubiks-cube-group"
     ]
@@ -830,7 +830,7 @@
     "region": "england",
     "years": "active",
     "role": "mathematician and cubing researcher",
-    "note": "I keep Thistlethwaite's subgroup chain beside the cube because it turns an enormous search into four disciplined reductions.",
+    "note": "Thistlethwaite's subgroup chain runs beside the cube; it turns an enormous search into four disciplined reductions.",
     "entryIds": [
       "rubiks-cube-group"
     ]
@@ -842,7 +842,7 @@
     "region": "united states",
     "years": "active",
     "role": "computer scientist and cubing researcher",
-    "note": "I credit Rokicki across the improving upper bounds and the final joint diameter proof, while keeping each milestone's collaborators visible.",
+    "note": "Rokicki spans the improving upper bounds and the final joint diameter proof, with each milestone's collaborators kept visible.",
     "entryIds": [
       "rubiks-cube-group"
     ]

@@ -70,7 +70,7 @@
       "value": 70
     },
     "source": "MacTutor History of Mathematics archive; Lemaître 1927; Hubble 1929",
-    "story": "I put Lemaître's 1927 derivation beside Hubble's 1929 observations; the shared history deserves both names.",
+    "story": "Lemaître's 1927 derivation stands beside Hubble's 1929 observations on this plate; the shared history deserves both names.",
     "status": "planned",
     "derivation": "Differentiating physical distance as the scale factor a(t) evolves gives the local recession rate H(t)d."
   },
@@ -245,7 +245,7 @@
       "value": 1
     },
     "source": "MacTutor History of Mathematics archive; Maxwell, A Treatise on Electricity and Magnetism; Faraday",
-    "story": "I put Faraday's field intuition next to Maxwell's equations. The mathematics did not erase the experiment that made it possible.",
+    "story": "Faraday's field intuition sits next to Maxwell's equations here. The mathematics did not erase the experiment that made it possible.",
     "status": "planned",
     "derivation": "The local electric and magnetic laws combine with a time derivative to give waves traveling at c = 1/√(μ₀ε₀)."
   },
@@ -347,7 +347,7 @@
       "value": 0.5
     },
     "source": "MacTutor History of Mathematics archive; Hardy, Mendelian proportions in a mixed population; Weinberg",
-    "story": "I keep Hardy's remark about biology in its place and give Weinberg's independent 1908 result equal room.",
+    "story": "Hardy's remark about biology stays in its place, with Weinberg's independent 1908 result given equal room.",
     "status": "planned",
     "derivation": "Independent allele pairings give genotype frequencies p², 2pq, and q² when p + q = 1."
   },
@@ -421,7 +421,7 @@
       "value": 45
     },
     "source": "MacTutor History of Mathematics archive; Noether, Invariante Variationsprobleme",
-    "story": "I place Emmy Noether at the center. Her theorem quietly organizes modern physics, and her path through exclusion deserves more than a footnote.",
+    "story": "Emmy Noether holds the center of this story. Her theorem quietly organizes modern physics, and her path through exclusion deserves more than a footnote.",
     "status": "planned",
     "derivation": "Variation of the action under a continuous symmetry produces a boundary term; on solutions of the equations of motion, the associated current is conserved."
   },
@@ -545,7 +545,7 @@
       "value": 0.7
     },
     "source": "MacTutor History of Mathematics archive; Bayes essay; Price's posthumous publication",
-    "story": "I keep Richard Price beside Bayes. Price edited and published the essay, and the usual shorthand should not make him disappear.",
+    "story": "Richard Price keeps his place beside Bayes. He edited and published the essay, and the usual shorthand should not make him disappear.",
     "status": "planned",
     "derivation": "Writing the joint probability P(A∩B) in two orders and dividing by P(B) updates the prior to the posterior."
   },
@@ -625,7 +625,7 @@
       "value": 0.55
     },
     "caption": "The coral curve adds a smooth halo term to a finite luminous-mass model. The slider moves from luminous mass alone to a nearly flat outer speed.",
-    "story": "I keep Zwicky's 1933 mass discrepancy in the historical line, then place Vera Rubin and Kent Ford's measured rotation curves in the foreground. Rubin's observations reshaped the case for dark matter; the Nobel Prize passed without her.",
+    "story": "Zwicky's 1933 mass discrepancy holds the historical line, with Vera Rubin and Kent Ford's measured rotation curves in the foreground. Rubin's observations reshaped the case for dark matter; the Nobel Prize passed without her.",
     "source": "Rubin and Ford, Rotation of the Andromeda Nebula, 1970",
     "sources": [
       {
@@ -730,7 +730,7 @@
       }
     ],
     "caption": "The plotted threshold uses molecular gas with mean molecular weight μ = 2.33. Move either control to change the critical mass.",
-    "story": "I keep Jeans's early instability analysis near the stellar birth cloud, where the threshold is a scale for collapse rather than a promise that every cloud will form a star.",
+    "story": "Jeans's early instability analysis stays near the stellar birth cloud, where the threshold is a scale for collapse rather than a promise that every cloud will form a star.",
     "source": "Jeans, The Stability of a Spherical Nebula, 1902",
     "sources": [
       {
@@ -783,7 +783,7 @@
       }
     ],
     "caption": "The moving coral bead shows the imposed inflow; the gold line is the electron-scattering balance for the selected mass.",
-    "story": "I place Eddington beside the force balance that bears his name, while keeping the assumptions in view: spherical geometry and a specified opacity make the limit legible.",
+    "story": "Eddington stands beside the force balance that bears his name, with the assumptions kept in view: spherical geometry and a specified opacity make the limit legible.",
     "source": "Eddington, The Internal Constitution of the Stars, 1926",
     "sources": [
       {
@@ -826,7 +826,7 @@
       "value": -1.2
     },
     "caption": "The horizontal axis is luminosity in units of L*. The vertical axis is normalized by φ* and shown logarithmically.",
-    "story": "I keep Paul Schechter's 1976 curve beside the galaxy counts it was built to summarize; its simple knee still gives astronomers a common language for a changing population.",
+    "story": "Paul Schechter's 1976 curve sits beside the galaxy counts it was built to summarize; its simple knee still gives astronomers a common language for a changing population.",
     "source": "Schechter, An analytic expression for the luminosity function for galaxies, 1976",
     "sources": [
       {
