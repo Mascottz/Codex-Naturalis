@@ -3,6 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    const phoneDesktopMode = navigator.userAgentData?.mobile
+      || /Android.+Mobile|iPhone|iPod|Windows Phone/i.test(navigator.userAgent)
+      || (window.matchMedia("(pointer: coarse)").matches && Math.min(screen.width, screen.height) <= 600);
+    if (phoneDesktopMode) document.querySelector('meta[name="viewport"]').setAttribute("content", "width=1200");
+  </script>
   <meta name="description" content="The Codex Naturalis arena; open problems, house challenges, honest attempts, and a public ledger.">
   <title>The arena; Codex Naturalis</title>
   <link rel="stylesheet" href="assets/styles.css">
