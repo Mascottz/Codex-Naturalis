@@ -18,7 +18,6 @@
       <a href="problems.html">The arena <sup>200</sup></a>
       <a href="humans.html">The hall</a>
       <a href="solved.html">Closed pages</a>
-      <a href="contributing.html">The ladder</a>
     </nav>
     <a class="random-button" href="index.html">Return to the book <span aria-hidden="true">↗</span></a>
   </header>
@@ -34,7 +33,7 @@
     <section class="toy-shelf-grid" aria-label="Mathematical toys">
       <article class="toy-card toy-buffon" id="buffon-needles">
         <div class="toy-heading"><span class="toy-number">01 / Randomness</span><h2>Buffon's needles</h2></div>
-        <p class="toy-intro">I drop unit needles onto unit-spaced ruled paper. The crossing count keeps a running estimate of π, one toss at a time.</p>
+        <p class="toy-intro">Unit needles fall onto unit-spaced ruled paper. The crossing count gives a running estimate of π, one toss at a time.</p>
         <div class="toy-stage buffon-stage">
           <canvas id="buffon-canvas" class="toy-canvas" aria-label="Random unit-length needles falling across horizontal ruled lines"></canvas>
           <div class="toy-readout" aria-live="polite"><span id="buffon-progress">Needles: 0 / 2,000</span><strong id="buffon-estimate">π ≈ waiting</strong><small id="buffon-crossings">Crossings: 0</small></div>
@@ -51,7 +50,7 @@
 
       <article class="toy-card toy-galton" id="galton-board">
         <div class="toy-heading"><span class="toy-number">02 / Many small choices</span><h2>The Galton board</h2></div>
-        <p class="toy-intro">I let beads choose left or right at each peg. The live histogram gathers the choices into a bell-shaped pile.</p>
+        <p class="toy-intro">At each peg, a bead chooses left or right. The live histogram gathers those choices into a bell-shaped pile.</p>
         <div class="toy-stage galton-stage">
           <canvas id="galton-canvas" class="toy-canvas" aria-label="A Galton board with pegs and a live bead-count histogram"></canvas>
           <div class="toy-readout" aria-live="polite"><span id="galton-progress">Beads: 0 / 1,200</span><strong id="galton-spread">12 rows; 13 bins</strong><small id="galton-most-common">The bins are waiting.</small></div>
@@ -68,7 +67,7 @@
 
       <article class="toy-card toy-chaos" id="chaos-game">
         <div class="toy-heading"><span class="toy-number">03 / A shape from chance</span><h2>The chaos game</h2></div>
-        <p class="toy-intro">I start at the center, choose a corner at random, and jump halfway there. Repetition draws a Sierpiński triangle from almost nothing.</p>
+        <p class="toy-intro">A point starts at the center, chooses a corner at random, and jumps halfway there. Repetition draws a Sierpiński triangle from almost nothing.</p>
         <div class="toy-stage chaos-stage">
           <canvas id="chaos-canvas" class="toy-canvas" aria-label="The chaos game drawing a Sierpiński triangle point by point"></canvas>
           <div class="toy-readout" aria-live="polite"><span id="chaos-progress">Points: 0 / 20,000</span><strong>Halfway, every time</strong><small id="chaos-invariant">Each jump halves the distance to one corner.</small></div>

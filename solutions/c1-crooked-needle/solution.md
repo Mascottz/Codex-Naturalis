@@ -26,4 +26,4 @@ Pertti Mattila's *Rectifiability; a survey* states the planar Crofton formula fo
 
 ## Review note
 
-The rectifiable-curve mean now has a source and an explicit modulo-one unfolding. I leave C1 under review until an independent reader checks the crossing convention and endpoint details; the straight segment attains the bound.
+The rectifiable-curve mean now has a source and an explicit modulo-one unfolding. C1 remains under review until an independent reader checks the crossing convention and endpoint details; the straight segment attains the bound.

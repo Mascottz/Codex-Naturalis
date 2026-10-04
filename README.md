@@ -1,6 +1,6 @@
 # Codex naturalis
 
-Galileo said the book of nature is written in mathematics; this is my copy of it. the earth, the galaxies, the living world, and the invisible one, set down as twenty-four living formulas; each one moves on screen, each one keeps the name of the human who first saw it, and the contested histories get told honestly.
+Galileo said the book of nature is written in mathematics; Codex Naturalis is a living copy of that book. the earth, the galaxies, the living world, and the invisible one, set down as twenty-four living formulas; each one moves on screen, each one keeps the name of the human who first saw it, and the contested histories get told honestly.
 
 The rigorous statement for mathematicians, and the intuition for everyone else who wants to see the world through mathematics. julia computes the numbers the pages render, cue holds the data against its schemas, a rust referee guards the arena on every pull request, and the site itself stays zero-dependency and static, because a book should open instantly.
 
