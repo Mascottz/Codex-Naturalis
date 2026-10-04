@@ -50,10 +50,6 @@ The margin welcomes an alternative proof, an insight, a correction, or a connect
 
 Contested histories are named as contested, and every originator is credited where the mathematics has multiple roots. The book pairs Indian and Arabic arithmetic with Fibonacci, Babylonian and Chinese precedents with the Pythagorean theorem, Lemaître with Hubble, Faraday with Maxwell, and Price with Bayes. The MacTutor History of Mathematics archive at St Andrews anchors the historical record, with primary research and problem sources attached in the data.
 
-## Sister machines
-
-The machines link where the mathematics is shared: `tide.jl` runs Laplace's tides, `night.jl` runs Kepler's sky, and `lumen.rs` keeps color science honest. The book's take-home control copies the exact rerun command for each new Julia machine.
-
 ## The quiet rule
 
 No formula dump, no dedicated page per formula, no silent claim, no borrowed visual identity, and no human left in the footnote.

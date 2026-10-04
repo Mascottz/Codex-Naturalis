@@ -110,7 +110,7 @@
     ],
     "year": "1776 to 1816",
     "statement": "A rotating shallow ocean balances acceleration, Coriolis deflection, pressure, and friction.",
-    "intuition": "Tides breathe across a rotating basin; the companion tide.jl machine extends the sketch.",
+    "intuition": "Tides breathe across a rotating basin; the water answers to rotation, depth, and the moon's pull.",
     "visualType": "tide",
     "slider": {
       "label": "rotation",
@@ -120,7 +120,6 @@
       "value": 0.8
     },
     "source": "MacTutor History of Mathematics archive; Laplace, Mécanique céleste",
-    "sister": "tide.jl",
     "status": "planned",
     "derivation": "Depth-averaging the momentum equation on a rotating sphere retains Coriolis terms and couples velocity to surface height."
   },

@@ -42,5 +42,4 @@ package schemas
   story?:       string
   caption?:     string
   openProblem?: bool
-  sister?:      string
 }
