@@ -192,7 +192,7 @@
     "summary": "Which unit-length rectifiable curve maximizes the chance of crossing at least one randomly placed ruled line?",
     "statement": "Let γ be any rectifiable plane curve of total length 1. Rotate γ uniformly through [0, π) and translate it by a uniformly random offset modulo 1 across parallel lines spaced 1 apart. The expected crossing count is 2/π, but the probability of at least one transverse crossing depends on γ. Which curve maximizes that probability, and what proof establishes optimality?",
     "approach": "Count crossings first: the integral-geometric mean is 2/π, so the gap between the mean count and the chance of any crossing is the room to optimize.",
-    "source": "https://mathworld.wolfram.com/BuffonsNeedleProblem.html"
+    "source": "https://arxiv.org/abs/2112.00540"
   },
   {
     "id": "c2-silent-board",
