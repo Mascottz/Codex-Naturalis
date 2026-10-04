@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The Codex Naturalis arena; open problems, honest attempts, and a public ledger.">
+  <meta name="description" content="The Codex Naturalis arena; open problems, house challenges, honest attempts, and a public ledger.">
   <title>The arena; Codex Naturalis</title>
   <link rel="stylesheet" href="assets/styles.css">
   <script src="assets/app.js" defer></script>
@@ -12,17 +12,105 @@
   <a class="skip-link" href="#arena">Skip to the arena</a>
   <header class="site-header">
     <a class="wordmark" href="index.html" aria-label="Codex Naturalis home"><span>codex</span><i>naturalis</i></a>
-    <nav class="site-nav" aria-label="Main navigation"><a href="index.html">The book</a><a class="active" href="problems.html">The arena <sup>200</sup></a><a href="humans.html">The hall</a><a href="contributing.html">The ladder</a></nav>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html">The book</a>
+      <a href="toys.html">The toys</a>
+      <a class="active" href="problems.html">The arena <sup>200</sup></a>
+      <a href="humans.html">The hall</a>
+      <a href="solved.html">Closed pages</a>
+      <a href="contributing.html">The ladder</a>
+    </nav>
     <a class="random-button" href="index.html#lorenz-attractor">A live machine <span aria-hidden="true">↗</span></a>
   </header>
 
   <main id="arena" class="page-width">
-    <section class="page-hero"><p class="eyebrow">The problems arena</p><h1>A few pages of the book are still closed.</h1><p>I keep the hardest open questions together with the names attached to the attempts. An attempt earns a place in the ledger. Verification stays rare and visible.</p></section>
-    <section class="arena-band"><div><span class="section-kicker">The public ledger</span><h2>One problem per pull request; no silent claims.</h2></div><div class="counter"><strong id="open-count">0</strong><span>open pages in this seed</span></div></section>
-    <div class="filter-row" id="problem-filters" aria-label="Problem filters"><button class="filter-button active" data-filter="all" type="button">All fields</button><button class="filter-button" data-filter="millennium" type="button">Millennium</button><button class="filter-button" data-filter="number theory" type="button">Number theory</button><button class="filter-button" data-filter="geometry" type="button">Geometry</button><button class="filter-button" data-filter="analysis" type="button">Analysis</button></div>
-    <div class="problem-table-wrap"><table class="problem-table"><thead><tr><th scope="col">No.</th><th scope="col">Problem</th><th scope="col">The question</th><th scope="col">Status</th><th scope="col">Source</th></tr></thead><tbody id="problem-list"></tbody></table></div>
-    <section class="ledger" aria-labelledby="ledger-title"><p class="eyebrow">Attempts, not trophies</p><h2 id="ledger-title">The ledger keeps the trying.</h2><p>I record a name, a date, a link, and the exact claim. The status ladder runs from attempted → under review → verified, or withdrawn. A published peer-reviewed result or a checked formal proof is the only path to verified.</p><div class="ladder"><span class="ladder-step">attempted</span><span class="ladder-arrow">→</span><span class="ladder-step">under review</span><span class="ladder-arrow">→</span><span class="ladder-step">verified</span><span class="ladder-arrow">or</span><span class="ladder-step">withdrawn</span></div><div id="attempt-list"></div><a class="button button-line" href="https://github.com/Mascottz/codex-naturalis-/pulls">Bring one attempt <span aria-hidden="true">↗</span></a></section>
+    <section class="page-hero">
+      <p class="eyebrow">The problems arena</p>
+      <h1>A few pages of the book are still open.</h1>
+      <p>I keep the world's questions beside five challenges issued by the book. An attempt earns a place in the ledger; verification stays rare and visible.</p>
+    </section>
+
+    <section class="arena-band">
+      <div><span class="section-kicker">The public ledger</span><h2>One problem per pull request; no silent claims.</h2></div>
+      <div class="counter"><strong id="open-count">0</strong><span>open pages in this seed</span></div>
+    </section>
+
+    <div class="filter-row" id="problem-filters" aria-label="Problem filters">
+      <button class="filter-button active" data-filter="all" type="button">All fields</button>
+      <button class="filter-button" data-filter="millennium" type="button">Millennium</button>
+      <button class="filter-button" data-filter="number theory" type="button">Number theory</button>
+      <button class="filter-button" data-filter="geometry" type="button">Geometry</button>
+      <button class="filter-button" data-filter="analysis" type="button">Analysis</button>
+      <button class="filter-button" data-filter="book" type="button">The book's problems</button>
+    </div>
+
+    <div class="problem-table-wrap">
+      <table class="problem-table">
+        <thead><tr><th scope="col">No.</th><th scope="col">Problem</th><th scope="col">The question</th><th scope="col">Status</th><th scope="col">Source</th></tr></thead>
+        <tbody id="problem-list"></tbody>
+      </table>
+    </div>
+
+    <section class="problem-pages world-problem-pages" aria-labelledby="world-problems-title">
+      <p class="eyebrow">The world's open questions</p>
+      <h2 id="world-problems-title">Every problem keeps a place for a solution.</h2>
+      <p class="climb-lead">Each page holds its question, the attempt cards attached to it, and a solutions area that stays ready for a checked proof or witness.</p>
+      <div id="world-problem-pages"></div>
+    </section>
+
+    <section class="problem-pages codex-problems" aria-labelledby="codex-problems-title">
+      <p class="eyebrow">The book's own problems</p>
+      <h2 id="codex-problems-title">Five challenges, carried in the same ledger.</h2>
+      <p class="climb-lead">These problems belong to the book. The difficulty claims are the book's. If a house problem turns out to have been solved before, the ledger records the source and the problem retires with honors.</p>
+      <div id="house-problem-pages"></div>
+    </section>
+
+    <section class="duel-wall" aria-labelledby="duel-wall-title">
+      <p class="eyebrow">Margin notes</p>
+      <h2 id="duel-wall-title">The duel wall</h2>
+      <p class="climb-lead">I keep the quarrels close to their mathematics, with the ending stated as cleanly as the record allows.</p>
+      <div class="duel-grid">
+        <article class="duel-note duel-tartaglia">
+          <span class="duel-index">01 / The cubic</span>
+          <h3>Tartaglia against Cardano</h3>
+          <p class="duel-formula"><code>x³ + px = q</code></p>
+          <p>Tartaglia guarded a cubic solution as a sworn secret and shared it with Cardano under a promise of silence. Cardano printed the method in Ars Magna after learning that del Ferro had found it earlier. The oath was broken in print, and the credit is shared among the discoverers and the algebra that carried the result.</p>
+        </article>
+        <article class="duel-note duel-bernoulli">
+          <span class="duel-index">02 / The quickest descent</span>
+          <h3>The Bernoulli brothers</h3>
+          <p class="duel-formula"><code>x = a(t − sin t), y = a(1 − cos t)</code></p>
+          <p>Johann Bernoulli posted the brachistochrone as a public challenge, asking for the curve of quickest descent under gravity. Both Bernoulli brothers answered, and Newton is said to have solved it overnight after the challenge reached him. The winning curve is a cycloid, while the overnight story survives as a reported episode rather than a timed record.</p>
+        </article>
+        <article class="duel-note duel-calculus">
+          <span class="duel-index">03 / Two notations</span>
+          <h3>Newton against Leibniz</h3>
+          <p class="duel-formula"><code>dy/dx</code> versus fluxions</p>
+          <p>Newton developed fluxions and Leibniz published the notation dy/dx, with independent calculus programs taking shape in the seventeenth century. A priority dispute turned their followers into rival camps and burdened British mathematics for decades. The modern record recognizes both as independent founders, while the dispute never produced a single uncontested victor.</p>
+        </article>
+        <article class="duel-note duel-quartic">
+          <span class="duel-index">04 / The quartic</span>
+          <h3>Ferrari against del Ferro's heirs</h3>
+          <p class="duel-formula"><code>x⁴ → x³ resolvent</code></p>
+          <p>Ferrari's quartic method reduces a general fourth-degree equation to a cubic resolvent. The surviving letters document Ferrari's contest with Tartaglia, while del Ferro's heirs belong to the earlier guarded story Cardano inherited. The record does not show a direct Ferrari-versus-del-Ferro-heirs duel; the solution entered print in Cardano's Ars Magna.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="ledger" aria-labelledby="ledger-title">
+      <p class="eyebrow">Attempts, not trophies</p>
+      <h2 id="ledger-title">The ledger keeps the trying.</h2>
+      <p>I record a name, a date, a link, and the exact claim. The status ladder runs from attempted → under review → verified, or withdrawn. A published peer-reviewed result or a checked formal proof is the only path to verified.</p>
+      <div class="ladder" aria-label="Submission status ladder"><span class="ladder-step">Attempted</span><span class="ladder-arrow">→</span><span class="ladder-step">Under review</span><span class="ladder-arrow">→</span><span class="ladder-step">Verified</span><span class="ladder-arrow">or</span><span class="ladder-step">Withdrawn</span></div>
+      <div id="attempt-list"></div>
+      <a class="button button-line" href="https://github.com/Mascottz/codex-naturalis/pulls">Bring one attempt <span aria-hidden="true">↗</span></a>
+    </section>
   </main>
-  <footer class="site-footer page-width"><div><a class="wordmark" href="index.html"><span>codex</span><i>naturalis</i></a><p>Open questions, carefully named.</p></div><div class="footer-links"><a href="humans.html">Hall of originators</a><a href="index.html#margin">The margin</a><a href="contributing.html">Contributing</a></div><p class="footer-sources">Verification means a published peer-reviewed result or a checked formal proof. Nothing less.</p></footer>
+
+  <footer class="site-footer page-width">
+    <div><a class="wordmark" href="index.html"><span>codex</span><i>naturalis</i></a><p>Open questions, carefully named.</p></div>
+    <div class="footer-links"><a href="humans.html">Hall of originators</a><a href="solved.html">Closed pages</a><a href="toys.html">The toy shelf</a><a href="index.html#margin">The margin</a><a href="contributing.html">Contributing</a></div>
+    <p class="footer-sources">Verification means a published peer-reviewed result or a checked formal proof. Nothing less.</p>
+  </footer>
 </body>
 </html>

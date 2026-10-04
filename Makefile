@@ -4,7 +4,10 @@
 
 compute:
 	@mkdir -p site/data
-	@cp data/entries.json data/humans.json data/problems.json data/attempts.json site/data/
+	@cp data/entries.json data/humans.json data/problems.json data/attempts.json data/solved.json site/data/
+	@rm -rf site/solutions
+	@mkdir -p site/solutions
+	@cp -R solutions/. site/solutions/
 	@if command -v julia >/dev/null 2>&1 && \
 		julia scripts/phyllotaxis.jl > site/data/phyllotaxis.json && \
 		julia scripts/lorenz.jl > site/data/lorenz.json; then \
@@ -16,10 +19,11 @@ compute:
 
 check: compute
 	@if command -v rustc >/dev/null 2>&1; then \
-		rustc referee/src/main.rs -O -o referee/codex-referee && ./referee/codex-referee site/data; \
+		rustc referee/src/main.rs -O -o referee/codex-referee && ./referee/codex-referee site/data .; \
 	else \
 		python3 scripts/check.py; \
 	fi
+	@if command -v julia >/dev/null 2>&1; then julia solutions/c2-silent-board/witness.jl; fi
 
 serve: compute
 	@python3 -m http.server 4173 --bind 0.0.0.0 --directory site

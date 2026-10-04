@@ -8,5 +8,10 @@ package schemas
   status:    "open" | "under review" | "verified" | "withdrawn"
   millennium: bool
   summary:   string
-  source:    string
+  source:    =~"^https?://"
+  kind?:     "world" | "codex"
+  label?:    string
+  statement?: string
+  problemType?: string
+  approach?: string
 }

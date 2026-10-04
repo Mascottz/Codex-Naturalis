@@ -1,10 +1,10 @@
-## one visualization
+## One visualization
 
-- entry id:
-- originator cards:
-- rigorous statement and intuition:
-- computed data or invariant:
-- take it home file:
-- sources, with MacTutor checked:
+- Entry id:
+- Originator cards:
+- Rigorous statement and intuition:
+- Computed data or invariant:
+- Take it home file:
+- Sources, with MacTutor checked:
 
 I have run `make check`.

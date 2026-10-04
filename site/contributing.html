@@ -14,8 +14,10 @@
     <a class="wordmark" href="index.html" aria-label="Codex Naturalis home"><span>codex</span><i>naturalis</i></a>
     <nav class="site-nav" aria-label="Main navigation">
       <a href="index.html">The book</a>
+      <a href="toys.html">The toys</a>
       <a href="problems.html">The arena <sup>200</sup></a>
       <a href="humans.html">The hall</a>
+      <a href="solved.html">Closed pages</a>
       <a class="active" href="contributing.html">The ladder</a>
     </nav>
     <a class="random-button" href="https://github.com/Mascottz/codex-naturalis/pulls">Bring one plate <span aria-hidden="true">↗</span></a>
@@ -152,7 +154,7 @@
           <span class="rung-index">02</span>
           <div>
             <h3>Name the attemptor.</h3>
-            <p>An attempt records the attemptor's name, ISO date, problem id, link, status, exact claim, and any review note.</p>
+            <p>An attempt records a name, ISO date, problem id, link, status, exact claim, and optional solution file under <code>solutions/{problem-id}/</code>.</p>
           </div>
         </li>
         <li class="rung">
@@ -179,8 +181,15 @@
         <li class="rung">
           <span class="rung-index">06</span>
           <div>
+            <h3>Publish the solution itself.</h3>
+            <p>A proof lives as Markdown; a computational witness is one Julia or Rust file with its exact rerun command and output. A verified house solution stays on its page and joins the closed pages.</p>
+          </div>
+        </li>
+        <li class="rung">
+          <span class="rung-index">07</span>
+          <div>
             <h3>Run the referee.</h3>
-            <p><code>make check</code> compiles the no-crate Rust referee when available and validates the generated ledger before a merge.</p>
+            <p><code>make check</code> compiles the no-crate Rust referee when available and validates the ledger, each referenced solution file, and each file's shape before a merge.</p>
           </div>
         </li>
       </ol>
@@ -199,7 +208,7 @@
         <article class="machine-card">
           <span class="human-era">Typed shapes</span>
           <h3><code>schemas/</code></h3>
-          <p>Holds the CUE shapes for entries, problems, and attempts.</p>
+          <p>Holds the CUE shapes for entries, problems, attempts, and closed pages.</p>
         </article>
         <article class="machine-card">
           <span class="human-era">Computed pictures</span>
@@ -210,6 +219,11 @@
           <span class="human-era">Arena gate</span>
           <h3><code>referee/</code></h3>
           <p>Holds the Rust arena gate; one small binary, no crates.</p>
+        </article>
+        <article class="machine-card">
+          <span class="human-era">Published solutions</span>
+          <h3><code>solutions/</code></h3>
+          <p>Holds permanent Markdown proofs or one-file Julia and Rust witnesses attached to the ledger.</p>
         </article>
         <article class="machine-card">
           <span class="human-era">The book itself</span>
@@ -281,7 +295,9 @@
     </div>
     <div class="footer-links">
       <a href="index.html">Back to the book</a>
+      <a href="toys.html">The toy shelf</a>
       <a href="problems.html">Open problems</a>
+      <a href="solved.html">Closed pages</a>
       <a href="humans.html">Hall of originators</a>
     </div>
     <p class="footer-sources">The gate is make check. The markdown files remain in the repository as documentation; this page is the climb.</p>

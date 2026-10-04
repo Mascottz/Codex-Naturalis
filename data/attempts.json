@@ -1,3 +1,37 @@
 [
-  {"id":"example-001","name":"M. Rivera","date":"2025-04-12","problemId":"collatz-conjecture","link":"https://github.com/Mascottz/codex-naturalis-/pull/1","status":"attempted","claim":"I record a computational exploration of residue classes, not a proof.","reviewNote":"The ledger keeps this as an attempt; computation alone does not verify the conjecture."}
+  {
+    "id": "example-001",
+    "name": "M. Rivera",
+    "date": "2025-04-12",
+    "problemId": "collatz-conjecture",
+    "link": "https://github.com/Mascottz/codex-naturalis/pull/1",
+    "status": "attempted",
+    "claim": "I record a computational exploration of residue classes, not a proof.",
+    "reviewNote": "The ledger keeps this as an attempt; computation alone does not verify the conjecture."
+  },
+  {
+    "id": "c2-small-n-search",
+    "name": "The Codex bench",
+    "date": "2026-10-04",
+    "problemId": "c2-silent-board",
+    "link": "https://github.com/Mascottz/codex-naturalis/blob/main/solutions/c2-silent-board/witness.jl",
+    "status": "attempted",
+    "claim": "I enumerated every removal mask through n = 4; only n = 1 has a uniform pattern, so the search is evidence, not a classification.",
+    "solutionPath": "solutions/c2-silent-board/witness.jl",
+    "solutionType": "julia",
+    "command": "julia solutions/c2-silent-board/witness.jl",
+    "output": "n=1, masks=2, uniform=1, examples=1\nn=2, masks=8, uniform=0, examples=none\nn=3, masks=64, uniform=0, examples=none\nn=4, masks=1024, uniform=0, examples=none"
+  },
+  {
+    "id": "c1-straight-segment-bound",
+    "name": "The Codex referee",
+    "date": "2026-10-04",
+    "problemId": "c1-crooked-needle",
+    "link": "https://mathworld.wolfram.com/BuffonsNeedleProblem.html",
+    "status": "under review",
+    "claim": "I use the fixed expected crossing count as an upper bound; a straight unit segment attains it, so C1 may close after source and endpoint review.",
+    "reviewNote": "The argument is short; the source and rectifiable-curve formulation still need an independent check.",
+    "solutionPath": "solutions/c1-crooked-needle/solution.md",
+    "solutionType": "proof"
+  }
 ]

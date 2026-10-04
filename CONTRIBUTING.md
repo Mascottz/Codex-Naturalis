@@ -20,16 +20,18 @@ The MacTutor History of Mathematics archive at St Andrews is the citation backbo
 One problem or one attempt per pull request keeps the public ledger legible.
 
 - **Choose one row.** New problems go in `data/problems.json`, with an id, field, status, summary, and source. The list grows toward 200.
-- **Name the attemptor.** An attempt records the attemptor's name, ISO date, problem id, link, status, exact claim, and any review note.
+- **Name the attempt.** An attempt records a name, ISO date, problem id, link, status, exact claim, and optional solution file under `solutions/{problem-id}/`.
 - **Keep the status honest.** The path is `attempted` → `under review` → `verified`, or `withdrawn`. Anyone can be listed as an attemptor for trying.
 - **Reserve verified.** A published peer-reviewed result or a checked formal proof counts as verified. A computation, a preprint without the required check, or a confident issue comment does not silently cross that line.
 - **Use the template.** `.github/PULL_REQUEST_TEMPLATE/problem-or-attempt.md` asks for the claim, link, name, date, and status.
-- **Run the referee.** `make check` compiles the no-crate Rust referee when available and validates the generated ledger before a merge.
+- **Publish the solution.** Proofs are Markdown; computational witnesses are one Julia or Rust source file with an exact rerun command and output. A verified house solution stays on the problem page and joins the closed pages.
+- **Run the referee.** `make check` runs the no-crate Rust referee in CI and validates the ledger, referenced solution files, and each file's shape before a merge.
 
 ## The files
 
 - `data/` holds the content layer and the canonical JSON mirrors for static generation.
-- `schemas/` holds the CUE shapes for entries, problems, and attempts.
+- `schemas/` holds the CUE shapes for entries, problems, attempts, and closed pages.
+- `solutions/{problem-id}/` holds the permanent proof or computational witness attached to a ledger entry.
 - `scripts/` holds small Julia machines and the local fallback and checks.
 - `referee/` holds the Rust arena gate.
 - `site/` is the static page that Vercel serves.

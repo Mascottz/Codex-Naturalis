@@ -8,7 +8,9 @@ The rigorous statement for mathematicians, and the intuition for everyone else w
 
 - **The book** lives at `site/index.html`; twenty-four entries from the sky to the earth, the living, the invisible, and the structure
 - **The arena** lives at `site/problems.html`; open problems, a public ledger, and a status ladder that keep trying visible without pretending an attempt is a proof
-- **The hall** lives at `site/humans.html`; originator cards filterable by era and region, with a timeline from babylon to now
+- **The hall** lives at `site/humans.html`; originator cards filterable by era and region, with a chronological line from Babylon to now
+- **The toys** live at `site/toys.html`; Buffon, Galton, the chaos game, and Hilbert's hotel, each linked back to an entry
+- **The closed pages** live at `site/solved.html`; twelve resolved problems with solver names, dates, sources, and honest verification notes
 
 The book is one long calm page; every entry has a deep-linkable anchor. the first slice is euler's identity, phyllotaxis, and the lorenz attractor; the other twenty-one entries already have plates, sources, statements, intuitions, sliders, and a place in the sequence.
 
@@ -16,12 +18,12 @@ The book is one long calm page; every entry has a deep-linkable anchor. the firs
 
 | language | place | what it does |
 | --- | --- | --- |
-| cue | `schemas/`, `data/` | holds the shapes of entries, problems, and attempts; typed and honest |
+| cue | `schemas/`, `data/` | holds the shapes of entries, problems, attempts, and closed pages; typed and honest |
 | julia | `scripts/` | computes the phyllotaxis points and the lorenz trajectory the pages render |
 | rust | `referee/` | guards the arena ledger and the problem list with one small binary and no crates |
-| html, css, js | `site/` | renders the static book with no framework, no runtime dependency, no cdn fetches |
+| html, css, js | `site/` | renders the static book, toy shelf, and public ledgers with no framework, runtime dependency, or cdn fetches |
 
-The generated json is committed under `site/data/` because the deployed site is static; the source data in `data/` is the content layer, and `make compute` copies it and writes the computed fields.
+The generated json is committed under `site/data/` because the deployed site is static; source data in `data/` is the content layer, and `make compute` copies it, writes the computed fields, and stages solution files under `site/solutions/`.
 
 ## Run it
 
@@ -37,7 +39,7 @@ make serve
 
 The arena opens seeded with the millennium problems and a field-spread of open questions; riemann, p versus np, navier-stokes existence, birch and swinnerton-dyer, hodge, yang-mills mass gap, collatz, goldbach, twin primes, and more. the ladder is meant to grow toward two hundred entries, one problem per pull request, with a source attached.
 
-An attempt records a name, a date, a problem id, a link, a claim, and a status. the status moves attempted → under review → verified, or withdrawn. anyone who tries gets listed; a solution earns the word verified only on a published peer-reviewed result or a checked formal proof. the example ledger row is deliberately only attempted.
+An attempt records a name, a date, a problem id, a link, a claim, and a status. the status moves attempted → under review → verified, or withdrawn. anyone who tries gets listed; a solution earns the word verified only on a published peer-reviewed result or a checked formal proof. Proofs live as Markdown under `solutions/{problem-id}/`; computational witnesses are one Julia or Rust file with the exact rerun command and recorded output. The Rust referee checks each ledger row and every referenced file before a pull request can pass.
 
 ## The margin
 
