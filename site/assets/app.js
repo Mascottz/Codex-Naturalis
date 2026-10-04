@@ -1759,6 +1759,21 @@ function showLoadError(selector, label, error) {
   if (mount) mount.innerHTML = `<p class="human-story">${escapeHtml(label)} ${escapeHtml(error.message)}</p>`;
 }
 
+async function wireArenaBadge() {
+  const badges = [...document.querySelectorAll(".site-nav sup")];
+  if (!badges.length) return;
+  try {
+    const response = await fetch("data/problems.json");
+    if (!response.ok) return;
+    const problems = await response.json();
+    if (!Array.isArray(problems)) return;
+    badges.forEach(badge => { badge.textContent = String(problems.length); });
+  } catch (_error) {
+    /* the printed count stays as the fallback */
+  }
+}
+wireArenaBadge();
+
 if (document.body.dataset.page === "book") {
   startBook().catch(error => showLoadError("#entries", "The computed pages are resting.", error));
 }
