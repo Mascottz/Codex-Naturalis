@@ -1,0 +1,3 @@
+[
+  {"id":"example-001","name":"M. Rivera","date":"2025-04-12","problemId":"collatz-conjecture","link":"https://github.com/Mascottz/codex-naturalis-/pull/1","status":"attempted","claim":"I record a computational exploration of residue classes, not a proof.","reviewNote":"The ledger keeps this as an attempt; computation alone does not verify the conjecture."}
+]

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Codex Naturalis; a living book of the mathematics that shapes the world.">
+  <title>Codex Naturalis; the book of nature</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body data-page="book">
+  <a class="skip-link" href="#book">Skip to the book</a>
+  <header class="site-header">
+    <a class="wordmark" href="index.html" aria-label="Codex Naturalis home"><span>codex</span><i>naturalis</i></a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="active" href="index.html">The book</a>
+      <a href="problems.html">The arena <sup>200</sup></a>
+      <a href="humans.html">The hall</a>
+      <a href="contributing.md">The ladder</a>
+    </nav>
+    <button class="random-button" id="random-entry" type="button">Open at random <span aria-hidden="true">↗</span></button>
+  </header>
+
+  <main id="book">
+    <section class="hero page-width" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">A living book of mathematics</p>
+        <h1 id="hero-title">The book of nature is written in mathematics.</h1>
+        <p class="hero-intro">I keep the formulas close to the sky, the soil, the body, the invisible, and the structures underneath. The rigorous line and the human story belong on the same page.</p>
+        <div class="hero-actions">
+          <a class="button button-fill" href="#sky">Begin with the sky <span aria-hidden="true">↓</span></a>
+          <a class="quiet-link" href="problems.html">Keep a problem open <span aria-hidden="true">↗</span></a>
+        </div>
+        <p class="galileo"><span>Galileo Galilei</span> <q>Philosophy is written in that great book which lies ever before our eyes, the universe.</q></p>
+      </div>
+      <div class="hero-instrument" aria-hidden="true">
+        <div class="instrument-ring ring-one"></div>
+        <div class="instrument-ring ring-two"></div>
+        <div class="instrument-ring ring-three"></div>
+        <span class="instrument-point point-one"></span><span class="instrument-point point-two"></span><span class="instrument-point point-three"></span>
+        <span class="instrument-label label-a">x / t</span><span class="instrument-label label-b">∫ k dA</span><span class="instrument-label label-c">137.5°</span>
+        <div class="instrument-center">∑</div>
+      </div>
+    </section>
+
+    <section class="book-intro page-width" aria-label="Book index">
+      <div><span class="section-kicker">The spine</span><p>Twenty-four living pieces; five ways into the same world.</p></div>
+      <div class="index-stats"><strong>24</strong><span>entries</span><strong>5</strong><span>domains</span><strong>3</strong><span>machines live</span></div>
+    </section>
+
+    <div id="entries" class="entries page-width" aria-live="polite"></div>
+
+    <section class="margin page-width" id="margin" aria-labelledby="margin-title">
+      <div class="margin-mark">∴</div>
+      <div>
+        <p class="eyebrow">The margin</p>
+        <h2 id="margin-title">This margin is no longer too small.</h2>
+        <p>I leave room for an alternative proof, a careful correction, a connection I missed, or a short note that makes an entry breathe. Each note arrives as a pull request, keeps its author's name and date, and gets a quiet editorial check.</p>
+        <a class="button button-line" href="https://github.com/Mascottz/codex-naturalis-/issues/new">Leave a note <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="margin-note"><span>Margin note 001</span><p>Mathematics is a conversation with a very long memory.</p><small>curated notes open by pull request</small></div>
+    </section>
+  </main>
+
+  <footer class="site-footer page-width">
+    <div><a class="wordmark" href="index.html"><span>codex</span><i>naturalis</i></a><p>The beauty of the world, with the machinery left visible.</p></div>
+    <div class="footer-links"><a href="humans.html">Hall of originators</a><a href="problems.html">Open problems</a><a href="contributing.md">Contributing</a></div>
+    <p class="footer-sources">Built from sources including the MacTutor archive at St Andrews. Sister machines: tide.jl, night.jl, lumen.rs.</p>
+  </footer>
+</body>
+</html>

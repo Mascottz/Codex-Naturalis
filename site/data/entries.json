@@ -1,0 +1,602 @@
+[
+  {
+    "id": "newton-kepler",
+    "number": 1,
+    "domain": "sky",
+    "title": "Newton's gravitation and Kepler's orbits",
+    "formula": "F = G m₁m₂ / r²",
+    "originators": [
+      "isaac-newton",
+      "johannes-kepler"
+    ],
+    "year": "1609 to 1687",
+    "statement": "Two bodies pull along the line between two centers; the inverse square law closes the orbit into a conic.",
+    "intuition": "I let a small world fall around a star. A gentle change in eccentricity turns a circle into an ellipse.",
+    "visualType": "orbit",
+    "slider": {
+      "label": "eccentricity",
+      "min": 0,
+      "max": 0.82,
+      "step": 0.01,
+      "value": 0.35
+    },
+    "source": "MacTutor History of Mathematics archive; Kepler, Astronomia Nova; Newton, Principia",
+    "status": "planned",
+    "derivation": "I combine the central force equation with angular momentum conservation; the radial equation has conic solutions and Kepler’s area law follows from the conserved moment."
+  },
+  {
+    "id": "eulers-identity",
+    "number": 2,
+    "domain": "sky",
+    "title": "Euler's identity",
+    "formula": "e^(iπ) + 1 = 0",
+    "originators": [
+      "leonhard-euler"
+    ],
+    "year": "1748",
+    "statement": "The exponential map sends a turn through π in the complex plane to minus one, so the five basic constants meet in one line.",
+    "intuition": "I draw a point walking around the unit circle. At half a turn, the point lands exactly opposite the start.",
+    "visualType": "euler",
+    "slider": {
+      "label": "turns",
+      "min": 0,
+      "max": 2,
+      "step": 0.01,
+      "value": 0.5
+    },
+    "source": "MacTutor History of Mathematics archive; Euler, Introductio in analysin infinitorum",
+    "status": "live",
+    "derivation": "I expand the complex exponential as a power series and set the angle to π; cosine gives −1, sine gives 0, and the identity closes."
+  },
+  {
+    "id": "hubblem-lemaitre",
+    "number": 3,
+    "domain": "sky",
+    "title": "The Hubble-Lemaître law",
+    "formula": "v = H₀d",
+    "originators": [
+      "georges-lemaitre",
+      "edwin-hubble"
+    ],
+    "year": "1927 to 1929",
+    "statement": "At modest cosmological distance, recession velocity scales with distance through the Hubble constant.",
+    "intuition": "I picture raisins moving apart in rising bread. Farther raisins separate faster because every patch of bread expands.",
+    "visualType": "scatter",
+    "slider": {
+      "label": "H₀",
+      "min": 40,
+      "max": 90,
+      "step": 1,
+      "value": 70
+    },
+    "source": "MacTutor History of Mathematics archive; Lemaître 1927; Hubble 1929",
+    "story": "I name Lemaître's 1927 derivation beside Hubble's 1929 observations. The history is shared, and the name is still being repaired.",
+    "status": "planned",
+    "derivation": "I write the scale factor as a(t), differentiate the physical distance, and read the local recession rate as H(t)d."
+  },
+  {
+    "id": "planck-blackbody",
+    "number": 4,
+    "domain": "sky",
+    "title": "Planck's blackbody law",
+    "formula": "B(λ,T) = 2hc² / λ⁵ · 1/(e^(hc/λkT) − 1)",
+    "originators": [
+      "max-planck"
+    ],
+    "year": "1900",
+    "statement": "Quantized oscillators give the spectral radiance of an ideal thermal emitter.",
+    "intuition": "I turn a temperature dial and watch the brightest color move from red toward blue.",
+    "visualType": "spectrum",
+    "slider": {
+      "label": "temperature",
+      "min": 2200,
+      "max": 10000,
+      "step": 100,
+      "value": 5800
+    },
+    "source": "MacTutor History of Mathematics archive; Planck, On the theory of the energy distribution law",
+    "story": "I keep Planck's reluctance in view. The quantum began as a mathematical move he did not trust, then remade physics.",
+    "status": "planned",
+    "derivation": "I sum oscillator energies in discrete packets and divide the mode density by the Bose-Einstein occupation factor."
+  },
+  {
+    "id": "laplace-tides",
+    "number": 5,
+    "domain": "sky",
+    "title": "Laplace's tidal equations",
+    "formula": "∂u/∂t + f k×u = −g∇η + friction",
+    "originators": [
+      "pierre-simon-laplace"
+    ],
+    "year": "1776 to 1816",
+    "statement": "A rotating shallow ocean balances acceleration, Coriolis deflection, pressure, and friction.",
+    "intuition": "I let a tide breathe across a rotating basin, then point toward the sister machine tide.jl.",
+    "visualType": "tide",
+    "slider": {
+      "label": "rotation",
+      "min": 0,
+      "max": 2,
+      "step": 0.01,
+      "value": 0.8
+    },
+    "source": "MacTutor History of Mathematics archive; Laplace, Mécanique céleste",
+    "sister": "tide.jl",
+    "status": "planned",
+    "derivation": "I depth-average the momentum equation on a rotating sphere, retain Coriolis terms, and couple velocity to surface height."
+  },
+  {
+    "id": "fourier-series",
+    "number": 6,
+    "domain": "earth",
+    "title": "The Fourier series",
+    "formula": "f(x) = a₀/2 + Σ(aₙ cos nx + bₙ sin nx)",
+    "originators": [
+      "joseph-fourier"
+    ],
+    "year": "1807 to 1822",
+    "statement": "A periodic shape can be rebuilt from weighted sines and cosines.",
+    "intuition": "I stack rotating arrows until a handful of circles draws a shape that looked too complicated at first.",
+    "visualType": "epicycles",
+    "slider": {
+      "label": "harmonics",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "value": 5
+    },
+    "source": "MacTutor History of Mathematics archive; Fourier, Théorie analytique de la chaleur",
+    "status": "planned",
+    "derivation": "I project a periodic function onto the orthogonal sine and cosine basis; the inner products become aₙ and bₙ."
+  },
+  {
+    "id": "navier-stokes",
+    "number": 7,
+    "domain": "earth",
+    "title": "Navier-Stokes",
+    "formula": "ρ(∂u/∂t + u·∇u) = −∇p + μ∇²u",
+    "originators": [
+      "claude-navier",
+      "george-stokes"
+    ],
+    "year": "1822 to 1845",
+    "statement": "Momentum, pressure, viscosity, and forcing govern a moving fluid; smooth existence in three dimensions remains open.",
+    "intuition": "I send a stream around a stone. Small swirls carry a very large question.",
+    "visualType": "flow",
+    "slider": {
+      "label": "viscosity",
+      "min": 0.05,
+      "max": 1,
+      "step": 0.01,
+      "value": 0.35
+    },
+    "source": "Clay Mathematics Institute Millennium Prize Problems; MacTutor History of Mathematics archive",
+    "status": "planned",
+    "openProblem": true,
+    "derivation": "I balance material acceleration against pressure gradient, viscous diffusion, and forcing, then impose incompressibility."
+  },
+  {
+    "id": "wave-equation",
+    "number": 8,
+    "domain": "earth",
+    "title": "The wave equation",
+    "formula": "∂²u/∂t² = c²∂²u/∂x²",
+    "originators": [
+      "jean-le-rond-dalembert"
+    ],
+    "year": "1746",
+    "statement": "A disturbance on a string travels with a speed set by tension and density.",
+    "intuition": "I pluck a string and watch one shape become a choir of harmonics.",
+    "visualType": "wave",
+    "slider": {
+      "label": "harmonics",
+      "min": 1,
+      "max": 8,
+      "step": 1,
+      "value": 2
+    },
+    "source": "MacTutor History of Mathematics archive; d'Alembert, Recherches sur la courbe que forme une corde tendue",
+    "status": "planned",
+    "derivation": "I balance tension against transverse acceleration and take the continuum limit of a chain of small masses."
+  },
+  {
+    "id": "lorenz-attractor",
+    "number": 9,
+    "domain": "earth",
+    "title": "The Lorenz attractor",
+    "formula": "ẋ = σ(y−x), ẏ = x(ρ−z)−y, ż = xy−βz",
+    "originators": [
+      "edward-lorenz"
+    ],
+    "year": "1963",
+    "statement": "Three coupled ordinary differential equations make a bounded flow that never settles into a repeating orbit.",
+    "intuition": "I follow a warm current. A rounding choice can grow into a completely different weather story.",
+    "visualType": "lorenz",
+    "slider": {
+      "label": "ρ",
+      "min": 10,
+      "max": 35,
+      "step": 0.1,
+      "value": 28
+    },
+    "source": "MacTutor History of Mathematics archive; Lorenz, Deterministic nonperiodic flow",
+    "story": "I remember Lorenz's rounded printout and the butterfly effect without turning an anecdote into a myth. The equations do the work.",
+    "status": "live",
+    "derivation": "I reduce a convective fluid model to three coupled modes and integrate the resulting first-order system with a fixed-step method."
+  },
+  {
+    "id": "maxwell-equations",
+    "number": 10,
+    "domain": "earth",
+    "title": "Maxwell's equations",
+    "formula": "∇·E = ρ/ε₀; ∇×B = μ₀J + μ₀ε₀∂E/∂t",
+    "originators": [
+      "james-clerk-maxwell",
+      "michael-faraday"
+    ],
+    "year": "1831 to 1865",
+    "statement": "Electric and magnetic fields source, curl, and carry one another as a wave.",
+    "intuition": "I drag a charge through a quiet field and let lines of force lean into motion.",
+    "visualType": "field",
+    "slider": {
+      "label": "charge",
+      "min": -2,
+      "max": 2,
+      "step": 0.1,
+      "value": 1
+    },
+    "source": "MacTutor History of Mathematics archive; Maxwell, A Treatise on Electricity and Magnetism; Faraday",
+    "story": "I put Faraday's field intuition next to Maxwell's equations. The mathematics did not erase the experiment that made it possible.",
+    "status": "planned",
+    "derivation": "I collect the local electric and magnetic laws, then take a time derivative to reveal waves moving at 1 over the square root of μ₀ε₀."
+  },
+  {
+    "id": "phyllotaxis",
+    "number": 11,
+    "domain": "living",
+    "title": "Phyllotaxis and the golden angle",
+    "formula": "θ = 2π(1 − 1/φ) ≈ 137.5°",
+    "originators": [
+      "fibonacci-of-pisa",
+      "johannes-kepler",
+      "vogel-martin"
+    ],
+    "year": "1202 to 1979",
+    "statement": "A near irrational divergence angle spreads successive leaves and seeds across a disc with unusual evenness.",
+    "intuition": "I place seeds one by one. At 137.5 degrees, no spoke forms and the spaces share the light.",
+    "visualType": "phyllotaxis",
+    "slider": {
+      "label": "angle",
+      "min": 120,
+      "max": 160,
+      "step": 0.1,
+      "value": 137.5
+    },
+    "source": "MacTutor History of Mathematics archive; Vogel, A better photosynthetic solar energy collector",
+    "story": "I credit the Indian mathematics carried west through Fibonacci's Liber Abaci, then name Kepler and Vogel where the botanical story continues.",
+    "status": "live",
+    "derivation": "I choose a divergence angle irrational relative to a full turn; the golden-angle limit spreads every new point across the available gaps."
+  },
+  {
+    "id": "turing-patterns",
+    "number": 12,
+    "domain": "living",
+    "title": "Turing patterns",
+    "formula": "∂u/∂t = Dᵤ∇²u + f(u,v); ∂v/∂t = Dᵥ∇²v + g(u,v)",
+    "originators": [
+      "alan-turing"
+    ],
+    "year": "1952",
+    "statement": "Two reacting substances can destabilize a uniform field and grow spots, stripes, and labyrinths.",
+    "intuition": "I seed a quiet skin with a tiny difference and let chemistry draw the pattern.",
+    "visualType": "reaction",
+    "slider": {
+      "label": "feed",
+      "min": 0.01,
+      "max": 0.1,
+      "step": 0.001,
+      "value": 0.055
+    },
+    "source": "MacTutor History of Mathematics archive; Turing, The chemical basis of morphogenesis",
+    "status": "planned",
+    "derivation": "I linearize two reaction-diffusion equations around a uniform state; unequal diffusion can make a finite spatial mode unstable."
+  },
+  {
+    "id": "lotka-volterra",
+    "number": 13,
+    "domain": "living",
+    "title": "Lotka-Volterra",
+    "formula": "dx/dt = αx − βxy; dy/dt = δxy − γy",
+    "originators": [
+      "alfred-lotka",
+      "vito-volterra"
+    ],
+    "year": "1925 to 1926",
+    "statement": "Predator and prey populations trace coupled cycles when each population changes the other's rate.",
+    "intuition": "I turn rabbits and foxes into a loop. Neither line owns the rhythm for long.",
+    "visualType": "phase",
+    "slider": {
+      "label": "predation",
+      "min": 0.1,
+      "max": 1,
+      "step": 0.01,
+      "value": 0.4
+    },
+    "source": "MacTutor History of Mathematics archive; Lotka, Elements of Physical Biology; Volterra",
+    "status": "planned",
+    "derivation": "I multiply each population by its per-capita growth rate; interaction terms cancel into a conserved closed-orbit quantity."
+  },
+  {
+    "id": "hardy-weinberg",
+    "number": 14,
+    "domain": "living",
+    "title": "Hardy-Weinberg equilibrium",
+    "formula": "p² + 2pq + q² = 1",
+    "originators": [
+      "godfrey-hardy",
+      "wilhelm-weinberg"
+    ],
+    "year": "1908",
+    "statement": "With random mating and no evolutionary forces, allele frequencies stay fixed while genotype frequencies settle into a square.",
+    "intuition": "I mix two alleles through a calm gene pool and watch the proportions hold still.",
+    "visualType": "population",
+    "slider": {
+      "label": "allele p",
+      "min": 0,
+      "max": 1,
+      "step": 0.01,
+      "value": 0.5
+    },
+    "source": "MacTutor History of Mathematics archive; Hardy, Mendelian proportions in a mixed population; Weinberg",
+    "story": "I keep Hardy's remark about biology in its place and give Weinberg's independent 1908 result equal room.",
+    "status": "planned",
+    "derivation": "I multiply allele frequencies for independent pairings; p plus q equals one and the genotype terms expand into the square."
+  },
+  {
+    "id": "hodgkin-huxley",
+    "number": 15,
+    "domain": "living",
+    "title": "Hodgkin-Huxley",
+    "formula": "CₘV̇ = I − gₙ(V−Eₙ) − gₖ(V−Eₖ) − gₗ(V−Eₗ)",
+    "originators": [
+      "alan-hodgkin",
+      "andrew-huxley"
+    ],
+    "year": "1952",
+    "statement": "Gated ion currents explain how a membrane turns a push into an action potential.",
+    "intuition": "I press a membrane past its threshold and watch voltage rise, peak, and return.",
+    "visualType": "action-potential",
+    "slider": {
+      "label": "current",
+      "min": 0,
+      "max": 20,
+      "step": 0.1,
+      "value": 10
+    },
+    "source": "MacTutor History of Mathematics archive; Hodgkin and Huxley, A quantitative description of membrane current",
+    "status": "planned",
+    "derivation": "I sum capacitive current and three conductance currents; voltage crosses threshold when inward sodium current wins the balance."
+  },
+  {
+    "id": "schrodinger-equation",
+    "number": 16,
+    "domain": "invisible",
+    "title": "The Schrödinger equation",
+    "formula": "iℏ∂ψ/∂t = Ĥψ",
+    "originators": [
+      "erwin-schrodinger"
+    ],
+    "year": "1926",
+    "statement": "A complex wavefunction evolves under a Hamiltonian and gives probabilities through its squared magnitude.",
+    "intuition": "I send a packet toward a barrier. A small tail appears on the other side, even when a classical particle would turn back.",
+    "visualType": "quantum",
+    "slider": {
+      "label": "barrier",
+      "min": 0,
+      "max": 10,
+      "step": 0.1,
+      "value": 4
+    },
+    "source": "MacTutor History of Mathematics archive; Schrödinger, Quantisation as an eigenvalue problem",
+    "status": "planned",
+    "derivation": "I apply the Hamiltonian as the generator of unitary time evolution; the norm of the wavefunction stays fixed."
+  },
+  {
+    "id": "noether-theorem",
+    "number": 17,
+    "domain": "invisible",
+    "title": "Noether's theorem",
+    "formula": "continuous symmetry → conserved quantity",
+    "originators": [
+      "emmy-noether"
+    ],
+    "year": "1918",
+    "statement": "Every differentiable continuous symmetry of an action yields a conserved current.",
+    "intuition": "I shift the clock, rotate the room, or slide the origin. A quantity stays faithful because the laws stayed the same.",
+    "visualType": "symmetry",
+    "slider": {
+      "label": "rotation",
+      "min": 0,
+      "max": 360,
+      "step": 1,
+      "value": 45
+    },
+    "source": "MacTutor History of Mathematics archive; Noether, Invariante Variationsprobleme",
+    "story": "I place Emmy Noether at the center. Her theorem quietly organizes modern physics, and her path through exclusion deserves more than a footnote.",
+    "status": "planned",
+    "derivation": "I vary the action under a continuous symmetry; the boundary term vanishes on the equations of motion and leaves a conserved current."
+  },
+  {
+    "id": "boltzmann-entropy",
+    "number": 18,
+    "domain": "invisible",
+    "title": "Boltzmann's entropy",
+    "formula": "S = k log W",
+    "originators": [
+      "ludwig-boltzmann"
+    ],
+    "year": "1872 to 1877",
+    "statement": "Entropy counts compatible microscopic arrangements through the logarithm of the multiplicity.",
+    "intuition": "I shake gas particles in a box. Ordered corners are rare; spread-out arrangements have more ways to happen.",
+    "visualType": "gas",
+    "slider": {
+      "label": "temperature",
+      "min": 0.2,
+      "max": 2,
+      "step": 0.01,
+      "value": 1
+    },
+    "source": "MacTutor History of Mathematics archive; Boltzmann, Further studies on thermal equilibrium",
+    "story": "I let the equation on Boltzmann's tombstone speak, while keeping the statistical argument and its historical resistance visible.",
+    "status": "planned",
+    "derivation": "I count microscopic arrangements compatible with a macrostate; independent multiplicities multiply, so their logarithms add."
+  },
+  {
+    "id": "shannon-entropy",
+    "number": 19,
+    "domain": "invisible",
+    "title": "Shannon entropy",
+    "formula": "H(X) = −Σ p(x) log₂ p(x)",
+    "originators": [
+      "claude-shannon"
+    ],
+    "year": "1948",
+    "statement": "Entropy measures the average surprise of a source in bits.",
+    "intuition": "I give rare letters more surprise and common letters less. A message becomes a measured landscape.",
+    "visualType": "information",
+    "slider": {
+      "label": "bias",
+      "min": 0,
+      "max": 1,
+      "step": 0.01,
+      "value": 0.5
+    },
+    "source": "MacTutor History of Mathematics archive; Shannon, A mathematical theory of communication",
+    "status": "planned",
+    "derivation": "I require a continuous, additive measure of uncertainty; the resulting functional is the probability-weighted logarithm in bits."
+  },
+  {
+    "id": "uncertainty-principle",
+    "number": 20,
+    "domain": "invisible",
+    "title": "The uncertainty principle",
+    "formula": "ΔxΔp ≥ ℏ/2",
+    "originators": [
+      "werner-heisenberg"
+    ],
+    "year": "1927",
+    "statement": "Position and momentum spreads cannot both be made arbitrarily small for the same quantum state.",
+    "intuition": "I squeeze a Gaussian in position. Its momentum spectrum opens wider to keep the product honest.",
+    "visualType": "uncertainty",
+    "slider": {
+      "label": "position width",
+      "min": 0.2,
+      "max": 3,
+      "step": 0.01,
+      "value": 1
+    },
+    "source": "MacTutor History of Mathematics archive; Heisenberg, Über den anschaulichen Inhalt der quantentheoretischen Kinematik",
+    "status": "planned",
+    "derivation": "I apply the Cauchy-Schwarz inequality to position and momentum operators; their commutator supplies the lower bound."
+  },
+  {
+    "id": "pythagorean-theorem",
+    "number": 21,
+    "domain": "structure",
+    "title": "The Pythagorean theorem",
+    "formula": "a² + b² = c²",
+    "originators": [
+      "pythagoras-of-samos"
+    ],
+    "year": "c. 300 BCE and earlier",
+    "statement": "In a right triangle, the area of the square on the hypotenuse equals the sum of the other two square areas.",
+    "intuition": "I cut and turn the squares until area leaves no room for argument.",
+    "visualType": "proof",
+    "slider": {
+      "label": "side a",
+      "min": 1,
+      "max": 8,
+      "step": 0.1,
+      "value": 3
+    },
+    "source": "MacTutor History of Mathematics archive; Babylonian tablets; Chinese gougu tradition",
+    "story": "I name Pythagoras without pretending he owned an idea known in Babylon and expressed in the gougu theorem. The attribution stays plural.",
+    "status": "planned",
+    "derivation": "I compare the area of a square built from four copies of the right triangle; the two decompositions leave a² plus b² equal to c²."
+  },
+  {
+    "id": "bayes-theorem",
+    "number": 22,
+    "domain": "structure",
+    "title": "Bayes' theorem",
+    "formula": "P(A|B) = P(B|A)P(A) / P(B)",
+    "originators": [
+      "thomas-bayes",
+      "richard-price"
+    ],
+    "year": "1763",
+    "statement": "A prior belief updates through the likelihood of new evidence and the evidence's total probability.",
+    "intuition": "I start with a hunch, meet a piece of evidence, and let the numbers decide how much the hunch should move.",
+    "visualType": "bayes",
+    "slider": {
+      "label": "evidence",
+      "min": 0,
+      "max": 1,
+      "step": 0.01,
+      "value": 0.7
+    },
+    "source": "MacTutor History of Mathematics archive; Bayes essay; Price's posthumous publication",
+    "story": "I keep Richard Price beside Bayes. Price edited and published the essay, and the usual shorthand should not make him disappear.",
+    "status": "planned",
+    "derivation": "I write the joint probability as P(A and B) in two orders and divide by P(B) to update the prior."
+  },
+  {
+    "id": "riemann-zeta",
+    "number": 23,
+    "domain": "structure",
+    "title": "The Riemann zeta function",
+    "formula": "ζ(s) = Σ n⁻ˢ",
+    "originators": [
+      "bernhard-riemann"
+    ],
+    "year": "1859",
+    "statement": "Analytic continuation and the zeta function's zeros encode the fine rhythm of prime numbers; the critical-line claim remains open.",
+    "intuition": "I place the nontrivial zeros on the critical strip and ask whether every one keeps to the central line.",
+    "visualType": "zeta",
+    "slider": {
+      "label": "zeros",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "value": 8
+    },
+    "source": "Clay Mathematics Institute Millennium Prize Problems; MacTutor History of Mathematics archive",
+    "status": "planned",
+    "openProblem": true,
+    "derivation": "I continue the Dirichlet series beyond its first half-plane and use the functional equation to reflect the nontrivial zeros into the critical strip."
+  },
+  {
+    "id": "gauss-bonnet",
+    "number": 24,
+    "domain": "structure",
+    "title": "The Gauss-Bonnet theorem",
+    "formula": "∫ₘ K dA + ∮∂ₘ k_g ds = 2πχ(M)",
+    "originators": [
+      "carl-friedrich-gauss",
+      "pierre-osian-bonnet"
+    ],
+    "year": "1827 to 1848",
+    "statement": "Total Gaussian curvature, with boundary curvature when needed, equals a topological invariant.",
+    "intuition": "I deform a surface like soft clay. The local hills move, but the total remembers the surface's holes.",
+    "visualType": "surface",
+    "slider": {
+      "label": "deformation",
+      "min": 0,
+      "max": 1,
+      "step": 0.01,
+      "value": 0.5
+    },
+    "source": "MacTutor History of Mathematics archive; Gauss, Disquisitiones generales circa superficies curvas; Bonnet",
+    "status": "planned",
+    "derivation": "I integrate local Gaussian curvature and use the boundary turning term; the result collapses to the Euler characteristic, a topological invariant."
+  }
+]

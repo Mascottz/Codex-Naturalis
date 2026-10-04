@@ -1,0 +1,16 @@
+name: night; the checks hold
+
+on:
+  pull_request:
+  push:
+    branches: [main, "arena/**"]
+
+jobs:
+  referee:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: julia-actions/setup-julia@v2
+        with:
+          version: '1.10'
+      - run: make check

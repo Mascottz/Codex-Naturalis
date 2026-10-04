@@ -1,0 +1,3 @@
+# the referee binary is a build artifact; the generated json ships with the book
+referee/codex-referee
+referee/target/

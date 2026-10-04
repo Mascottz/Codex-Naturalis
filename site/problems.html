@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Codex Naturalis arena; open problems, honest attempts, and a public ledger.">
+  <title>The arena; Codex Naturalis</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body data-page="problems">
+  <a class="skip-link" href="#arena">Skip to the arena</a>
+  <header class="site-header">
+    <a class="wordmark" href="index.html" aria-label="Codex Naturalis home"><span>codex</span><i>naturalis</i></a>
+    <nav class="site-nav" aria-label="Main navigation"><a href="index.html">The book</a><a class="active" href="problems.html">The arena <sup>200</sup></a><a href="humans.html">The hall</a><a href="contributing.md">The ladder</a></nav>
+    <a class="random-button" href="index.html#lorenz-attractor">A live machine <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="arena" class="page-width">
+    <section class="page-hero"><p class="eyebrow">The problems arena</p><h1>A few pages of the book are still closed.</h1><p>I keep the hardest open questions together with the names attached to the attempts. An attempt earns a place in the ledger. Verification stays rare and visible.</p></section>
+    <section class="arena-band"><div><span class="section-kicker">The public ledger</span><h2>One problem per pull request; no silent claims.</h2></div><div class="counter"><strong id="open-count">0</strong><span>open pages in this seed</span></div></section>
+    <div class="filter-row" id="problem-filters" aria-label="Problem filters"><button class="filter-button active" data-filter="all" type="button">All fields</button><button class="filter-button" data-filter="millennium" type="button">Millennium</button><button class="filter-button" data-filter="number theory" type="button">Number theory</button><button class="filter-button" data-filter="geometry" type="button">Geometry</button><button class="filter-button" data-filter="analysis" type="button">Analysis</button></div>
+    <div class="problem-table-wrap"><table class="problem-table"><thead><tr><th scope="col">No.</th><th scope="col">Problem</th><th scope="col">The question</th><th scope="col">Status</th><th scope="col">Source</th></tr></thead><tbody id="problem-list"></tbody></table></div>
+    <section class="ledger" aria-labelledby="ledger-title"><p class="eyebrow">Attempts, not trophies</p><h2 id="ledger-title">The ledger keeps the trying.</h2><p>I record a name, a date, a link, and the exact claim. The status ladder runs from attempted → under review → verified, or withdrawn. A published peer-reviewed result or a checked formal proof is the only path to verified.</p><div class="ladder"><span class="ladder-step">attempted</span><span class="ladder-arrow">→</span><span class="ladder-step">under review</span><span class="ladder-arrow">→</span><span class="ladder-step">verified</span><span class="ladder-arrow">or</span><span class="ladder-step">withdrawn</span></div><div id="attempt-list"></div><a class="button button-line" href="https://github.com/Mascottz/codex-naturalis-/pulls">Bring one attempt <span aria-hidden="true">↗</span></a></section>
+  </main>
+  <footer class="site-footer page-width"><div><a class="wordmark" href="index.html"><span>codex</span><i>naturalis</i></a><p>Open questions, carefully named.</p></div><div class="footer-links"><a href="humans.html">Hall of originators</a><a href="index.html#margin">The margin</a><a href="contributing.md">Contributing</a></div><p class="footer-sources">Verification means a published peer-reviewed result or a checked formal proof. Nothing less.</p></footer>
+</body>
+</html>
