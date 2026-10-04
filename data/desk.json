@@ -1,0 +1,320 @@
+[
+  {
+    "problemId": "riemann-hypothesis",
+    "relatedEntries": [
+      "riemann-zeta"
+    ],
+    "definitions": [
+      {
+        "term": "Nontrivial zero",
+        "explanation": "A zero of the analytically continued ζ(s) outside its negative even integer zeros; the conjecture places every such zero on Re(s)=1/2.",
+        "entryId": "riemann-zeta"
+      }
+    ],
+    "machines": []
+  },
+  {
+    "problemId": "p-vs-np",
+    "relatedEntries": [],
+    "definitions": [],
+    "machines": []
+  },
+  {
+    "problemId": "navier-stokes-existence",
+    "relatedEntries": [
+      "navier-stokes"
+    ],
+    "definitions": [
+      {
+        "term": "Incompressible flow",
+        "explanation": "A velocity field with zero divergence, so fluid volume is locally preserved.",
+        "entryId": "navier-stokes"
+      }
+    ],
+    "machines": []
+  },
+  {
+    "problemId": "birch-swinnerton-dyer",
+    "relatedEntries": [
+      "riemann-zeta"
+    ],
+    "definitions": [
+      {
+        "term": "L-function",
+        "explanation": "A complex function whose analytic behavior encodes arithmetic data; the Riemann zeta entry gives a familiar prototype, not the elliptic-curve case itself.",
+        "entryId": "riemann-zeta"
+      }
+    ],
+    "machines": []
+  },
+  {
+    "problemId": "hodge-conjecture",
+    "relatedEntries": [],
+    "definitions": [],
+    "machines": []
+  },
+  {
+    "problemId": "yang-mills-mass-gap",
+    "relatedEntries": [
+      "maxwell-equations"
+    ],
+    "definitions": [
+      {
+        "term": "Gauge field",
+        "explanation": "A field whose description has local symmetry; Maxwell's equations are the abelian example, while Yang–Mills theory uses a non-abelian gauge group.",
+        "entryId": "maxwell-equations"
+      }
+    ],
+    "machines": []
+  },
+  {
+    "problemId": "collatz-conjecture",
+    "relatedEntries": [],
+    "definitions": [],
+    "machines": []
+  },
+  {
+    "problemId": "goldbach-conjecture",
+    "relatedEntries": [
+      "riemann-zeta"
+    ],
+    "definitions": [
+      {
+        "term": "Prime distribution",
+        "explanation": "The zeta function's zeros govern fine error terms in prime-counting estimates, one analytical bridge to additive questions about primes.",
+        "entryId": "riemann-zeta"
+      }
+    ],
+    "machines": []
+  },
+  {
+    "problemId": "twin-prime-conjecture",
+    "relatedEntries": [
+      "riemann-zeta"
+    ],
+    "definitions": [
+      {
+        "term": "Prime-counting function",
+        "explanation": "π(x) counts primes no greater than x; the zeta entry introduces the analytic structure that informs prime distribution.",
+        "entryId": "riemann-zeta"
+      }
+    ],
+    "machines": []
+  },
+  {
+    "problemId": "perfect-cuboid",
+    "relatedEntries": [
+      "pythagorean-theorem"
+    ],
+    "definitions": [
+      {
+        "term": "Pythagorean constraint",
+        "explanation": "Each rectangular face diagonal must satisfy a²+b²=d², with a further space-diagonal constraint.",
+        "entryId": "pythagorean-theorem"
+      }
+    ],
+    "machines": []
+  },
+  {
+    "problemId": "hadwiger-conjecture",
+    "relatedEntries": [],
+    "definitions": [],
+    "machines": []
+  },
+  {
+    "problemId": "exponential-diacophantine",
+    "relatedEntries": [],
+    "definitions": [],
+    "machines": []
+  },
+  {
+    "problemId": "syracuse-regularity",
+    "relatedEntries": [
+      "lorenz-attractor"
+    ],
+    "definitions": [
+      {
+        "term": "Iterated map",
+        "explanation": "A rule applied repeatedly to a state produces an orbit; the Lorenz plate is a continuous-time analogue, not the Syracuse map.",
+        "entryId": "lorenz-attractor"
+      }
+    ],
+    "machines": []
+  },
+  {
+    "problemId": "infinitely-many-perfect-numbers",
+    "relatedEntries": [],
+    "definitions": [],
+    "machines": []
+  },
+  {
+    "problemId": "einstein-manifolds",
+    "relatedEntries": [
+      "gauss-bonnet"
+    ],
+    "definitions": [
+      {
+        "term": "Curvature integral",
+        "explanation": "Gauss–Bonnet connects integrated curvature to a topological invariant in two dimensions; Einstein metrics ask for a tensor-level curvature condition.",
+        "entryId": "gauss-bonnet"
+      }
+    ],
+    "machines": []
+  },
+  {
+    "problemId": "unit-distance-graph",
+    "relatedEntries": [
+      "pythagorean-theorem"
+    ],
+    "definitions": [
+      {
+        "term": "Euclidean distance",
+        "explanation": "The squared distance between planar points is the sum of the squared coordinate differences.",
+        "entryId": "pythagorean-theorem"
+      }
+    ],
+    "machines": []
+  },
+  {
+    "problemId": "c2-silent-board",
+    "relatedEntries": [],
+    "definitions": [],
+    "machines": []
+  },
+  {
+    "problemId": "c3-piles-memory",
+    "relatedEntries": [],
+    "definitions": [],
+    "machines": []
+  },
+  {
+    "problemId": "c4-butterfly-period",
+    "relatedEntries": [
+      "lorenz-attractor"
+    ],
+    "definitions": [
+      {
+        "term": "Lorenz return map",
+        "explanation": "A return map records a continuous flow each time it crosses a chosen section; C4 asks when that map first has a primitive period-three orbit.",
+        "entryId": "lorenz-attractor"
+      }
+    ],
+    "machines": [
+      {
+        "title": "Lorenz trajectory",
+        "path": "scripts/lorenz.jl",
+        "command": "julia scripts/lorenz.jl",
+        "description": "Recompute the Lorenz trajectory used by the live plate; it is exploratory context, not a proof of C4."
+      }
+    ]
+  },
+  {
+    "problemId": "c5-duelists-dice",
+    "relatedEntries": [],
+    "definitions": [],
+    "machines": []
+  },
+  {
+    "problemId": "hubble-tension",
+    "relatedEntries": [
+      "hubble-lemaitre"
+    ],
+    "definitions": [
+      {
+        "term": "Hubble constant",
+        "explanation": "The present expansion rate relating recession velocity to distance in the local linear regime.",
+        "entryId": "hubble-lemaitre"
+      }
+    ],
+    "machines": [
+      {
+        "title": "Independent-error comparison",
+        "path": "scripts/hubble_tension.jl",
+        "command": "julia scripts/hubble_tension.jl",
+        "description": "Compare the quoted SH0ES and Planck values under an explicit independent-error assumption; this is not a full systematic-error analysis."
+      }
+    ]
+  },
+  {
+    "problemId": "solar-system-stability",
+    "relatedEntries": [
+      "newton-kepler"
+    ],
+    "definitions": [
+      {
+        "term": "N-body dynamics",
+        "explanation": "Each body accelerates under the gravitational pull of every other body; small initial uncertainty can grow over long integrations.",
+        "entryId": "newton-kepler"
+      }
+    ],
+    "machines": []
+  },
+  {
+    "problemId": "dark-halo-cusp-core",
+    "relatedEntries": [
+      "galaxy-rotation-curves"
+    ],
+    "definitions": [
+      {
+        "term": "Rotation curve",
+        "explanation": "The circular speed as a function of radius constrains the enclosed mass profile; the new plate contrasts a luminous disk with a halo contribution.",
+        "entryId": "galaxy-rotation-curves"
+      }
+    ],
+    "machines": [
+      {
+        "title": "Idealized disk and halo curves",
+        "path": "scripts/galaxy_rotation.jl",
+        "command": "julia scripts/galaxy_rotation.jl",
+        "description": "Compute a finite luminous-mass curve and add a smooth halo term."
+      }
+    ]
+  },
+  {
+    "problemId": "c6-lazy-cube-scrambler",
+    "relatedEntries": [
+      "rubiks-cube-group"
+    ],
+    "definitions": [
+      {
+        "term": "Total-variation distance",
+        "explanation": "For two distributions on cube positions, half the sum of their pointwise absolute differences measures their statistical separation.",
+        "entryId": "rubiks-cube-group"
+      },
+      {
+        "term": "Half-turn metric",
+        "explanation": "Every quarter-turn, inverse quarter-turn, and half-turn of one face costs one move; the cited mixing problem uses this turn set.",
+        "entryId": "rubiks-cube-group"
+      }
+    ],
+    "machines": [
+      {
+        "title": "Reachable cube-state count",
+        "path": "scripts/rubik_group_order.jl",
+        "command": "julia scripts/rubik_group_order.jl",
+        "description": "Recheck the state-space size only; this small count does not estimate the lazy walk's mixing horizon."
+      }
+    ]
+  },
+  {
+    "problemId": "c7-figure-eight-uniqueness",
+    "relatedEntries": [
+      "three-body-problem"
+    ],
+    "definitions": [
+      {
+        "term": "Choreography",
+        "explanation": "A periodic n-body solution in which each body follows the same closed path with a fixed time shift.",
+        "entryId": "three-body-problem"
+      }
+    ],
+    "machines": [
+      {
+        "title": "Figure-eight orbit integration",
+        "path": "scripts/three_body.jl",
+        "command": "julia scripts/three_body.jl",
+        "description": "Integrate the reference orbit and nearby initial conditions; numerical agreement or drift does not establish global uniqueness."
+      }
+    ]
+  }
+]

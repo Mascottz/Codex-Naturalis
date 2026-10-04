@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    const phoneDesktopMode = navigator.userAgentData?.mobile
+      || /Android.+Mobile|iPhone|iPod|Windows Phone/i.test(navigator.userAgent)
+      || (window.matchMedia("(pointer: coarse)").matches && Math.min(screen.width, screen.height) <= 600);
+    if (phoneDesktopMode) document.querySelector('meta[name="viewport"]').setAttribute("content", "width=1200");
+  </script>
+  <meta name="description" content="A static solving desk that chooses from every open Codex Naturalis problem and prepares a ledger issue.">
+  <title>The solving desk; Codex Naturalis</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body data-page="solve">
+  <a class="skip-link" href="#desk-selection">Skip to the problem selector</a>
+  <header class="site-header">
+    <a class="wordmark" href="index.html" aria-label="Codex Naturalis home"><span>codex</span><i>naturalis</i></a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html">The book</a>
+      <a href="toys.html">The toys</a>
+      <a href="problems.html">The arena <sup>28</sup></a>
+      <a href="humans.html">The hall</a>
+      <a href="solved.html">Closed pages</a>
+    </nav>
+    <a class="random-button" href="problems.html">All open problems <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="solve" class="page-width solve-page">
+    <section class="page-hero solve-hero" aria-labelledby="solve-title">
+      <p class="eyebrow">The solving desk</p>
+      <h1 id="solve-title">Let a die or a cube put one open problem in view.</h1>
+      <p>I kept the ledger beside the toys: every open world problem and every open house problem can arrive here by chance or by a direct link.</p>
+    </section>
+
+    <section class="desk-selector" id="desk-selection" aria-labelledby="selector-title">
+      <div class="desk-selector-heading">
+        <div><span class="section-kicker">The open set</span><h2 id="selector-title">One roll, the same scramble.</h2></div>
+        <p>Roll the die or scramble the cube. Each action chooses uniformly from problems marked open, then reveals the same desk blocks.</p>
+      </div>
+      <div class="desk-roll-stage" id="desk-roll-stage">
+        <div class="desk-die-pedestal">
+          <button class="desk-die-button" id="roll-die" type="button" aria-label="Roll the die to choose an open problem">
+            <svg class="desk-die" viewBox="0 0 100 100" role="img" aria-label="A six-sided die">
+              <rect x="7" y="7" width="86" height="86" rx="21" fill="#f4eee2" stroke="#27303a" stroke-width="3"></rect>
+              <circle class="die-pip pip-one" cx="28" cy="28" r="6" fill="#a85c4c"></circle>
+              <circle class="die-pip pip-two" cx="72" cy="28" r="6" fill="#a85c4c"></circle>
+              <circle class="die-pip pip-three" cx="28" cy="50" r="6" fill="#a85c4c"></circle>
+              <circle class="die-pip pip-four" cx="72" cy="50" r="6" fill="#a85c4c"></circle>
+              <circle class="die-pip pip-five" cx="28" cy="72" r="6" fill="#a85c4c"></circle>
+              <circle class="die-pip pip-six" cx="72" cy="72" r="6" fill="#a85c4c"></circle>
+              <circle class="die-pip pip-center" cx="50" cy="50" r="6" fill="#a85c4c"></circle>
+            </svg>
+            <span>Roll the die</span>
+          </button>
+          <p>A throw chooses from the full open ledger.</p>
+        </div>
+        <div class="desk-cube-pedestal" id="desk-cube-mount"></div>
+      </div>
+      <p class="desk-roll-status" id="desk-roll-status" aria-live="polite">Preparing a random open problem.</p>
+    </section>
+
+    <div class="desk-result" id="desk-result" hidden>
+      <p class="desk-result-label" id="desk-result-label">The desk is open.</p>
+      <div class="desk-blocks" id="desk-blocks" aria-live="polite">
+        <section class="desk-block desk-problem-block" id="desk-problem-block" aria-labelledby="desk-problem-title"></section>
+        <section class="desk-block desk-definitions-block" id="desk-definitions-block" aria-labelledby="desk-definitions-title"></section>
+        <section class="desk-block desk-plates-block" id="desk-plates-block" aria-labelledby="desk-plates-title"></section>
+        <section class="desk-block desk-machines-block" id="desk-machines-block" aria-labelledby="desk-machines-title"></section>
+        <section class="desk-block desk-attempts-block" id="desk-attempts-block" aria-labelledby="desk-attempts-title"></section>
+      </div>
+
+      <section class="desk-submission" id="attempt" aria-labelledby="attempt-title">
+        <div class="desk-submission-heading">
+          <div><p class="eyebrow">The ledger door</p><h2 id="attempt-title">Bring an attempt to the record.</h2></div>
+          <span class="desk-ledger-mark">PR →</span>
+        </div>
+        <p class="desk-submission-intro">Enter a name, a one-line claim, and a link to the work. The form composes a GitHub issue with the problem id and today's date.</p>
+        <form id="attempt-form" class="desk-attempt-form">
+          <label for="attempt-name">Name</label>
+          <input id="attempt-name" name="name" type="text" autocomplete="name" maxlength="100" required>
+          <label for="attempt-claim">One-line claim</label>
+          <input id="attempt-claim" name="claim" type="text" maxlength="180" required>
+          <label for="attempt-link">Work link</label>
+          <input id="attempt-link" name="link" type="url" inputmode="url" placeholder="https://" required>
+          <button class="button button-fill" type="submit">Open the prefilled GitHub issue <span aria-hidden="true">↗</span></button>
+        </form>
+        <div class="desk-static-note">
+          <p><strong>This is a static site.</strong> The desk receives and stores no submission. The form opens GitHub; an attempt appears in the ledger only after its ledger pull request is reviewed and merged.</p>
+          <p>The verification ladder remains <span>Attempted → Under review → Verified</span>, or <span>Withdrawn</span>. Verification requires a published peer-reviewed result or a checked formal proof.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer page-width">
+    <div><a class="wordmark" href="index.html"><span>codex</span><i>naturalis</i></a><p>A quiet desk for difficult questions.</p></div>
+    <div class="footer-links"><a href="problems.html">The arena</a><a href="index.html">The book</a><a href="humans.html">Hall of originators</a><a href="solved.html">Closed pages</a></div>
+    <p class="footer-sources">The desk is static. GitHub holds the issue and pull-request record.</p>
+  </footer>
+</body>
+</html>

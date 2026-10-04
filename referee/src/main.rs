@@ -94,6 +94,71 @@ fn require_keys(object: &str, kind: &str, keys: &[&str]) {
     }
 }
 
+fn has_array_key(object: &str, key: &str) -> bool {
+    let marker = format!("\"{}\":", key);
+    object.find(&marker).map(|start| object[start + marker.len()..].trim_start().starts_with('[')).unwrap_or(false)
+}
+
+fn array_values(object: &str, key: &str) -> Vec<String> {
+    let marker = format!("\"{}\":", key);
+    let start = object.find(&marker).unwrap_or_else(|| person_error(&format!("desk; missing {}", key))) + marker.len();
+    let rest = object[start..].trim_start();
+    if !rest.starts_with('[') {
+        person_error(&format!("desk; {} must be an array", key));
+    }
+    let mut values = Vec::new();
+    let mut quoted = false;
+    let mut escaped = false;
+    let mut string_start = 0usize;
+    for (offset, character) in rest[1..].char_indices() {
+        if quoted {
+            if escaped {
+                escaped = false;
+            } else if character == '\\' {
+                escaped = true;
+            } else if character == '"' {
+                values.push(rest[1 + string_start..1 + offset].to_string());
+                quoted = false;
+            }
+            continue;
+        }
+        match character {
+            '"' => { quoted = true; string_start = offset + 1; }
+            ']' => return values,
+            ',' => {}
+            other if other.is_whitespace() => {}
+            _ => person_error(&format!("desk; {} must contain only strings", key)),
+        }
+    }
+    person_error(&format!("desk; {} array is not closed", key));
+}
+
+fn values_for_key(object: &str, key: &str) -> Vec<String> {
+    let marker = format!("\"{}\":", key);
+    let mut values = Vec::new();
+    let mut cursor = 0usize;
+    while let Some(relative) = object[cursor..].find(&marker) {
+        let start = cursor + relative + marker.len();
+        let rest = object[start..].trim_start();
+        if rest.starts_with('"') {
+            let mut escaped = false;
+            for (offset, character) in rest[1..].char_indices() {
+                if escaped {
+                    escaped = false;
+                } else if character == '\\' {
+                    escaped = true;
+                } else if character == '"' {
+                    values.push(rest[1..1 + offset].to_string());
+                    break;
+                }
+            }
+        }
+        cursor = start.max(cursor + 1);
+        if cursor >= object.len() { break; }
+    }
+    values
+}
+
 fn is_iso_date(date: &str) -> bool {
     let bytes = date.as_bytes();
     bytes.len() == 10
@@ -107,8 +172,8 @@ fn check_entries(document: &str) -> HashSet<String> {
         person_error("entries; expected an array");
     }
     let rows = objects(document);
-    if rows.len() != 24 {
-        person_error(&format!("entries; expected 24 rows, found {}", rows.len()));
+    if rows.len() != 30 {
+        person_error(&format!("entries; expected 30 rows, found {}", rows.len()));
     }
     let mut ids = HashSet::new();
     for row in &rows {
@@ -125,7 +190,7 @@ fn check_entries(document: &str) -> HashSet<String> {
     ids
 }
 
-fn check_problems(document: &str) -> (usize, HashSet<String>, HashSet<String>) {
+fn check_problems(document: &str) -> (usize, HashSet<String>, HashSet<String>, HashSet<String>) {
     if !document.trim_start().starts_with('[') {
         person_error("problems; expected an array");
     }
@@ -135,6 +200,7 @@ fn check_problems(document: &str) -> (usize, HashSet<String>, HashSet<String>) {
     }
     let mut ids = HashSet::new();
     let mut house_ids = HashSet::new();
+    let mut open_ids = HashSet::new();
     for row in &rows {
         require_keys(row, "problem", &["id", "number", "title", "field", "status", "millennium", "summary", "source"]);
         let id = value(row, "id").unwrap_or_else(|| person_error("problem; id must be a string"));
@@ -146,6 +212,13 @@ fn check_problems(document: &str) -> (usize, HashSet<String>, HashSet<String>) {
         if !statuses.contains(&status.as_str()) {
             person_error(&format!("problem {}; status is not on the ladder", id));
         }
+        if status == "open" {
+            let statement = value(row, "statement").unwrap_or_default();
+            if statement.trim().is_empty() {
+                person_error(&format!("problem {}; open questions need a complete statement", id));
+            }
+            open_ids.insert(id.clone());
+        }
         if value(row, "kind").as_deref() == Some("codex") {
             require_keys(row, "house problem", &["label", "statement", "problemType", "approach"]);
             house_ids.insert(id);
@@ -155,10 +228,64 @@ fn check_problems(document: &str) -> (usize, HashSet<String>, HashSet<String>) {
             person_error("problem; world questions must speak in their own voice");
         }
     }
-    if house_ids.len() != 5 {
-        person_error(&format!("house problems; expected five, found {}", house_ids.len()));
+    if house_ids.len() != 7 {
+        person_error(&format!("house problems; expected seven, found {}", house_ids.len()));
     }
-    (rows.len(), ids, house_ids)
+    (rows.len(), ids, house_ids, open_ids)
+}
+
+fn check_desk(document: &str, open_ids: &HashSet<String>, entry_ids: &HashSet<String>, repo_root: &Path) -> usize {
+    if !document.trim_start().starts_with('[') {
+        person_error("desk; expected an array");
+    }
+    let rows = objects(document);
+    if rows.len() != open_ids.len() {
+        person_error(&format!("desk; expected one record for each of {} open problems, found {}", open_ids.len(), rows.len()));
+    }
+    let mut ids = HashSet::new();
+    for row in &rows {
+        require_keys(row, "desk record", &["problemId", "definitions", "relatedEntries", "machines"]);
+        let problem_id = value(row, "problemId").unwrap_or_else(|| person_error("desk; problemId must be a string"));
+        if !open_ids.contains(&problem_id) {
+            person_error(&format!("desk; {} is not currently open", problem_id));
+        }
+        if !ids.insert(problem_id.clone()) {
+            person_error(&format!("desk; duplicate record for {}", problem_id));
+        }
+        for key in ["definitions", "relatedEntries", "machines"] {
+            if !has_array_key(row, key) {
+                person_error(&format!("desk; {} must be an array", key));
+            }
+        }
+        let related: HashSet<String> = array_values(row, "relatedEntries").into_iter().collect();
+        for entry_id in &related {
+            if !entry_ids.contains(entry_id) {
+                person_error(&format!("desk; {} references unknown book entry {}", problem_id, entry_id));
+            }
+        }
+        for entry_id in values_for_key(row, "entryId") {
+            if !entry_ids.contains(&entry_id) || !related.contains(&entry_id) {
+                person_error(&format!("desk; {} has a definition without a related book entry {}", problem_id, entry_id));
+            }
+        }
+        let paths = values_for_key(row, "path");
+        let commands = values_for_key(row, "command");
+        if paths.len() != commands.len() {
+            person_error(&format!("desk; {} machine paths and commands do not match", problem_id));
+        }
+        for (path_text, command) in paths.iter().zip(commands.iter()) {
+            if !path_text.starts_with("scripts/") || path_text.contains("..") || path_text.contains('\\') || !path_text.ends_with(".jl") {
+                person_error(&format!("desk; {} has an unsafe machine path {}", problem_id, path_text));
+            }
+            if command != &format!("julia {}", path_text) {
+                person_error(&format!("desk; {} has a non-exact rerun command for {}", problem_id, path_text));
+            }
+            if !repo_root.join(path_text).is_file() {
+                person_error(&format!("desk; machine source {} does not exist", path_text));
+            }
+        }
+    }
+    rows.len()
 }
 
 fn check_solution_file(repo_root: &Path, path_text: &str, kind: &str, status: &str, command: Option<&str>, output: Option<&str>) {
@@ -324,6 +451,19 @@ fn check_computed_data(root: &Path) {
     if !phyllotaxis.contains("\"points\":[") || !lorenz.contains("\"points\":[") {
         person_error("computed data; expected point arrays");
     }
+    let expected = [
+        ("galaxy-rotation.json", "\"radiiKpc\":["),
+        ("three-body.json", "\"scenarios\":["),
+        ("jeans-mass.json", "\"solarMasses\":["),
+        ("eddington.json", "\"luminosityErgPerSecond\":["),
+        ("schechter.json", "\"phiOverPhiStar\":["),
+    ];
+    for (name, marker) in expected {
+        let data = read_file(root, name);
+        if !data.contains(marker) {
+            person_error(&format!("computed data; {} is missing its result array", name));
+        }
+    }
 }
 
 fn main() {
@@ -331,7 +471,8 @@ fn main() {
     let data_root = PathBuf::from(arguments.next().unwrap_or_else(|| "site/data".to_string()));
     let repo_root = PathBuf::from(arguments.next().unwrap_or_else(|| ".".to_string()));
     let entries = check_entries(&read_file(&data_root, "entries.json"));
-    let (problem_count, problem_ids, _house_ids) = check_problems(&read_file(&data_root, "problems.json"));
+    let (problem_count, problem_ids, _house_ids, open_ids) = check_problems(&read_file(&data_root, "problems.json"));
+    check_desk(&read_file(&data_root, "desk.json"), &open_ids, &entries, &repo_root);
     let (attempt_count, solution_paths) = check_attempts(&read_file(&data_root, "attempts.json"), &problem_ids, &repo_root);
     check_solutions_directory(&repo_root, &solution_paths);
     let solved = check_solved(&read_file(&data_root, "solved.json"));

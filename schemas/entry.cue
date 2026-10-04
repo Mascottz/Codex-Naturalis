@@ -1,8 +1,29 @@
 package schemas
 
+#Control: {
+  key?:   string
+  label:  string
+  min:    number
+  max:    number
+  step:   number
+  value:  number
+}
+
+#Source: {
+  title: string
+  url:   string
+}
+
+#Machine: {
+  title:       string
+  path:        string
+  command:     string
+  description: string
+}
+
 #Entry: {
   id:          =~"^[a-z0-9-]+$"
-  number:      int & >=1 & <=24
+  number:      int & >=1 & <=30
   domain:      "sky" | "earth" | "living" | "invisible" | "structure"
   title:       string
   formula:     string
@@ -14,11 +35,12 @@ package schemas
   visualType:  string
   source:      string
   status:      "live" | "planned"
-  slider?: {
-    label: string
-    min: number
-    max: number
-    step: number
-    value: number
-  }
+  slider?:   #Control
+  controls?: [...#Control]
+  sources?:  [...#Source]
+  machine?:  #Machine
+  story?:       string
+  caption?:     string
+  openProblem?: bool
+  sister?:      string
 }

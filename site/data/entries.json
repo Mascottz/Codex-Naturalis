@@ -11,7 +11,7 @@
     ],
     "year": "1609 to 1687",
     "statement": "Two bodies pull along the line between two centers; the inverse square law closes the orbit into a conic.",
-    "intuition": "I let a small world fall around a star. A gentle change in eccentricity turns a circle into an ellipse.",
+    "intuition": "A small world follows an orbit around a star. A slight change in eccentricity turns a circle into an ellipse.",
     "visualType": "orbit",
     "slider": {
       "label": "eccentricity",
@@ -22,7 +22,7 @@
     },
     "source": "MacTutor History of Mathematics archive; Kepler, Astronomia Nova; Newton, Principia",
     "status": "planned",
-    "derivation": "I combine the central force equation with angular momentum conservation; the radial equation has conic solutions and Kepler’s area law follows from the conserved moment."
+    "derivation": "The central-force equation and conservation of angular momentum yield a radial equation with conic solutions; Kepler’s area law follows from the conserved angular momentum."
   },
   {
     "id": "eulers-identity",
@@ -35,7 +35,7 @@
     ],
     "year": "1748",
     "statement": "The exponential map sends a turn through π in the complex plane to minus one, so the five basic constants meet in one line.",
-    "intuition": "I draw a point walking around the unit circle. At half a turn, the point lands exactly opposite the start.",
+    "intuition": "A point moving halfway around the unit circle lands opposite its starting point.",
     "visualType": "euler",
     "slider": {
       "label": "turns",
@@ -46,7 +46,7 @@
     },
     "source": "MacTutor History of Mathematics archive; Euler, Introductio in analysin infinitorum",
     "status": "live",
-    "derivation": "I expand the complex exponential as a power series and set the angle to π; cosine gives −1, sine gives 0, and the identity closes."
+    "derivation": "The power series for the complex exponential, evaluated at angle π, gives cosine −1 and sine 0, closing the identity."
   },
   {
     "id": "hubble-lemaitre",
@@ -60,7 +60,7 @@
     ],
     "year": "1927 to 1929",
     "statement": "At modest cosmological distance, recession velocity scales with distance through the Hubble constant.",
-    "intuition": "I picture raisins moving apart in rising bread. Farther raisins separate faster because every patch of bread expands.",
+    "intuition": "Raisins in rising bread move apart with the dough; each patch expands, so more distant raisins separate faster.",
     "visualType": "scatter",
     "slider": {
       "label": "H₀",
@@ -72,7 +72,7 @@
     "source": "MacTutor History of Mathematics archive; Lemaître 1927; Hubble 1929",
     "story": "I put Lemaître's 1927 derivation beside Hubble's 1929 observations; the shared history deserves both names.",
     "status": "planned",
-    "derivation": "I write the scale factor as a(t), differentiate the physical distance, and read the local recession rate as H(t)d."
+    "derivation": "Differentiating physical distance as the scale factor a(t) evolves gives the local recession rate H(t)d."
   },
   {
     "id": "planck-blackbody",
@@ -85,7 +85,7 @@
     ],
     "year": "1900",
     "statement": "Quantized oscillators give the spectral radiance of an ideal thermal emitter.",
-    "intuition": "I turn a temperature dial and watch the brightest color move from red toward blue.",
+    "intuition": "As temperature rises, the blackbody peak shifts from red toward blue.",
     "visualType": "spectrum",
     "slider": {
       "label": "temperature",
@@ -97,7 +97,7 @@
     "source": "MacTutor History of Mathematics archive; Planck, On the theory of the energy distribution law",
     "story": "I keep Planck's reluctance in view. The quantum began as a mathematical move he did not trust, then remade physics.",
     "status": "planned",
-    "derivation": "I sum oscillator energies in discrete packets and divide the mode density by the Bose-Einstein occupation factor."
+    "derivation": "Quantized oscillator energies sum in discrete packets; division by the mode density and the Bose–Einstein occupation factor produces the spectrum."
   },
   {
     "id": "laplace-tides",
@@ -110,7 +110,7 @@
     ],
     "year": "1776 to 1816",
     "statement": "A rotating shallow ocean balances acceleration, Coriolis deflection, pressure, and friction.",
-    "intuition": "I let a tide breathe across a rotating basin, then point toward the sister machine tide.jl.",
+    "intuition": "Tides breathe across a rotating basin; the companion tide.jl machine extends the sketch.",
     "visualType": "tide",
     "slider": {
       "label": "rotation",
@@ -122,7 +122,7 @@
     "source": "MacTutor History of Mathematics archive; Laplace, Mécanique céleste",
     "sister": "tide.jl",
     "status": "planned",
-    "derivation": "I depth-average the momentum equation on a rotating sphere, retain Coriolis terms, and couple velocity to surface height."
+    "derivation": "Depth-averaging the momentum equation on a rotating sphere retains Coriolis terms and couples velocity to surface height."
   },
   {
     "id": "fourier-series",
@@ -135,7 +135,7 @@
     ],
     "year": "1807 to 1822",
     "statement": "A periodic shape can be rebuilt from weighted sines and cosines.",
-    "intuition": "I stack rotating arrows until a handful of circles draws a shape that looked too complicated at first.",
+    "intuition": "Rotating arrows add into circles and assemble a shape from a few harmonics.",
     "visualType": "epicycles",
     "slider": {
       "label": "harmonics",
@@ -146,7 +146,7 @@
     },
     "source": "MacTutor History of Mathematics archive; Fourier, Théorie analytique de la chaleur",
     "status": "planned",
-    "derivation": "I project a periodic function onto the orthogonal sine and cosine basis; the inner products become aₙ and bₙ."
+    "derivation": "Projection onto orthogonal sine and cosine bases yields the coefficients aₙ and bₙ."
   },
   {
     "id": "navier-stokes",
@@ -160,7 +160,7 @@
     ],
     "year": "1822 to 1845",
     "statement": "Momentum, pressure, viscosity, and forcing govern a moving fluid; smooth existence in three dimensions remains open.",
-    "intuition": "I send a stream around a stone. Small swirls carry a very large question.",
+    "intuition": "A stream bends around a stone; its small swirls carry a large unresolved question.",
     "visualType": "flow",
     "slider": {
       "label": "viscosity",
@@ -172,7 +172,7 @@
     "source": "Clay Mathematics Institute Millennium Prize Problems; MacTutor History of Mathematics archive",
     "status": "planned",
     "openProblem": true,
-    "derivation": "I balance material acceleration against pressure gradient, viscous diffusion, and forcing, then impose incompressibility."
+    "derivation": "Material acceleration balances pressure gradient, viscous diffusion, and forcing, subject to incompressibility."
   },
   {
     "id": "wave-equation",
@@ -185,7 +185,7 @@
     ],
     "year": "1746",
     "statement": "A disturbance on a string travels with a speed set by tension and density.",
-    "intuition": "I pluck a string and watch one shape become a choir of harmonics.",
+    "intuition": "A plucked string resolves into a sum of harmonic shapes.",
     "visualType": "wave",
     "slider": {
       "label": "harmonics",
@@ -196,7 +196,7 @@
     },
     "source": "MacTutor History of Mathematics archive; d'Alembert, Recherches sur la courbe que forme une corde tendue",
     "status": "planned",
-    "derivation": "I balance tension against transverse acceleration and take the continuum limit of a chain of small masses."
+    "derivation": "Balancing tension and transverse acceleration, then taking the continuum limit of a mass chain, yields the wave equation."
   },
   {
     "id": "lorenz-attractor",
@@ -209,7 +209,7 @@
     ],
     "year": "1963",
     "statement": "Three coupled ordinary differential equations make a bounded flow that never settles into a repeating orbit.",
-    "intuition": "I follow a warm current. A rounding choice can grow into a completely different weather story.",
+    "intuition": "A rounding change can grow into a different weather trajectory.",
     "visualType": "lorenz",
     "slider": {
       "label": "ρ",
@@ -221,7 +221,7 @@
     "source": "MacTutor History of Mathematics archive; Lorenz, Deterministic nonperiodic flow",
     "story": "I remember Lorenz's rounded printout and the butterfly effect without turning an anecdote into a myth. The equations do the work.",
     "status": "live",
-    "derivation": "I reduce a convective fluid model to three coupled modes and integrate the resulting first-order system with a fixed-step method."
+    "derivation": "A convective-fluid reduction yields three coupled modes; a fixed-step method integrates the resulting first-order system."
   },
   {
     "id": "maxwell-equations",
@@ -235,7 +235,7 @@
     ],
     "year": "1831 to 1865",
     "statement": "Electric and magnetic fields source, curl, and carry one another as a wave.",
-    "intuition": "I drag a charge through a quiet field and let lines of force lean into motion.",
+    "intuition": "Changing electric and magnetic fields travel together, carrying electromagnetic waves through space.",
     "visualType": "field",
     "slider": {
       "label": "charge",
@@ -247,7 +247,7 @@
     "source": "MacTutor History of Mathematics archive; Maxwell, A Treatise on Electricity and Magnetism; Faraday",
     "story": "I put Faraday's field intuition next to Maxwell's equations. The mathematics did not erase the experiment that made it possible.",
     "status": "planned",
-    "derivation": "I collect the local electric and magnetic laws, then take a time derivative to reveal waves moving at 1 over the square root of μ₀ε₀."
+    "derivation": "The local electric and magnetic laws combine with a time derivative to give waves traveling at c = 1/√(μ₀ε₀)."
   },
   {
     "id": "phyllotaxis",
@@ -262,7 +262,7 @@
     ],
     "year": "1202 to 1979",
     "statement": "A near irrational divergence angle spreads successive leaves and seeds across a disc with unusual evenness.",
-    "intuition": "I place seeds one by one. At 137.5 degrees, no spoke forms and the spaces share the light.",
+    "intuition": "At approximately 137.5°, successive seeds avoid old spokes and share available space.",
     "visualType": "phyllotaxis",
     "slider": {
       "label": "angle",
@@ -274,7 +274,7 @@
     "source": "MacTutor History of Mathematics archive; Vogel, A better photosynthetic solar energy collector",
     "story": "I credit the Indian mathematics carried west through Fibonacci's Liber Abaci, then name Kepler and Vogel where the botanical story continues.",
     "status": "live",
-    "derivation": "I choose a divergence angle irrational relative to a full turn; the golden-angle limit spreads every new point across the available gaps."
+    "derivation": "An irrational divergence angle prevents a repeating spoke; the golden-angle limit distributes successive points across open gaps."
   },
   {
     "id": "turing-patterns",
@@ -287,7 +287,7 @@
     ],
     "year": "1952",
     "statement": "Two reacting substances can destabilize a uniform field and grow spots, stripes, and labyrinths.",
-    "intuition": "I seed a quiet skin with a tiny difference and let chemistry draw the pattern.",
+    "intuition": "A tiny disturbance on a uniform chemical surface can grow into a pattern.",
     "visualType": "reaction",
     "slider": {
       "label": "feed",
@@ -298,7 +298,7 @@
     },
     "source": "MacTutor History of Mathematics archive; Turing, The chemical basis of morphogenesis",
     "status": "planned",
-    "derivation": "I linearize two reaction-diffusion equations around a uniform state; unequal diffusion can make a finite spatial mode unstable."
+    "derivation": "Linearization about a uniform state shows that unequal diffusion can destabilize a finite spatial mode in a coupled reaction-diffusion system."
   },
   {
     "id": "lotka-volterra",
@@ -312,7 +312,7 @@
     ],
     "year": "1925 to 1926",
     "statement": "Predator and prey populations trace coupled cycles when each population changes the other's rate.",
-    "intuition": "I turn rabbits and foxes into a loop. Neither line owns the rhythm for long.",
+    "intuition": "Rabbits and foxes rise and fall in a cycle; neither population controls the rhythm indefinitely.",
     "visualType": "phase",
     "slider": {
       "label": "predation",
@@ -323,7 +323,7 @@
     },
     "source": "MacTutor History of Mathematics archive; Lotka, Elements of Physical Biology; Volterra",
     "status": "planned",
-    "derivation": "I multiply each population by its per-capita growth rate; interaction terms cancel into a conserved closed-orbit quantity."
+    "derivation": "Multiplying each population equation by its per-capita rate reveals a conserved closed-orbit quantity as interaction terms cancel."
   },
   {
     "id": "hardy-weinberg",
@@ -337,7 +337,7 @@
     ],
     "year": "1908",
     "statement": "With random mating and no evolutionary forces, allele frequencies stay fixed while genotype frequencies settle into a square.",
-    "intuition": "I mix two alleles through a calm gene pool and watch the proportions hold still.",
+    "intuition": "With allele frequencies fixed in a well-mixed gene pool, genotype proportions settle into a stable distribution.",
     "visualType": "population",
     "slider": {
       "label": "allele p",
@@ -349,7 +349,7 @@
     "source": "MacTutor History of Mathematics archive; Hardy, Mendelian proportions in a mixed population; Weinberg",
     "story": "I keep Hardy's remark about biology in its place and give Weinberg's independent 1908 result equal room.",
     "status": "planned",
-    "derivation": "I multiply allele frequencies for independent pairings; p plus q equals one and the genotype terms expand into the square."
+    "derivation": "Independent allele pairings give genotype frequencies p², 2pq, and q² when p + q = 1."
   },
   {
     "id": "hodgkin-huxley",
@@ -363,7 +363,7 @@
     ],
     "year": "1952",
     "statement": "Gated ion currents explain how a membrane turns a push into an action potential.",
-    "intuition": "I press a membrane past its threshold and watch voltage rise, peak, and return.",
+    "intuition": "Crossing a membrane threshold starts a voltage rise, peak, and return.",
     "visualType": "action-potential",
     "slider": {
       "label": "current",
@@ -374,7 +374,7 @@
     },
     "source": "MacTutor History of Mathematics archive; Hodgkin and Huxley, A quantitative description of membrane current",
     "status": "planned",
-    "derivation": "I sum capacitive current and three conductance currents; voltage crosses threshold when inward sodium current wins the balance."
+    "derivation": "Summing capacitive and three conductance currents gives the membrane-voltage equation; inward sodium current drives the upstroke."
   },
   {
     "id": "schrodinger-equation",
@@ -387,7 +387,7 @@
     ],
     "year": "1926",
     "statement": "A complex wavefunction evolves under a Hamiltonian and gives probabilities through its squared magnitude.",
-    "intuition": "I send a packet toward a barrier. A small tail appears on the other side, even when a classical particle would turn back.",
+    "intuition": "A wave packet incident on a barrier leaves a small transmitted tail beyond it, even where a classical particle would reflect.",
     "visualType": "quantum",
     "slider": {
       "label": "barrier",
@@ -398,7 +398,7 @@
     },
     "source": "MacTutor History of Mathematics archive; Schrödinger, Quantisation as an eigenvalue problem",
     "status": "planned",
-    "derivation": "I apply the Hamiltonian as the generator of unitary time evolution; the norm of the wavefunction stays fixed."
+    "derivation": "The Hamiltonian generates unitary time evolution, preserving the wavefunction norm."
   },
   {
     "id": "noether-theorem",
@@ -411,7 +411,7 @@
     ],
     "year": "1918",
     "statement": "Every differentiable continuous symmetry of an action yields a conserved current.",
-    "intuition": "I shift the clock, rotate the room, or slide the origin. A quantity stays faithful because the laws stayed the same.",
+    "intuition": "Shifting the clock, rotating the room, or translating the origin leaves a quantity unchanged when the corresponding law is symmetric.",
     "visualType": "symmetry",
     "slider": {
       "label": "rotation",
@@ -423,7 +423,7 @@
     "source": "MacTutor History of Mathematics archive; Noether, Invariante Variationsprobleme",
     "story": "I place Emmy Noether at the center. Her theorem quietly organizes modern physics, and her path through exclusion deserves more than a footnote.",
     "status": "planned",
-    "derivation": "I vary the action under a continuous symmetry; the boundary term vanishes on the equations of motion and leaves a conserved current."
+    "derivation": "Variation of the action under a continuous symmetry produces a boundary term; on solutions of the equations of motion, the associated current is conserved."
   },
   {
     "id": "boltzmann-entropy",
@@ -436,7 +436,7 @@
     ],
     "year": "1872 to 1877",
     "statement": "Entropy counts compatible microscopic arrangements through the logarithm of the multiplicity.",
-    "intuition": "I shake gas particles in a box. Ordered corners are rare; spread-out arrangements have more ways to happen.",
+    "intuition": "Ordered particle arrangements are rare; many more microstates realize spread-out gas states.",
     "visualType": "gas",
     "slider": {
       "label": "temperature",
@@ -448,7 +448,7 @@
     "source": "MacTutor History of Mathematics archive; Boltzmann, Further studies on thermal equilibrium",
     "story": "I let the equation on Boltzmann's tombstone speak, while keeping the statistical argument and its historical resistance visible.",
     "status": "planned",
-    "derivation": "I count microscopic arrangements compatible with a macrostate; independent multiplicities multiply, so their logarithms add."
+    "derivation": "A macrostate’s compatible microstates multiply independently, so their logarithmic entropy contributions add."
   },
   {
     "id": "shannon-entropy",
@@ -461,7 +461,7 @@
     ],
     "year": "1948",
     "statement": "Entropy measures the average surprise of a source in bits.",
-    "intuition": "I give rare letters more surprise and common letters less. A message becomes a measured landscape.",
+    "intuition": "Rare letters carry more surprise than common ones, turning a message into a measurable landscape.",
     "visualType": "information",
     "slider": {
       "label": "bias",
@@ -472,7 +472,7 @@
     },
     "source": "MacTutor History of Mathematics archive; Shannon, A mathematical theory of communication",
     "status": "planned",
-    "derivation": "I require a continuous, additive measure of uncertainty; the resulting functional is the probability-weighted logarithm in bits."
+    "derivation": "Continuity and additivity requirements yield a probability-weighted logarithm of uncertainty measured in bits."
   },
   {
     "id": "uncertainty-principle",
@@ -485,7 +485,7 @@
     ],
     "year": "1927",
     "statement": "Position and momentum spreads cannot both be made arbitrarily small for the same quantum state.",
-    "intuition": "I squeeze a Gaussian in position. Its momentum spectrum opens wider to keep the product honest.",
+    "intuition": "Narrowing a Gaussian in position broadens its momentum spectrum to preserve the uncertainty product.",
     "visualType": "uncertainty",
     "slider": {
       "label": "position width",
@@ -496,7 +496,7 @@
     },
     "source": "MacTutor History of Mathematics archive; Heisenberg, Über den anschaulichen Inhalt der quantentheoretischen Kinematik",
     "status": "planned",
-    "derivation": "I apply the Cauchy-Schwarz inequality to position and momentum operators; their commutator supplies the lower bound."
+    "derivation": "Applying Cauchy–Schwarz to position and momentum operators, together with their commutator, gives the lower bound."
   },
   {
     "id": "pythagorean-theorem",
@@ -509,7 +509,7 @@
     ],
     "year": "c. 300 BCE and earlier",
     "statement": "In a right triangle, the area of the square on the hypotenuse equals the sum of the other two square areas.",
-    "intuition": "I cut and turn the squares until area leaves no room for argument.",
+    "intuition": "Rearranging four triangles leaves areas a² and b² to fill a square of area c².",
     "visualType": "proof",
     "slider": {
       "label": "side a",
@@ -521,7 +521,7 @@
     "source": "MacTutor History of Mathematics archive; Babylonian tablets; Chinese gougu tradition",
     "story": "I name Pythagoras without pretending he owned an idea known in Babylon and expressed in the gougu theorem. The attribution stays plural.",
     "status": "planned",
-    "derivation": "I compare the area of a square built from four copies of the right triangle; the two decompositions leave a² plus b² equal to c²."
+    "derivation": "Comparing a square assembled from four right triangles with the remaining smaller squares yields a² + b² = c²."
   },
   {
     "id": "bayes-theorem",
@@ -535,7 +535,7 @@
     ],
     "year": "1763",
     "statement": "A prior belief updates through the likelihood of new evidence and the evidence's total probability.",
-    "intuition": "I start with a hunch, meet a piece of evidence, and let the numbers decide how much the hunch should move.",
+    "intuition": "A prior belief meets evidence; Bayes’ rule adjusts the belief according to how likely that evidence is under competing possibilities.",
     "visualType": "bayes",
     "slider": {
       "label": "evidence",
@@ -547,7 +547,7 @@
     "source": "MacTutor History of Mathematics archive; Bayes essay; Price's posthumous publication",
     "story": "I keep Richard Price beside Bayes. Price edited and published the essay, and the usual shorthand should not make him disappear.",
     "status": "planned",
-    "derivation": "I write the joint probability as P(A and B) in two orders and divide by P(B) to update the prior."
+    "derivation": "Writing the joint probability P(A∩B) in two orders and dividing by P(B) updates the prior to the posterior."
   },
   {
     "id": "riemann-zeta",
@@ -560,7 +560,7 @@
     ],
     "year": "1859",
     "statement": "Analytic continuation and the zeta function's zeros encode the fine rhythm of prime numbers; the critical-line claim remains open.",
-    "intuition": "I place the nontrivial zeros on the critical strip and ask whether every one keeps to the central line.",
+    "intuition": "Nontrivial zeros lie in the critical strip; the Riemann hypothesis asks whether each one lies on its central line.",
     "visualType": "zeta",
     "slider": {
       "label": "zeros",
@@ -572,7 +572,7 @@
     "source": "Clay Mathematics Institute Millennium Prize Problems; MacTutor History of Mathematics archive",
     "status": "planned",
     "openProblem": true,
-    "derivation": "I continue the Dirichlet series beyond its first half-plane and use the functional equation to reflect the nontrivial zeros into the critical strip."
+    "derivation": "The functional equation analytically continues the Dirichlet series and reflects nontrivial zeros into the critical strip."
   },
   {
     "id": "gauss-bonnet",
@@ -586,7 +586,7 @@
     ],
     "year": "1827 to 1848",
     "statement": "Total Gaussian curvature, with boundary curvature when needed, equals a topological invariant.",
-    "intuition": "I deform a surface like soft clay. The local hills move, but the total remembers the surface's holes.",
+    "intuition": "A surface can deform while local curvature shifts, yet its total curvature remembers the number of holes.",
     "visualType": "surface",
     "slider": {
       "label": "deformation",
@@ -597,6 +597,308 @@
     },
     "source": "MacTutor History of Mathematics archive; Gauss, Disquisitiones generales circa superficies curvas; Bonnet",
     "status": "planned",
-    "derivation": "I integrate local Gaussian curvature and use the boundary turning term; the result collapses to the Euler characteristic, a topological invariant."
+    "derivation": "Integration of Gaussian curvature together with the boundary turning term reduces to the Euler characteristic, a topological invariant."
+  },
+  {
+    "id": "galaxy-rotation-curves",
+    "number": 25,
+    "domain": "sky",
+    "title": "Galaxy rotation curves",
+    "formula": "v_c²(r) = GM(<r) / r",
+    "originators": [
+      "fritz-zwicky",
+      "vera-rubin",
+      "kent-ford"
+    ],
+    "year": "1933 / 1970s",
+    "statement": "For circular motion in a spherical mass model, the orbital speed obeys v_c² = GM(<r)/r. A finite luminous mass predicts a Keplerian decline outside the disk, while many measured outer curves remain nearly flat.",
+    "derivation": "Newton's centripetal balance gives v_c²/r = GM(<r)/r². If v_c stays constant as radius grows, the enclosed mass must grow approximately in proportion to radius. The illustration uses a finite, spherical exponential luminous component plus a smooth halo term; it is not a thin-disk fit or a fit to one galaxy.",
+    "intuition": "Visible light thins with radius, yet the outer stars keep nearly the same pace. The missing mass is not in the glow.",
+    "visualType": "galaxy-rotation",
+    "status": "live",
+    "slider": {
+      "key": "halo",
+      "label": "Halo contribution",
+      "min": 0,
+      "max": 1,
+      "step": 0.01,
+      "value": 0.55
+    },
+    "caption": "The coral curve adds a smooth halo term to a finite luminous-mass model. The slider moves from luminous mass alone to a nearly flat outer speed.",
+    "story": "I keep Zwicky's 1933 mass discrepancy in the historical line, then place Vera Rubin and Kent Ford's measured rotation curves in the foreground. Rubin's observations reshaped the case for dark matter; the Nobel Prize passed without her.",
+    "source": "Rubin and Ford, Rotation of the Andromeda Nebula, 1970",
+    "sources": [
+      {
+        "title": "Rubin and Ford, 1970 rotation curve paper",
+        "url": "https://ui.adsabs.harvard.edu/abs/1970ApJ...159..379R/abstract"
+      },
+      {
+        "title": "Zwicky, 1933 Coma cluster mass discrepancy",
+        "url": "https://ui.adsabs.harvard.edu/abs/1933AcHPh...6..110Z/abstract"
+      }
+    ],
+    "machine": {
+      "title": "Galaxy rotation curve model",
+      "path": "scripts/galaxy_rotation.jl",
+      "command": "julia scripts/galaxy_rotation.jl",
+      "description": "Compute finite luminous-mass and halo velocity curves across radius."
+    }
+  },
+  {
+    "id": "three-body-problem",
+    "number": 26,
+    "domain": "sky",
+    "title": "Three bodies, one figure eight",
+    "formula": "r̈ᵢ = Gm Σⱼ≠ᵢ (rⱼ − rᵢ) / |rⱼ − rᵢ|³",
+    "originators": [
+      "isaac-newton",
+      "henri-poincare",
+      "christopher-moore",
+      "alain-chenciner",
+      "richard-montgomery",
+      "carles-simo"
+    ],
+    "year": "1687 / 1890 / 1993 / 2000",
+    "statement": "Newton's equations determine three mutual gravitational trajectories from masses and initial conditions. No general integral formula solves every three-body motion, yet special periodic solutions exist. In the equal-mass planar figure-eight choreography, each body traces the same curve at a time shift.",
+    "derivation": "For equal masses m, each body accelerates toward the other two by the inverse-square law shown above. Poincaré's nonintegrability result rules out a general integral-based solution, not individual periodic orbits. The reference initial conditions produce a periodic choreography in the normalized units G = m = 1; Julia integrates the orbit and nearby perturbed starts with fourth-order Runge–Kutta steps.",
+    "intuition": "Three bodies follow one another around a shared track. A small nudge makes the repeated dance drift away from its exact choreography.",
+    "visualType": "three-body",
+    "status": "live",
+    "slider": {
+      "key": "perturbation",
+      "label": "Initial nudge, ×10⁻³",
+      "min": 0,
+      "max": 2,
+      "step": 0.05,
+      "value": 0.8
+    },
+    "caption": "The green trace is the periodic reference orbit; coral shows a nearby start integrated by Julia. The lower trace measures their separation.",
+    "story": "I follow Newton's general problem through Poincaré's warning that it has no universal integral, then give Moore the 1993 numerical discovery and Chenciner with Montgomery the 2000 existence proof. Simó's computations made the choreography part of a much wider family.",
+    "source": "Chenciner and Montgomery, A remarkable periodic solution of the three-body problem, 2000",
+    "sources": [
+      {
+        "title": "Chenciner and Montgomery, 2000 existence proof",
+        "url": "https://arxiv.org/abs/math/0011268"
+      },
+      {
+        "title": "Kapela and Zgliczyński, computer-assisted local uniqueness",
+        "url": "https://arxiv.org/abs/math/0304404"
+      },
+      {
+        "title": "Simó, choreographies of the planar three-body problem",
+        "url": "https://www.maia.ub.es/dsg/3body.html"
+      }
+    ],
+    "machine": {
+      "title": "Figure-eight integration",
+      "path": "scripts/three_body.jl",
+      "command": "julia scripts/three_body.jl",
+      "description": "Integrate the reference choreography and five perturbed initial conditions."
+    }
+  },
+  {
+    "id": "jeans-mass",
+    "number": 27,
+    "domain": "sky",
+    "title": "The Jeans mass",
+    "formula": "M_J = (π⁵ᐟ² / 6) c_s³ / (G³ᐟ² ρ¹ᐟ²)",
+    "originators": [
+      "james-jeans"
+    ],
+    "year": "1902",
+    "statement": "For an isothermal gas with sound speed c_s and mass density ρ, the Jeans mass estimates the scale above which self-gravity can overcome pressure support and initiate collapse.",
+    "derivation": "Under this convention, the Jeans wavelength is λ_J = c_s√(π/(Gρ)). The mass inside a sphere of radius λ_J/2 is (4π/3)ρ(λ_J/2)³, yielding M_J = (π⁵ᐟ²/6)c_s³/(G³ᐟ²ρ¹ᐟ²). For molecular gas, c_s² = k_BT/(μm_H) and ρ = μm_H n.",
+    "intuition": "A warm cloud can carry pressure across a larger distance before gravity wins. A colder or denser cloud needs less mass to begin collapsing.",
+    "visualType": "jeans-mass",
+    "status": "live",
+    "controls": [
+      {
+        "key": "temperature",
+        "label": "Temperature, K",
+        "min": 5,
+        "max": 50,
+        "step": 1,
+        "value": 20
+      },
+      {
+        "key": "logDensity",
+        "label": "log₁₀ number density, cm⁻³",
+        "min": 2,
+        "max": 6,
+        "step": 0.1,
+        "value": 4
+      }
+    ],
+    "caption": "The plotted threshold uses molecular gas with mean molecular weight μ = 2.33. Move either control to change the critical mass.",
+    "story": "I keep Jeans's early instability analysis near the stellar birth cloud, where the threshold is a scale for collapse rather than a promise that every cloud will form a star.",
+    "source": "Jeans, The Stability of a Spherical Nebula, 1902",
+    "sources": [
+      {
+        "title": "Jeans, 1902, The Stability of a Spherical Nebula",
+        "url": "https://doi.org/10.1098/rsta.1902.0012"
+      },
+      {
+        "title": "Jeans collapse criterion, University of Tennessee",
+        "url": "https://csep10.phys.utk.edu/OJTA2dev/ojta/c2c/starbirth/recipe/criterion_tl.html"
+      }
+    ],
+    "machine": {
+      "title": "Jeans-mass grid",
+      "path": "scripts/jeans_mass.jl",
+      "command": "julia scripts/jeans_mass.jl",
+      "description": "Evaluate the molecular-cloud Jeans mass across temperature and density."
+    }
+  },
+  {
+    "id": "eddington-luminosity",
+    "number": 28,
+    "domain": "sky",
+    "title": "The Eddington luminosity",
+    "formula": "L_Edd = 4πGMc / κ ≈ 1.26 × 10³⁸ (M/M☉) erg s⁻¹",
+    "originators": [
+      "arthur-eddington"
+    ],
+    "year": "1926",
+    "statement": "In a spherical, ionized hydrogen atmosphere with electron-scattering opacity, the Eddington luminosity is the threshold at which outward radiation force balances inward gravity.",
+    "derivation": "At radius r, gravity supplies acceleration GM/r². Radiation of luminosity L supplies acceleration κL/(4πr²c). Equating the two gives L_Edd = 4πGMc/κ. With κ = σ_T/m_p for ionized hydrogen, this is approximately 1.26 × 10³⁸ (M/M☉) erg s⁻¹.",
+    "intuition": "Accretion feeds the object until light pushes outward as hard as gravity pulls inward. The idealized steady feed stalls at the line; real systems can exceed it through winds, geometry, or changing opacity.",
+    "visualType": "eddington",
+    "status": "live",
+    "controls": [
+      {
+        "key": "mass",
+        "label": "Object mass, M☉",
+        "min": 1,
+        "max": 100,
+        "step": 1,
+        "value": 10
+      },
+      {
+        "key": "inflow",
+        "label": "Inflow drive, L/L_Edd",
+        "min": 0,
+        "max": 1.6,
+        "step": 0.01,
+        "value": 0.65
+      }
+    ],
+    "caption": "The moving coral bead shows the imposed inflow; the gold line is the electron-scattering balance for the selected mass.",
+    "story": "I place Eddington beside the force balance that bears his name, while keeping the assumptions in view: spherical geometry and a specified opacity make the limit legible.",
+    "source": "Eddington, The Internal Constitution of the Stars, 1926",
+    "sources": [
+      {
+        "title": "Eddington, The Internal Constitution of the Stars, 1926",
+        "url": "https://ui.adsabs.harvard.edu/abs/1926MNRAS..86..320E/abstract"
+      },
+      {
+        "title": "Eddington luminosity and opacity assumptions",
+        "url": "https://www.sciencebits.com/SurpassingEddington"
+      }
+    ],
+    "machine": {
+      "title": "Eddington-limit grid",
+      "path": "scripts/eddington.jl",
+      "command": "julia scripts/eddington.jl",
+      "description": "Compute the electron-scattering luminosity ceiling for one to one hundred solar masses."
+    }
+  },
+  {
+    "id": "schechter-luminosity-function",
+    "number": 29,
+    "domain": "sky",
+    "title": "The Schechter luminosity function",
+    "formula": "φ(L)dL = φ* (L/L*)^α exp(−L/L*) dL/L*",
+    "originators": [
+      "paul-schechter"
+    ],
+    "year": "1976",
+    "statement": "The Schechter function models the number density of galaxies per luminosity interval with a faint-end power law and an exponential cutoff above a characteristic luminosity L*.",
+    "derivation": "Write x = L/L*. Then φ(L)dL = φ* xᵅ exp(−x) dx. The parameter α controls the faint-end slope, L* marks the characteristic knee, and φ* sets the number-density scale. In magnitude space, the same curve can be fitted against galaxy counts at different redshifts.",
+    "intuition": "Faint galaxies rise along a power law; exceptionally bright galaxies fall behind an exponential curtain. The knee marks the characteristic light of the population.",
+    "visualType": "schechter",
+    "status": "live",
+    "slider": {
+      "key": "alpha",
+      "label": "Faint-end slope α",
+      "min": -1.8,
+      "max": -0.4,
+      "step": 0.1,
+      "value": -1.2
+    },
+    "caption": "The horizontal axis is luminosity in units of L*. The vertical axis is normalized by φ* and shown logarithmically.",
+    "story": "I keep Paul Schechter's 1976 curve beside the galaxy counts it was built to summarize; its simple knee still gives astronomers a common language for a changing population.",
+    "source": "Schechter, An analytic expression for the luminosity function for galaxies, 1976",
+    "sources": [
+      {
+        "title": "Schechter, 1976, The Astrophysical Journal",
+        "url": "https://doi.org/10.1086/154079"
+      },
+      {
+        "title": "Galaxy luminosity functions and the Schechter form",
+        "url": "https://galaxiesbook.org/chapters/IV-02.-Extragalactic-Astronomy_2-Dark-matter-halos-and-their-galaxies.html"
+      },
+      {
+        "title": "The Hubble–Lemaître law plate",
+        "url": "index.html#hubble-lemaitre"
+      }
+    ],
+    "machine": {
+      "title": "Schechter-function curves",
+      "path": "scripts/schechter.jl",
+      "command": "julia scripts/schechter.jl",
+      "description": "Compute luminosity-function curves over faint-end slopes and luminosities."
+    }
+  },
+  {
+    "id": "rubiks-cube-group",
+    "number": 30,
+    "domain": "structure",
+    "title": "The Rubik's cube group",
+    "formula": "G = ⟨U, D, L, R, F, B⟩; |G| = 8!·3⁷·12!·2¹¹/2 = 43,252,003,274,489,856,000",
+    "originators": [
+      "erno-rubik",
+      "morwen-thistlethwaite",
+      "michael-reid",
+      "gene-cooperman",
+      "daniel-kunkle",
+      "tomas-rokicki",
+      "john-welborn",
+      "herbert-kociemba",
+      "morley-davidson",
+      "john-dethridge"
+    ],
+    "year": "1974–2010",
+    "statement": "The fixed-center 3×3×3 cube's reachable positions form a finite group under the six legal quarter-turn generators U, D, L, R, F, and B. In the half-turn metric, the group's Cayley graph has diameter 20.",
+    "derivation": "The six face quarter-turns generate every legal position; inverses are their third powers. Corner permutation and twist contribute 8!·3⁷ choices, while edge permutation and flip contribute 12!·2¹¹. Corner twists sum to 0 modulo 3, edge flips sum to 0 modulo 2, and corner and edge permutation parities must agree, supplying the final factor 1/2. Thus |G| = (8!·3⁷·12!·2¹¹)/2 = 43,252,003,274,489,856,000. Thistlethwaite’s chain is G₀ = ⟨U,D,L,R,F,B⟩, G₁ = ⟨U,D,L,R,F²,B²⟩, G₂ = ⟨U,D,L²,R²,F²,B²⟩, G₃ = ⟨U²,D²,L²,R²,F²,B²⟩, and G₄ = {e}; each stage restricts the available generators until only the identity remains. In the half-turn metric, each face quarter-turn, half-turn, or inverse quarter-turn costs one move. The superflip has distance 20, while the exhaustive proof shows every legal position lies within 20 turns of solved.",
+    "intuition": "Each legal position is a vertex in a vast landscape; a face turn is an edge, and an algorithm is a path home. God's number is the graph's diameter, the length of its longest shortest path.",
+    "visualType": "rubik-cayley",
+    "status": "live",
+    "slider": {
+      "key": "layer",
+      "label": "Subgroup layer, G₀ to G₄",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "value": 0
+    },
+    "caption": "Schematic subgroup rings, not a scale drawing: positions are vertices, turns are edges, algorithms are paths, and God’s number is the Cayley graph’s diameter.",
+    "story": "I credit Ernő Rubik with the 1974 mechanism and Morwen Thistlethwaite with staged subgroup reductions. Kunkle and Cooperman proved 26 turns sufficed in 2007; Rokicki and Welborn reduced the bound to 23 and then 22. The exact 20-turn diameter was proved in 2010 by Rokicki, Kociemba, Davidson, and Dethridge. These are distinct milestones, not one computer run by the same four people.",
+    "source": "Rokicki, Kociemba, Davidson, and Dethridge, The diameter of the Rubik's Cube group is twenty, 2013",
+    "sources": [
+      {
+        "title": "The diameter proof and its historical milestones",
+        "url": "https://www.cube20.org/"
+      },
+      {
+        "title": "Rokicki et al., SIAM Journal on Discrete Mathematics",
+        "url": "https://doi.org/10.1137/120867366"
+      }
+    ],
+    "machine": {
+      "title": "Reachable cube group order",
+      "path": "scripts/rubik_group_order.jl",
+      "command": "julia scripts/rubik_group_order.jl",
+      "description": "Recompute the fixed-center position count from corner and edge constraints."
+    }
   }
 ]

@@ -9,6 +9,7 @@ package schemas
   millennium: bool
   summary:   string
   source:    =~"^https?://"
+  sources?:  [...#Source]
   kind?:     "world" | "codex"
   label?:    string
   statement?: string

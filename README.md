@@ -1,29 +1,30 @@
-# Codex naturalis
+# Codex Naturalis
 
-Galileo said the book of nature is written in mathematics; Codex Naturalis is a living copy of that book. the earth, the galaxies, the living world, and the invisible one, set down as twenty-four living formulas; each one moves on screen, each one keeps the name of the human who first saw it, and the contested histories get told honestly.
+Galileo wrote that the book of nature is written in mathematics. Codex Naturalis is a living copy of that book, with thirty interactive plates spanning the sky, the earth, the living world, the invisible, and mathematical structure. Every entry keeps its rigorous statement, a reading of its intuition, source links, and the people who shaped it.
 
-The rigorous statement for mathematicians, and the intuition for everyone else who wants to see the world through mathematics. julia computes the numbers the pages render, cue holds the data against its schemas, a rust referee guards the arena on every pull request, and the site itself stays zero-dependency and static, because a book should open instantly.
+The site is static, dependency-free, and built from typed data. Julia computes the fields shown in the plates, Cue holds the data to its schemas, and a small Rust referee guards the public arena ledger.
 
 ## The pages
 
-- **The book** lives at `site/index.html`; twenty-four entries from the sky to the earth, the living, the invisible, and the structure
-- **The arena** lives at `site/problems.html`; open problems, a public ledger, and a status ladder that keep trying visible without pretending an attempt is a proof
-- **The hall** lives at `site/humans.html`; originator cards filterable by era and region, with a chronological line from Babylon to now
-- **The toys** live at `site/toys.html`; Buffon, Galton, the chaos game, and Hilbert's hotel, each linked back to an entry
-- **The closed pages** live at `site/solved.html`; twelve resolved problems with solver names, dates, sources, and honest verification notes
+- **The book** lives at `site/index.html`; thirty plates, grouped into five domains.
+- **The solving desk** lives at `site/solve.html`; a die or a legal Rubik's-cube scramble selects from every problem marked open. Direct links use `solve.html?problem=problem-id`.
+- **The arena** lives at `site/problems.html`; open questions, seven house challenges, named attempts, and the verification ladder.
+- **The hall** lives at `site/humans.html`; originator cards filter by era and region, with a chronological line from Babylon to the present.
+- **The toys** live at `site/toys.html`; Buffon, Galton, the chaos game, and Hilbert's hotel, each linked back to a plate.
+- **The closed pages** live at `site/solved.html`; twelve resolved problems with solver names, dates, sources, and verification notes.
 
-The book is one long calm page; every entry has a deep-linkable anchor. the first slice is euler's identity, phyllotaxis, and the lorenz attractor; the other twenty-one entries already have plates, sources, statements, intuitions, sliders, and a place in the sequence.
+Each book entry has a deep-linkable anchor. The visual plates include Euler's identity, phyllotaxis, the Lorenz attractor, galaxy rotation curves, the three-body figure eight, the Jeans mass, the Eddington luminosity, the Schechter luminosity function, and the Rubik's-cube group. Small native canvas and HTML toys use no external runtime or fetched assets.
 
 ## The machinery
 
-| language | place | what it does |
+| Language | Place | Purpose |
 | --- | --- | --- |
-| cue | `schemas/`, `data/` | holds the shapes of entries, problems, attempts, and closed pages; typed and honest |
-| julia | `scripts/` | computes the phyllotaxis points and the lorenz trajectory the pages render |
-| rust | `referee/` | guards the arena ledger and the problem list with one small binary and no crates |
-| html, css, js | `site/` | renders the static book, toy shelf, and public ledgers with no framework, runtime dependency, or cdn fetches |
+| Cue | `schemas/`, `data/` | Defines the shapes of entries, problems, attempts, the solving desk, and closed pages. |
+| Julia | `scripts/` | Computes phyllotaxis and Lorenz fields, galaxy rotation curves, the perturbed three-body trajectories, the Jeans grid, Eddington luminosities, and Schechter curves. |
+| Rust | `referee/` | Checks the arena ledger, open-problem desk map, computed data, and published solution files without external crates. |
+| HTML, CSS, JavaScript | `site/` | Renders the static book, solving desk, toy shelf, and public ledgers without a framework or CDN fetch. |
 
-The generated json is committed under `site/data/` because the deployed site is static; source data in `data/` is the content layer, and `make compute` copies it, writes the computed fields, and stages solution files under `site/solutions/`.
+The generated JSON is committed under `site/data/` because deployment is static. Source data in `data/` is the content layer; `make compute` copies it, runs the Julia machines or a Python fallback, and stages scripts and solutions under `site/`.
 
 ## Run it
 
@@ -33,25 +34,25 @@ make check
 make serve
 ```
 
-`make compute` runs julia when julia is installed; a small python fallback keeps the build reproducible in a clean environment, and the julia scripts stay the technical source of the computed numbers. `make check` compiles the rust referee when `rustc` is available, and falls back to the same schema checks in python otherwise. the static output is `site/`, and that is what vercel deploys directly; `vercel.json` keeps the output directory explicit.
+`make compute` runs Julia when it is installed. A small Python fallback keeps the build reproducible in a clean environment, while the Julia scripts remain the computational source. `make check` compiles the Rust referee when `rustc` is available and otherwise runs equivalent Python checks. The static output is `site/`, which is the deployment directory in `vercel.json`.
 
 ## The arena
 
-The arena opens seeded with the millennium problems and a field-spread of open questions; riemann, p versus np, navier-stokes existence, birch and swinnerton-dyer, hodge, yang-mills mass gap, collatz, goldbach, twin primes, and more. the ladder is meant to grow toward two hundred entries, one problem per pull request, with a source attached.
+The arena opens with millennium problems, a field-spread of world questions, and seven house challenges. C6 asks for the total-variation horizon of a lazy Rubik's-cube walk. C7 asks for global uniqueness of the equal-mass figure-eight minimizer within a stated symmetry class. Every house problem follows the existing retirement rule: if prior work solved it, the source is recorded and the challenge retires with honors.
 
-An attempt records a name, a date, a problem id, a link, a claim, and a status. the status moves attempted → under review → verified, or withdrawn. anyone who tries gets listed; a solution earns the word verified only on a published peer-reviewed result or a checked formal proof. Proofs live as Markdown under `solutions/{problem-id}/`; computational witnesses are one Julia or Rust file with the exact rerun command and recorded output. The Rust referee checks each ledger row and every referenced file before a pull request can pass.
+The solving desk is static. Its form composes a GitHub issue with the contributor's name, date, problem id, one-line claim, and work link; the site does not receive submissions. An attempt appears in the ledger only after its ledger pull request is reviewed and merged. The status ladder is Attempted, Under review, Verified, or Withdrawn. Verification requires a published peer-reviewed result or a checked formal proof. Proofs live as Markdown under `solutions/{problem-id}/`; computational witnesses are one Julia or Rust file with an exact rerun command and recorded output.
 
 ## The margin
 
-This margin is no longer too small. a short note can bring an alternative proof, an insight, a correction, or a connection. notes arrive by pull request, keep the author's name and date, and get curated into an entry. one visualization per pull request keeps the ladder climbable.
+The margin welcomes an alternative proof, an insight, a correction, or a connection. Notes arrive by pull request, keep the author's name and date, and are curated into an entry. One visualization per pull request keeps the ladder climbable.
 
 ## The attribution creed
 
-Contested histories get named as contested, and every originator gets praised where the mathematics has multiple roots; the indian and arabic mathematics carried through fibonacci, the babylonian and chinese precedents of the pythagorean theorem, lemaître beside hubble, faraday beside maxwell, weinberg beside hardy, and price beside bayes. the mac-tutor history of mathematics archive at st andrews is the citation backbone, with primary and problem sources attached in the data.
+Contested histories are named as contested, and every originator is credited where the mathematics has multiple roots. The book pairs Indian and Arabic arithmetic with Fibonacci, Babylonian and Chinese precedents with the Pythagorean theorem, Lemaître with Hubble, Faraday with Maxwell, and Price with Bayes. The MacTutor History of Mathematics archive at St Andrews anchors the historical record, with primary research and problem sources attached in the data.
 
 ## Sister machines
 
-The machines link where the mathematics is shared; `tide.jl` runs laplace's tides, `night.jl` runs kepler's sky, and `lumen.rs` keeps the color science honest. the book's take it home control copies a one-file implementation for a small experiment in julia or rust.
+The machines link where the mathematics is shared: `tide.jl` runs Laplace's tides, `night.jl` runs Kepler's sky, and `lumen.rs` keeps color science honest. The book's take-home control copies the exact rerun command for each new Julia machine.
 
 ## The quiet rule
 

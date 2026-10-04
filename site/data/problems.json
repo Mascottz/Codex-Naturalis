@@ -7,7 +7,8 @@
     "status": "open",
     "millennium": true,
     "summary": "Does every nontrivial zero of the zeta function have real part one half.",
-    "source": "https://www.claymath.org/millennium-problems/riemann-hypothesis/"
+    "source": "https://www.claymath.org/millennium-problems/riemann-hypothesis/",
+    "statement": "For the analytically continued Riemann zeta function ζ(s), prove or disprove that every nontrivial zero has real part 1/2."
   },
   {
     "id": "p-vs-np",
@@ -17,7 +18,8 @@
     "status": "open",
     "millennium": true,
     "summary": "Can every problem whose answer is checked quickly also be solved quickly.",
-    "source": "https://www.claymath.org/millennium-problems/p-vs-np-problem/"
+    "source": "https://www.claymath.org/millennium-problems/p-vs-np-problem/",
+    "statement": "Does every decision problem whose proposed solutions can be verified in polynomial time by a deterministic Turing machine also admit a deterministic polynomial-time algorithm; equivalently, is P = NP?"
   },
   {
     "id": "navier-stokes-existence",
@@ -27,7 +29,8 @@
     "status": "open",
     "millennium": true,
     "summary": "Does smooth three-dimensional fluid data stay smooth for all time.",
-    "source": "https://www.claymath.org/millennium-problems/navier-stokes-existence-and-smoothness/"
+    "source": "https://www.claymath.org/millennium-problems/navier-stokes-existence-and-smoothness/",
+    "statement": "For smooth, divergence-free initial velocity with finite energy in three dimensions, do the incompressible Navier–Stokes equations always have a global smooth solution, or can a finite-time singularity form?"
   },
   {
     "id": "birch-swinnerton-dyer",
@@ -37,7 +40,8 @@
     "status": "open",
     "millennium": true,
     "summary": "Do the rational points on an elliptic curve match the vanishing of its L-function at one.",
-    "source": "https://www.claymath.org/millennium-problems/birch-and-swinnerton-dyer-conjecture/"
+    "source": "https://www.claymath.org/millennium-problems/birch-and-swinnerton-dyer-conjecture/",
+    "statement": "For every elliptic curve E over the rational numbers, is the rank of E(Q) equal to the order of vanishing of its Hasse–Weil L-function L(E,s) at s = 1?"
   },
   {
     "id": "hodge-conjecture",
@@ -47,7 +51,8 @@
     "status": "open",
     "millennium": true,
     "summary": "Which cohomology classes on a projective algebraic variety come from algebraic cycles.",
-    "source": "https://www.claymath.org/millennium-problems/hodge-conjecture/"
+    "source": "https://www.claymath.org/millennium-problems/hodge-conjecture/",
+    "statement": "For every smooth projective complex variety, is each rational cohomology class of type (p,p) a rational linear combination of classes of algebraic cycles?"
   },
   {
     "id": "yang-mills-mass-gap",
@@ -57,7 +62,8 @@
     "status": "open",
     "millennium": true,
     "summary": "Does a mathematically complete quantum Yang-Mills theory exist with a positive mass gap.",
-    "source": "https://www.claymath.org/millennium-problems/yang-mills-and-the-mass-gap/"
+    "source": "https://www.claymath.org/millennium-problems/yang-mills-and-the-mass-gap/",
+    "statement": "For every compact simple gauge group, construct a nontrivial quantum Yang–Mills theory on four-dimensional spacetime satisfying the accepted axioms and prove that its spectrum has a positive mass gap."
   },
   {
     "id": "poincare-conjecture",
@@ -77,7 +83,8 @@
     "status": "open",
     "millennium": false,
     "summary": "Does every positive integer reach one under halving and 3n plus 1.",
-    "source": "https://oeis.org/A006577"
+    "source": "https://oeis.org/A006577",
+    "statement": "Starting from any positive integer n, repeatedly replace an even value by n/2 and an odd value by 3n+1. Must the sequence reach 1?"
   },
   {
     "id": "goldbach-conjecture",
@@ -87,7 +94,8 @@
     "status": "open",
     "millennium": false,
     "summary": "Is every even integer greater than two a sum of two primes.",
-    "source": "https://mathworld.wolfram.com/GoldbachConjecture.html"
+    "source": "https://mathworld.wolfram.com/GoldbachConjecture.html",
+    "statement": "Is every even integer greater than 2 expressible as the sum of two prime numbers?"
   },
   {
     "id": "twin-prime-conjecture",
@@ -97,7 +105,8 @@
     "status": "open",
     "millennium": false,
     "summary": "Are there infinitely many prime pairs that differ by two.",
-    "source": "https://mathworld.wolfram.com/TwinPrimeConjecture.html"
+    "source": "https://mathworld.wolfram.com/TwinPrimeConjecture.html",
+    "statement": "Are there infinitely many primes p for which p+2 is also prime?"
   },
   {
     "id": "abc-conjecture",
@@ -117,7 +126,8 @@
     "status": "open",
     "millennium": false,
     "summary": "Can a rectangular box have integer edges, face diagonals, and space diagonal.",
-    "source": "https://mathworld.wolfram.com/PerfectCuboid.html"
+    "source": "https://mathworld.wolfram.com/PerfectCuboid.html",
+    "statement": "Do positive integers a, b, and c exist such that a, b, c, √(a²+b²), √(a²+c²), √(b²+c²), and √(a²+b²+c²) are all integers?"
   },
   {
     "id": "hadwiger-conjecture",
@@ -127,7 +137,8 @@
     "status": "open",
     "millennium": false,
     "summary": "Does every graph of chromatic number k contain a complete minor of order k.",
-    "source": "https://mathworld.wolfram.com/HadwigersConjecture.html"
+    "source": "https://mathworld.wolfram.com/HadwigersConjecture.html",
+    "statement": "For every finite graph G of chromatic number k, does G contain the complete graph K_k as a minor?"
   },
   {
     "id": "exponential-diacophantine",
@@ -137,7 +148,8 @@
     "status": "open",
     "millennium": false,
     "summary": "Is 4 divided by n always a sum of three positive unit fractions for n greater than one.",
-    "source": "https://mathworld.wolfram.com/Erdos-StrausConjecture.html"
+    "source": "https://mathworld.wolfram.com/Erdos-StrausConjecture.html",
+    "statement": "For every integer n greater than 1, do positive integers x, y, z exist with 4/n = 1/x + 1/y + 1/z?"
   },
   {
     "id": "syracuse-regularity",
@@ -147,7 +159,8 @@
     "status": "open",
     "millennium": false,
     "summary": "Is there a structure theorem behind the map that keeps returning to one.",
-    "source": "https://oeis.org/A006577"
+    "source": "https://oeis.org/A006577",
+    "statement": "For the map T(n)=n/2 when n is even and T(n)=(3n+1)/2 when n is odd, can the orbit structure of every positive integer be proved to enter the cycle 1→2→1?"
   },
   {
     "id": "infinitely-many-perfect-numbers",
@@ -157,7 +170,8 @@
     "status": "open",
     "millennium": false,
     "summary": "Are there infinitely many numbers equal to the sum of their proper divisors.",
-    "source": "https://mathworld.wolfram.com/PerfectNumber.html"
+    "source": "https://mathworld.wolfram.com/PerfectNumber.html",
+    "statement": "Are there infinitely many even perfect numbers; equivalently, are there infinitely many primes p for which 2^p−1 is prime?"
   },
   {
     "id": "einstein-manifolds",
@@ -167,7 +181,8 @@
     "status": "open",
     "millennium": false,
     "summary": "Which smooth manifolds carry a metric whose Ricci curvature is a constant multiple of the metric.",
-    "source": "https://www.ams.org/notices/200308/fea-yau.pdf"
+    "source": "https://www.ams.org/notices/200308/fea-yau.pdf",
+    "statement": "Which smooth compact manifolds admit a Riemannian metric whose Ricci tensor is a constant multiple of the metric, and what geometric obstructions characterize existence?"
   },
   {
     "id": "unit-distance-graph",
@@ -177,7 +192,8 @@
     "status": "open",
     "millennium": false,
     "summary": "How many colors are needed so that points one unit apart never share a color.",
-    "source": "https://mathworld.wolfram.com/ChromaticNumberofthePlane.html"
+    "source": "https://mathworld.wolfram.com/ChromaticNumberofthePlane.html",
+    "statement": "What is the chromatic number of the Euclidean plane when every pair of points at distance exactly one must receive different colors?"
   },
   {
     "id": "c1-crooked-needle",
@@ -205,7 +221,7 @@
     "millennium": false,
     "problemType": "Proof with computational witness",
     "summary": "Which Galton-board peg-removal patterns give exactly equal probability to every final bin?",
-    "statement": "For each n ≥ 1, take n rows of a triangular Galton board, with states j = 0,…,r at row r = 0,…,n−1. A bead enters above row 0 at state j = 0. At site (r,j), an intact peg sends it to states j and j+1 with probability 1/2 each, independently; a removed peg sends it vertically to state j with probability 1. Classify every subset of removed sites for which the n+1 final-bin probabilities are exactly 1/(n+1), determine all n for which such a pattern exists, and prove the classification.",
+    "statement": "Which Galton-board peg-removal patterns give exactly equal probability to every final bin?",
     "approach": "Track each row as an exact rational distribution; a Julia search over every removal mask gives a small-n witness, while a proof must explain all n.",
     "source": "https://github.com/Mascottz/codex-naturalis/blob/main/data/problems.json"
   },
@@ -220,7 +236,7 @@
     "millennium": false,
     "problemType": "Proof or verified computation",
     "summary": "What fraction of the identity sandpile on a 2n × 2n grid has height exactly two as n grows?",
-    "statement": "Let Gₙ be the 2n × 2n square grid with open boundary, where each missing boundary edge leads to a sink, and let eₙ be the identity recurrent stable configuration of its abelian sandpile group, with heights 0, 1, 2, or 3. Define f(n) as the number of sites v with eₙ(v) = 2 divided by 4n². Prove that f(n) converges and find the limit, or give a rigorous numerical value to six digits with an explicit error bound.",
+    "statement": "What fraction of the identity sandpile on a 2n × 2n grid has height exactly two as n grows?",
     "approach": "Use the burning test and the identity's recurrent structure, then compare exact finite grids with a provable finite-size bound.",
     "source": "https://github.com/Mascottz/codex-naturalis/blob/main/data/problems.json"
   },
@@ -235,7 +251,7 @@
     "millennium": false,
     "problemType": "Verified computation",
     "summary": "At what first ρ does the Lorenz return map acquire a primitive orbit of period three?",
-    "statement": "For the Lorenz system with σ = 10 and β = 8/3, let Σ = {(x,y,z) : x = 0, y > 0}, with the crossing direction fixed by ẋ > 0, and let Pρ be the first-return map on Σ. For ρ > 1, find the smallest ρ for which Pρ has a primitive period-three orbit, to six digits, and provide a verified enclosure of its three section points and connecting flow. Interval arithmetic or an equivalent proof-producing method must make the result rerunnable.",
+    "statement": "At what first ρ does the Lorenz return map acquire a primitive orbit of period three?",
     "approach": "Locate a primitive fixed point of Pρ³, then enclose all three section points and the intervening flow with interval arithmetic.",
     "source": "https://github.com/Mascottz/codex-naturalis/blob/main/data/problems.json"
   },
@@ -250,8 +266,125 @@
     "millennium": false,
     "problemType": "Proof or exhaustive search with proof of exhaustiveness",
     "summary": "Can three fair six-sided dice form a non-transitive cycle with each win probability exactly two thirds?",
-    "statement": "The cycle requires three fair six-sided dice A, B, and C. Each die has six pairwise-distinct positive integer faces; a face value may appear on a different die, and ties count as no win. Does a choice exist for which P(A > B) = P(B > C) = P(C > A) = 2/3? Give explicit face sets with the exact 36-pair counts, or prove that no such triple exists.",
+    "statement": "Can three fair six-sided dice form a non-transitive cycle with each win probability exactly two thirds?",
     "approach": "Write each pairwise win count as an integer out of 36, use the required two-thirds count to constrain the face orderings, and make an exhaustive search independently checkable.",
     "source": "https://github.com/Mascottz/codex-naturalis/blob/main/data/problems.json"
+  },
+  {
+    "id": "hubble-tension",
+    "number": 24,
+    "title": "The Hubble tension",
+    "field": "cosmology",
+    "status": "open",
+    "millennium": false,
+    "summary": "Is the early–late disagreement in H₀ new physics, a systematic error, or a statistical fluctuation?",
+    "statement": "Determine whether the disagreement between the local distance-ladder value of H₀ and the value inferred from the cosmic microwave background under ΛCDM is caused by new physics, unrecognized systematics, or statistical fluctuation. Give a quantitative account that identifies which observations or calibrations distinguish the possibilities.",
+    "source": "https://arxiv.org/abs/2112.04510",
+    "sources": [
+      {
+        "title": "SH0ES, 2022 local distance-ladder measurement",
+        "url": "https://arxiv.org/abs/2112.04510"
+      },
+      {
+        "title": "Planck Collaboration, 2018 cosmological parameters",
+        "url": "https://arxiv.org/abs/1807.06209"
+      }
+    ]
+  },
+  {
+    "id": "solar-system-stability",
+    "number": 25,
+    "title": "Five billion years of solar-system stability",
+    "field": "celestial mechanics",
+    "status": "open",
+    "millennium": false,
+    "summary": "Can the probability of planetary instability over five billion years be bounded beyond current numerical ensembles?",
+    "statement": "For an ensemble of initial conditions consistent with present orbital measurements, determine a controlled probability or rigorous interval for a terrestrial-planet collision, ejection, or clearly specified instability within the next five billion years. Include the Moon and general-relativistic corrections, and quantify how observational covariance and model choices change the result.",
+    "source": "https://www.nature.com/articles/nature08096",
+    "sources": [
+      {
+        "title": "Laskar and Gastineau, five-gigayear integrations, Nature 2009",
+        "url": "https://www.nature.com/articles/nature08096"
+      },
+      {
+        "title": "Laskar and Gastineau, study summary and reported ensemble",
+        "url": "https://perso.imcce.fr/jacques-laskar/obs-press-colli/colli.en.shtml"
+      }
+    ]
+  },
+  {
+    "id": "dark-halo-cusp-core",
+    "number": 26,
+    "title": "The dark-halo cusp–core problem",
+    "field": "galactic astrophysics",
+    "status": "open",
+    "millennium": false,
+    "summary": "Can a single, observationally consistent model explain the diversity of inner dark-matter density profiles?",
+    "statement": "Determine whether collisionless ΛCDM together with baryonic feedback can reproduce the observed range of inner density profiles in dwarf and low-surface-brightness galaxies, including their rotation curves, without conflicting with independent constraints. If it cannot, identify which additional dark-matter or gravitational ingredient is required and quantify the evidence against observational systematics.",
+    "source": "https://arxiv.org/abs/0910.3538",
+    "sources": [
+      {
+        "title": "de Blok, The Core-Cusp Problem, 2010",
+        "url": "https://arxiv.org/abs/0910.3538"
+      },
+      {
+        "title": "Bullock and Boylan-Kolchin, Small-Scale Challenges to ΛCDM, 2017",
+        "url": "https://arxiv.org/abs/1707.04256"
+      }
+    ]
+  },
+  {
+    "id": "c6-lazy-cube-scrambler",
+    "number": 27,
+    "title": "The lazy scrambler's horizon",
+    "field": "probability and group theory",
+    "status": "open",
+    "millennium": false,
+    "summary": "How many lazy random turns bring a solved cube within total-variation distance 1/4 of uniform?",
+    "source": "https://arxiv.org/abs/2410.20630",
+    "kind": "codex",
+    "label": "C6",
+    "problemType": "Finite-group random walk and probability",
+    "statement": "Start at the solved fixed-center 3×3×3 cube. At each step, stay put with probability 1/2; otherwise choose uniformly one of the 18 face turns U, U², U′, …, B′. Determine the least n for which the distribution of cube positions is within total-variation distance 1/4 of uniform, or prove the tightest possible lower and upper bounds. The arena's retirement-with-honors rule applies if this exact lazy walk was resolved earlier.",
+    "approach": "Use cube symmetries, spectral bounds, coupling, or certified computation. Distinguish this lazy chain from the independent-turn walk in the cited lower-bound paper; if an earlier result already settles the exact chain, record its source and retire C6 with honors.",
+    "sources": [
+      {
+        "title": "Qu, Rokicki, and Yang, Rubik's Cube Scrambling Requires at Least 26 Random Moves",
+        "url": "https://arxiv.org/abs/2410.20630"
+      },
+      {
+        "title": "Cube group, generators, and God's-number history",
+        "url": "https://www.cube20.org/"
+      }
+    ]
+  },
+  {
+    "id": "c7-figure-eight-uniqueness",
+    "number": 28,
+    "title": "Uniqueness of the figure-eight choreography",
+    "field": "celestial mechanics and dynamical systems",
+    "status": "open",
+    "millennium": false,
+    "summary": "Is the equal-mass figure eight the unique global minimizer in its symmetry class, up to the natural symmetries?",
+    "source": "https://arxiv.org/abs/math/0011268",
+    "kind": "codex",
+    "label": "C7",
+    "problemType": "Variational dynamics and periodic-orbit uniqueness",
+    "statement": "In the planar Newtonian three-body problem with equal masses and center of mass fixed at zero, normalize the total mass and period and impose the reflection and choreography symmetries used to construct the figure-eight orbit. Determine whether the Chenciner–Montgomery orbit is the unique global minimizer of the Newtonian action in this class, modulo rotation, time shift, and relabeling. Prove uniqueness or exhibit a distinct minimizer.",
+    "approach": "The existence proof and a computer-assisted local-uniqueness theorem do not classify every global minimizer. Establish global bounds in the stated symmetry class or construct a second admissible orbit with a verified action comparison.",
+    "sources": [
+      {
+        "title": "Chenciner and Montgomery, 2000 existence proof",
+        "url": "https://arxiv.org/abs/math/0011268"
+      },
+      {
+        "title": "Kapela and Zgliczyński, computer-assisted local uniqueness",
+        "url": "https://arxiv.org/abs/math/0304404"
+      },
+      {
+        "title": "Simó, choreographies of the planar three-body problem",
+        "url": "https://www.maia.ub.es/dsg/3body.html"
+      }
+    ]
   }
 ]

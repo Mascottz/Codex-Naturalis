@@ -45,7 +45,8 @@
     "role": "natural philosopher",
     "note": "I put Newton's law beside Kepler's ellipses because his synthesis made the sky answer to the same gravity as the earth.",
     "entryIds": [
-      "newton-kepler"
+      "newton-kepler",
+      "three-body-problem"
     ]
   },
   {
@@ -247,6 +248,18 @@
     ]
   },
   {
+    "id": "henri-poincare",
+    "name": "Henri Poincaré",
+    "era": "modern",
+    "region": "france",
+    "years": "1854–1912",
+    "role": "mathematician and physicist",
+    "note": "I place Poincaré at the point where celestial mechanics met a limit: his nonintegrability result forbids a general integral, not the special periodic dances found later.",
+    "entryIds": [
+      "three-body-problem"
+    ]
+  },
+  {
     "id": "max-planck",
     "name": "Max Planck",
     "era": "modern",
@@ -321,6 +334,18 @@
     ]
   },
   {
+    "id": "james-jeans",
+    "name": "James Jeans",
+    "era": "modern",
+    "region": "england",
+    "years": "1877–1946",
+    "role": "physicist, astronomer, and mathematician",
+    "note": "I keep Jeans's stability criterion near the cold cloud, where the contest between sound-crossing time and gravitational collapse becomes a mass scale.",
+    "entryIds": [
+      "jeans-mass"
+    ]
+  },
+  {
     "id": "alfred-lotka",
     "name": "Alfred Lotka",
     "era": "modern",
@@ -330,6 +355,18 @@
     "note": "I put Lotka in the predator-prey rhythm because he saw a mathematical ecology in chemistry's changing concentrations.",
     "entryIds": [
       "lotka-volterra"
+    ]
+  },
+  {
+    "id": "arthur-eddington",
+    "name": "Arthur Eddington",
+    "era": "modern",
+    "region": "england",
+    "years": "1882–1944",
+    "role": "astronomer and physicist",
+    "note": "I place Eddington at the balance between radiation and gravity, while leaving the assumptions about opacity visible on the page.",
+    "entryIds": [
+      "eddington-luminosity"
     ]
   },
   {
@@ -378,6 +415,18 @@
     "note": "I put Lemaître beside the expanding universe because his 1927 derivation deserves to be read before the name the world learned later.",
     "entryIds": [
       "hubble-lemaitre"
+    ]
+  },
+  {
+    "id": "fritz-zwicky",
+    "name": "Fritz Zwicky",
+    "era": "modern",
+    "region": "switzerland and united states",
+    "years": "1898–1974",
+    "role": "astronomer and physicist",
+    "note": "I keep Zwicky's 1933 Coma-cluster discrepancy beside the later rotation curves because unseen mass entered astronomy before the spiral galaxies made the case vivid.",
+    "entryIds": [
+      "galaxy-rotation-curves"
     ]
   },
   {
@@ -466,6 +515,18 @@
     ]
   },
   {
+    "id": "vera-rubin",
+    "name": "Vera Rubin",
+    "era": "modern",
+    "region": "united states",
+    "years": "1928–2016",
+    "role": "astronomer",
+    "note": "I place Rubin's careful galaxy rotations in the center of the dark-matter story; the Nobel Prize did not follow the work that changed the field.",
+    "entryIds": [
+      "galaxy-rotation-curves"
+    ]
+  },
+  {
     "id": "wolfgang-haken",
     "name": "Wolfgang Haken",
     "era": "modern",
@@ -517,6 +578,30 @@
     ]
   },
   {
+    "id": "alain-chenciner",
+    "name": "Alain Chenciner",
+    "era": "modern",
+    "region": "france",
+    "years": "1943–present",
+    "role": "mathematician",
+    "note": "I put Chenciner with Montgomery because their variational proof turned a remarkable numerical orbit into an established periodic solution.",
+    "entryIds": [
+      "three-body-problem"
+    ]
+  },
+  {
+    "id": "erno-rubik",
+    "name": "Ernő Rubik",
+    "era": "modern",
+    "region": "hungary",
+    "years": "1944–present",
+    "role": "architect and inventor",
+    "note": "I put Rubik in the hall as a designer whose spatial puzzle became a finite group with a precise, reachable state space.",
+    "entryIds": [
+      "rubiks-cube-group"
+    ]
+  },
+  {
     "id": "pierre-deligne",
     "name": "Pierre Deligne",
     "era": "modern",
@@ -530,6 +615,30 @@
     ]
   },
   {
+    "id": "carles-simo",
+    "name": "Carles Simó",
+    "era": "modern",
+    "region": "catalonia",
+    "years": "1946–present",
+    "role": "mathematician",
+    "note": "I place Simó's numerical work near the wider choreography families, where one elegant orbit opens into a much larger catalogue.",
+    "entryIds": [
+      "three-body-problem"
+    ]
+  },
+  {
+    "id": "paul-schechter",
+    "name": "Paul Schechter",
+    "era": "modern",
+    "region": "united states",
+    "years": "1948–present",
+    "role": "astronomer",
+    "note": "I keep Schechter's 1976 function beside galaxy counts because its faint-end rise and bright-end cutoff remain a useful shared description.",
+    "entryIds": [
+      "schechter-luminosity-function"
+    ]
+  },
+  {
     "id": "andrew-wiles",
     "name": "Andrew Wiles",
     "era": "modern",
@@ -540,6 +649,18 @@
     "entryIds": [],
     "solvedIds": [
       "fermat-last-theorem"
+    ]
+  },
+  {
+    "id": "richard-montgomery",
+    "name": "Richard Montgomery",
+    "era": "modern",
+    "region": "united states",
+    "years": "1953–present",
+    "role": "mathematician",
+    "note": "I keep Montgomery beside the figure eight's existence proof and the geometry of its choreography, rather than letting the numerical discovery stand alone.",
+    "entryIds": [
+      "three-body-problem"
     ]
   },
   {
@@ -592,6 +713,138 @@
     "entryIds": [],
     "solvedIds": [
       "weak-goldbach"
+    ]
+  },
+  {
+    "id": "christopher-moore",
+    "name": "Christopher Moore",
+    "era": "modern",
+    "region": "united states",
+    "years": "active",
+    "role": "physicist",
+    "note": "I credit Moore's numerical search with finding the equal-mass figure eight in 1993, before its existence was proved variationally.",
+    "entryIds": [
+      "three-body-problem"
+    ]
+  },
+  {
+    "id": "daniel-kunkle",
+    "name": "Daniel Kunkle",
+    "era": "modern",
+    "region": "united states",
+    "years": "active",
+    "role": "computer scientist",
+    "note": "I credit Kunkle and Cooperman for proving that 26 turns suffice in 2007, a distinct step before the exact diameter was known.",
+    "entryIds": [
+      "rubiks-cube-group"
+    ]
+  },
+  {
+    "id": "gene-cooperman",
+    "name": "Gene Cooperman",
+    "era": "modern",
+    "region": "united states",
+    "years": "active",
+    "role": "computer scientist",
+    "note": "I place Cooperman with Kunkle at the 26-move milestone, where search and computation first brought the upper bound close to twenty.",
+    "entryIds": [
+      "rubiks-cube-group"
+    ]
+  },
+  {
+    "id": "herbert-kociemba",
+    "name": "Herbert Kociemba",
+    "era": "modern",
+    "region": "germany",
+    "years": "active",
+    "role": "mathematician and cubing researcher",
+    "note": "I name Kociemba in the four-author proof of the exact diameter, with Rokicki, Davidson, and Dethridge.",
+    "entryIds": [
+      "rubiks-cube-group"
+    ]
+  },
+  {
+    "id": "john-dethridge",
+    "name": "John Dethridge",
+    "era": "modern",
+    "region": "australia",
+    "years": "active",
+    "role": "computer scientist",
+    "note": "I place Dethridge among the four authors who proved that every legal cube position lies within twenty face turns of solved.",
+    "entryIds": [
+      "rubiks-cube-group"
+    ]
+  },
+  {
+    "id": "john-welborn",
+    "name": "John Welborn",
+    "era": "modern",
+    "region": "united states",
+    "years": "active",
+    "role": "computer scientist",
+    "note": "I place Welborn beside Rokicki for the 23- and 22-move results that narrowed the gap before the 20-move proof.",
+    "entryIds": [
+      "rubiks-cube-group"
+    ]
+  },
+  {
+    "id": "kent-ford",
+    "name": "Kent Ford",
+    "era": "modern",
+    "region": "united states",
+    "years": "active",
+    "role": "astronomer and instrument builder",
+    "note": "I keep Ford's spectrograph and measurements beside Rubin's analysis; the curve depended on patient instrumentation as much as on interpretation.",
+    "entryIds": [
+      "galaxy-rotation-curves"
+    ]
+  },
+  {
+    "id": "michael-reid",
+    "name": "Michael Reid",
+    "era": "modern",
+    "region": "united states",
+    "years": "active",
+    "role": "cubing researcher",
+    "note": "I credit Reid with the 20-turn lower bound from the superflip, the floor that the later diameter proof had to meet.",
+    "entryIds": [
+      "rubiks-cube-group"
+    ]
+  },
+  {
+    "id": "morley-davidson",
+    "name": "Morley Davidson",
+    "era": "modern",
+    "region": "united states",
+    "years": "active",
+    "role": "mathematician",
+    "note": "I keep Davidson's contribution explicit in the 2010 computation that closed both bounds at twenty face turns.",
+    "entryIds": [
+      "rubiks-cube-group"
+    ]
+  },
+  {
+    "id": "morwen-thistlethwaite",
+    "name": "Morwen Thistlethwaite",
+    "era": "modern",
+    "region": "england",
+    "years": "active",
+    "role": "mathematician and cubing researcher",
+    "note": "I keep Thistlethwaite's subgroup chain beside the cube because it turns an enormous search into four disciplined reductions.",
+    "entryIds": [
+      "rubiks-cube-group"
+    ]
+  },
+  {
+    "id": "tomas-rokicki",
+    "name": "Tomas Rokicki",
+    "era": "modern",
+    "region": "united states",
+    "years": "active",
+    "role": "computer scientist and cubing researcher",
+    "note": "I credit Rokicki across the improving upper bounds and the final joint diameter proof, while keeping each milestone's collaborators visible.",
+    "entryIds": [
+      "rubiks-cube-group"
     ]
   }
 ]

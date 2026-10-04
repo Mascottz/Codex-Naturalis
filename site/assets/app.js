@@ -2,6 +2,7 @@
 
 const domainOrder = ["sky", "earth", "living", "invisible", "structure"];
 const domainNames = { sky: "The sky", earth: "The earth", living: "The living", invisible: "The invisible", structure: "The structure" };
+const historicalCardEntries = new Set(["galaxy-rotation-curves", "three-body-problem", "jeans-mass", "eddington-luminosity", "schechter-luminosity-function", "rubiks-cube-group"]);
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 let activeAudioStop = null;
 
@@ -10,8 +11,10 @@ const prettyValue = value => Number.isInteger(Number(value)) ? Number(value).toL
 const slugWords = value => String(value).replaceAll("-", " ");
 const sentenceCase = value => { const text = String(value || ""); return text ? text[0].toLocaleUpperCase("en") + text.slice(1) : text; };
 
-async function readData() {
-  const names = ["entries", "humans", "problems", "attempts", "solved", "phyllotaxis", "lorenz"];
+async function readData(options = {}) {
+  const names = ["entries", "humans", "problems", "attempts", "solved"];
+  if (options.desk) names.push("desk");
+  if (options.computed) names.push("phyllotaxis", "lorenz", "galaxy-rotation", "three-body", "jeans-mass", "eddington", "schechter");
   const values = await Promise.all(names.map(async name => {
     const response = await fetch(`data/${name}.json`);
     if (!response.ok) throw new Error(`The ${name} pages could not be read.`);
@@ -48,6 +51,23 @@ function soundMarkup(entry) {
   </div>`;
 }
 
+function resourceLinksMarkup(sources, fallback = "") {
+  const links = Array.isArray(sources) ? sources : [];
+  if (links.length) return links.map(source => {
+    const external = /^https?:\/\//.test(String(source.url));
+    const target = external ? ' target="_blank" rel="noreferrer"' : "";
+    return `<a href="${escapeHtml(source.url)}"${target}>${escapeHtml(source.title || "Source")} ↗</a>`;
+  }).join(" · ");
+  if (/^https?:\/\//.test(String(fallback))) return `<a href="${escapeHtml(fallback)}" target="_blank" rel="noreferrer">Open the source ↗</a>`;
+  return escapeHtml(fallback || "No source recorded");
+}
+
+function machineMarkup(machine) {
+  if (!machine) return "";
+  const servedPath = String(machine.path || "").startsWith("scripts/") ? `machines/${machine.path.slice(8)}` : machine.path;
+  return `<p class="entry-machine"><span>${escapeHtml(machine.title || "Take-home machine")}</span><a href="${escapeHtml(servedPath)}">Read the source ↗</a><code>${escapeHtml(machine.command || "")}</code></p>`;
+}
+
 function bookplateMarkup(entry) {
   const inputId = `bookplate-name-${entry.id}`;
   return `<details class="bookplate-maker">
@@ -63,9 +83,188 @@ function bookplateMarkup(entry) {
   </details>`;
 }
 
+function entryHistoryMarkup(entry) {
+  if (!entry.story) return "";
+  const story = escapeHtml(entry.story);
+  if (!historicalCardEntries.has(entry.id)) return `<p class="human-story">${story}</p>`;
+  return `<aside class="history-card" aria-label="Historical card"><span>History card · ${escapeHtml(entry.year)}</span><p>${story}</p></aside>`;
+}
+
+const RUBIK_FACES = [
+  { face: "U", normal: [0, 1, 0], right: [1, 0, 0], down: [0, 0, 1] },
+  { face: "D", normal: [0, -1, 0], right: [1, 0, 0], down: [0, 0, -1] },
+  { face: "F", normal: [0, 0, 1], right: [1, 0, 0], down: [0, -1, 0] },
+  { face: "B", normal: [0, 0, -1], right: [-1, 0, 0], down: [0, -1, 0] },
+  { face: "R", normal: [1, 0, 0], right: [0, 0, -1], down: [0, -1, 0] },
+  { face: "L", normal: [-1, 0, 0], right: [0, 0, 1], down: [0, -1, 0] }
+];
+const RUBIK_COLORS = { U: "white", D: "yellow", F: "green", B: "blue", R: "red", L: "orange" };
+const rubikStates = new WeakMap();
+const rubikCounts = new WeakMap();
+const rubikTimers = new WeakMap();
+
+function rubikVectorKey(position, normal) {
+  return `${position.join(",")}|${normal.join(",")}`;
+}
+
+function rubikStickerPosition(face, row, column) {
+  return face.normal.map((value, index) => value + face.right[index] * (column - 1) + face.down[index] * (row - 1));
+}
+
+function solvedRubikState() {
+  const state = new Map();
+  RUBIK_FACES.forEach(face => {
+    for (let row = 0; row < 3; row += 1) for (let column = 0; column < 3; column += 1) {
+      state.set(rubikVectorKey(rubikStickerPosition(face, row, column), face.normal), face.face);
+    }
+  });
+  return state;
+}
+
+function rubikDot(a, b) { return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]; }
+function rubikCross(a, b) { return [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]]; }
+function rotateRubikVector(vector, axis, sign) {
+  const cross = rubikCross(axis, vector);
+  const parallel = axis.map(value => value * rubikDot(axis, vector));
+  return parallel.map((value, index) => value + sign * cross[index]);
+}
+
+function turnRubikState(state, notation) {
+  const face = RUBIK_FACES.find(item => item.face === notation[0]);
+  if (!face) return state;
+  const halfTurn = notation.includes("2");
+  const direction = notation.includes("'") ? 1 : -1;
+  const turns = halfTurn ? 2 : 1;
+  const next = new Map();
+  state.forEach((color, key) => {
+    const [positionText, normalText] = key.split("|");
+    let position = positionText.split(",").map(Number);
+    let normal = normalText.split(",").map(Number);
+    if (rubikDot(position, face.normal) === 1) {
+      for (let turn = 0; turn < turns; turn += 1) {
+        position = rotateRubikVector(position, face.normal, direction);
+        normal = rotateRubikVector(normal, face.normal, direction);
+      }
+    }
+    next.set(rubikVectorKey(position, normal), color);
+  });
+  return next;
+}
+
+function renderRubikCube(toy) {
+  const state = rubikStates.get(toy);
+  if (!state) return;
+  toy.querySelectorAll(".rubik-face").forEach(faceElement => {
+    const face = RUBIK_FACES.find(item => item.face === faceElement.dataset.face);
+    faceElement.querySelectorAll(".rubik-sticker").forEach((sticker, index) => {
+      const row = Math.floor(index / 3), column = index % 3;
+      const color = state.get(rubikVectorKey(rubikStickerPosition(face, row, column), face.normal)) || face.face;
+      sticker.className = `rubik-sticker color-${RUBIK_COLORS[color]}`;
+    });
+  });
+  const count = rubikCounts.get(toy) || 0;
+  const counter = toy.querySelector(".rubik-move-count");
+  if (counter) counter.textContent = `${count} face ${count === 1 ? "turn" : "turns"} · half-turn metric`;
+}
+
+function rubikCubeMarkup(id, mode = "book") {
+  const faces = RUBIK_FACES.map(face => `<div class="rubik-face rubik-face-${face.face}" data-face="${face.face}" aria-hidden="true">${"<span class=\"rubik-sticker\"></span>".repeat(9)}</div>`).join("");
+  const faceButtons = mode === "book" ? `<div class="rubik-turns" aria-label="Legal clockwise quarter turns">${RUBIK_FACES.map(face => `<button type="button" data-face-turn="${face.face}" aria-label="Turn ${face.face} face clockwise">${face.face}</button>`).join("")}</div>` : "";
+  const actions = mode === "desk"
+    ? `<button class="rubik-choose" type="button">Scramble with the cube</button>`
+    : `<div class="rubik-actions"><button class="rubik-scramble" type="button">Legal scramble</button><button class="rubik-reset" type="button">Reset cube</button></div>${faceButtons}`;
+  return `<section class="rubik-toy" id="${escapeHtml(id)}" data-rubik-mode="${escapeHtml(mode)}" aria-label="Interactive Rubik's cube">
+    <div class="rubik-scene"><div class="rubik-cube">${faces}</div></div>
+    <div class="rubik-toy-details">
+      <span class="rubik-kicker">A legal face-turn machine</span>
+      <output class="rubik-move-count" aria-live="polite">0 face turns · half-turn metric</output>
+      <p class="rubik-sequence" aria-live="polite">The cube is solved.</p>
+      ${actions}
+    </div>
+  </section>`;
+}
+
+function applyRubikTurn(toy, notation) {
+  rubikStates.set(toy, turnRubikState(rubikStates.get(toy), notation));
+  rubikCounts.set(toy, (rubikCounts.get(toy) || 0) + 1);
+  renderRubikCube(toy);
+}
+
+function cancelRubikScramble(toy) {
+  (rubikTimers.get(toy) || []).forEach(timer => window.clearTimeout(timer));
+  rubikTimers.delete(toy);
+  toy.classList.remove("is-scrambling");
+}
+
+function scrambleRubikCube(toy, length = 25) {
+  cancelRubikScramble(toy);
+  const faces = RUBIK_FACES.map(face => face.face);
+  const suffixes = ["", "2", "'"];
+  const moves = [];
+  let previousFace = "";
+  while (moves.length < length) {
+    const choices = faces.filter(face => face !== previousFace);
+    const face = choices[Math.floor(Math.random() * choices.length)];
+    const suffix = suffixes[Math.floor(Math.random() * suffixes.length)];
+    moves.push(`${face}${suffix}`);
+    previousFace = face;
+  }
+  const sequence = toy.querySelector(".rubik-sequence");
+  if (sequence) sequence.textContent = `Legal scramble: ${moves.join(" ")}`;
+  toy.classList.add("is-scrambling");
+  const timers = [];
+  moves.forEach((move, index) => timers.push(window.setTimeout(() => {
+    applyRubikTurn(toy, move);
+    if (index === moves.length - 1) {
+      timers.push(window.setTimeout(() => {
+        toy.classList.remove("is-scrambling");
+        rubikTimers.delete(toy);
+      }, 180));
+    }
+  }, index * 42)));
+  rubikTimers.set(toy, timers);
+  return moves;
+}
+
+function wireRubikCubes(root, options = {}) {
+  root.querySelectorAll(".rubik-toy").forEach(toy => {
+    if (toy.dataset.rubikReady === "true") return;
+    toy.dataset.rubikReady = "true";
+    rubikStates.set(toy, solvedRubikState());
+    rubikCounts.set(toy, 0);
+    renderRubikCube(toy);
+    toy.querySelector(".rubik-scramble")?.addEventListener("click", () => scrambleRubikCube(toy));
+    toy.querySelector(".rubik-reset")?.addEventListener("click", () => {
+      cancelRubikScramble(toy);
+      rubikStates.set(toy, solvedRubikState());
+      rubikCounts.set(toy, 0);
+      renderRubikCube(toy);
+      const sequence = toy.querySelector(".rubik-sequence");
+      if (sequence) sequence.textContent = "The cube is solved.";
+    });
+    toy.querySelectorAll("[data-face-turn]").forEach(button => button.addEventListener("click", () => {
+      const move = button.dataset.faceTurn;
+      applyRubikTurn(toy, move);
+      const sequence = toy.querySelector(".rubik-sequence");
+      if (sequence) sequence.textContent = `Last face turn: ${move}`;
+    }));
+    toy.querySelector(".rubik-choose")?.addEventListener("click", () => options.onChoose?.(toy));
+  });
+}
+
 function entryPlate(entry, humansById) {
-  const slider = entry.slider || { label: "parameter", min: 0, max: 1, step: .01, value: .5 };
+  const controls = entry.controls || [entry.slider || { key: "parameter", label: "parameter", min: 0, max: 1, step: .01, value: .5 }];
   const status = entry.status === "live" ? " live" : "";
+  const sources = entry.sources?.length ? resourceLinksMarkup(entry.sources) : escapeHtml(entry.source);
+  const controlsMarkup = controls.map((control, index) => {
+    const key = control.key || `control-${index}`;
+    const inputId = `entry-control-${entry.id}-${key}`;
+    return `<div class="entry-control">
+      <label for="${escapeHtml(inputId)}">${escapeHtml(control.label)}</label>
+      <input id="${escapeHtml(inputId)}" class="entry-slider" data-control="${escapeHtml(key)}" type="range" min="${control.min}" max="${control.max}" step="${control.step}" value="${control.value}" aria-label="${escapeHtml(control.label)} for ${escapeHtml(entry.title)}">
+      <output class="slider-value" data-output="${escapeHtml(key)}">${prettyValue(control.value)}</output>
+    </div>`;
+  }).join("");
   return `
     <article class="entry-plate${status}" id="${escapeHtml(entry.id)}" data-domain="${escapeHtml(entry.domain)}" data-visual="${escapeHtml(entry.visualType)}" data-entry-id="${escapeHtml(entry.id)}">
       <div class="entry-aside">
@@ -74,7 +273,8 @@ function entryPlate(entry, humansById) {
           <h3 class="entry-title">${escapeHtml(entry.title)}</h3>
           <p class="entry-formula"><code>${escapeHtml(entry.formula)}</code></p>
         </div>
-        <p class="entry-source"><span>Source line</span>${escapeHtml(entry.source)}</p>
+        <p class="entry-source"><span>Source line</span>${sources}</p>
+        ${machineMarkup(entry.machine)}
       </div>
       <div class="entry-copy">
         <p class="statement">${escapeHtml(entry.statement)}</p>
@@ -83,17 +283,17 @@ function entryPlate(entry, humansById) {
           <div><span class="reading-label">The intuition</span><p>${escapeHtml(entry.intuition)}</p></div>
         </div>
         <div class="originators" aria-label="Originators">${originatorChips(entry, humansById)}</div>
-        ${entry.story ? `<p class="human-story">${escapeHtml(entry.story)}</p>` : ""}
+        ${entryHistoryMarkup(entry)}
         ${soundMarkup(entry)}
         <div class="visual-shell">
           <canvas class="entry-canvas" aria-label="Interactive visualization for ${escapeHtml(entry.title)}"></canvas>
-          <div class="visual-tools">
-            <label>${escapeHtml(slider.label)}</label>
-            <input class="entry-slider" type="range" min="${slider.min}" max="${slider.max}" step="${slider.step}" value="${slider.value}" aria-label="${escapeHtml(slider.label)} for ${escapeHtml(entry.title)}">
-            <output class="slider-value">${prettyValue(slider.value)}</output>
+          <div class="visual-tools${controls.length > 1 ? " multiple-controls" : ""}">
+            ${controlsMarkup}
             <button class="take-home" type="button">Take it home</button>
           </div>
+          ${entry.caption ? `<p class="visual-caption">${escapeHtml(entry.caption)}</p>` : ""}
         </div>
+        ${entry.id === "rubiks-cube-group" ? rubikCubeMarkup(`book-${entry.id}`, "book") : ""}
         ${bookplateMarkup(entry)}
       </div>
     </article>`;
@@ -194,6 +394,317 @@ function drawGeneric(context, width, height, entry, value, time) {
   }
 }
 
+function chartBase(context, width, height, title) {
+  context.clearRect(0, 0, width, height);
+  const left = 44, right = width - 16, top = 24, bottom = height - 34;
+  context.strokeStyle = "rgba(39,48,58,.18)";
+  context.lineWidth = 1;
+  context.beginPath();
+  context.moveTo(left, top); context.lineTo(left, bottom); context.lineTo(right, bottom);
+  context.stroke();
+  context.fillStyle = "#27303a";
+  context.font = "12px Baskerville, Georgia, serif";
+  context.fillText(title, left, 16);
+  return { left, right, top, bottom, plotWidth: right - left, plotHeight: bottom - top };
+}
+
+function drawGalaxyRotation(context, width, height, haloStrength, computed) {
+  const data = computed.galaxyRotation || {};
+  const radii = data.radiiKpc || [];
+  const visible = data.visibleKms || [];
+  const haloCurve = data.haloIncludedKms || [];
+  const box = chartBase(context, width, height, "Circular speed by radius");
+  const minLog = Math.log10(radii[0] || .1), maxLog = Math.log10(radii.at(-1) || 30);
+  const maxSpeed = 280;
+  const x = radius => box.left + (Math.log10(radius) - minLog) / (maxLog - minLog) * box.plotWidth;
+  const y = speed => box.bottom - Number(speed) / maxSpeed * box.plotHeight;
+  context.font = "9px SFMono-Regular, Consolas, monospace";
+  context.fillStyle = "rgba(39,48,58,.62)";
+  [0, 100, 200].forEach(speed => {
+    const py = y(speed);
+    context.strokeStyle = "rgba(39,48,58,.1)";
+    context.beginPath(); context.moveTo(box.left, py); context.lineTo(box.right, py); context.stroke();
+    context.fillText(String(speed), 7, py + 3);
+  });
+  [0.1, 1, 10, 30].forEach(radius => {
+    const px = x(radius);
+    context.strokeStyle = "rgba(39,48,58,.08)";
+    context.beginPath(); context.moveTo(px, box.top); context.lineTo(px, box.bottom); context.stroke();
+    context.fillText(String(radius), px - 7, box.bottom + 13);
+  });
+  const drawCurve = (values, color, dashed = false, strength = 1) => {
+    context.beginPath();
+    values.forEach((value, index) => {
+      const px = x(radii[index]);
+      const py = y(value);
+      index ? context.lineTo(px, py) : context.moveTo(px, py);
+    });
+    context.strokeStyle = color;
+    context.globalAlpha = strength;
+    context.lineWidth = 2;
+    context.setLineDash(dashed ? [4, 4] : []);
+    context.stroke();
+    context.setLineDash([]);
+    context.globalAlpha = 1;
+  };
+  drawCurve(visible, "#42675e", true, .8);
+  const strength = Math.max(0, Math.min(1, Number(haloStrength)));
+  const mixed = visible.map((speed, index) => Math.sqrt(speed * speed + strength * Math.max(0, haloCurve[index] ** 2 - speed ** 2)));
+  drawCurve(mixed, "#a85c4c");
+  context.fillStyle = "#42675e"; context.fillRect(box.left + 4, box.top + 8, 11, 2);
+  context.fillStyle = "#27303a"; context.font = "9px SFMono-Regular, Consolas, monospace";
+  context.fillText("visible only", box.left + 19, box.top + 12);
+  context.fillStyle = "#a85c4c"; context.fillRect(box.left + 101, box.top + 8, 11, 2);
+  context.fillStyle = "#27303a";
+  context.fillText(`halo ${Math.round(strength * 100)}%`, box.left + 116, box.top + 12);
+  context.fillText("r (kpc)", box.right - 35, height - 5);
+  context.fillText("km/s", 6, box.top - 6);
+  for (let index = 64; index < radii.length; index += 5) {
+    const px = x(radii[index]), py = y(mixed[index]);
+    context.fillStyle = "#ddbd72";
+    context.beginPath(); context.arc(px, py, 1.5, 0, Math.PI * 2); context.fill();
+  }
+}
+
+function nearestScenario(scenarios, target) {
+  return scenarios.reduce((best, item) => Math.abs(item.delta - target) < Math.abs(best.delta - target) ? item : best, scenarios[0]);
+}
+
+function drawThreeBody(context, width, height, perturbation, computed, time) {
+  const scenarios = computed.threeBody?.scenarios || [];
+  if (!scenarios.length) return drawGeneric(context, width, height, { visualType: "proof" }, .5, time);
+  const reference = scenarios[0];
+  const selected = nearestScenario(scenarios, Number(perturbation) / 1000);
+  const baseFrames = reference.positions || [];
+  const frames = selected.positions || [];
+  const count = Math.min(baseFrames.length, frames.length);
+  const index = Math.max(0, Math.min(count - 1, Math.floor(((time / 19) % 1) * (count - 1))));
+  context.clearRect(0, 0, width, height);
+  const cx = width * .43, cy = height * .47;
+  const scale = Math.min(width * .33, height * .34);
+  const point = p => ({ x: cx + p[0] * scale, y: cy - p[1] * scale });
+  context.strokeStyle = "rgba(66,103,94,.57)"; context.lineWidth = 1.5;
+  context.beginPath();
+  baseFrames.forEach((frame, frameIndex) => {
+    const p = point(frame[0]);
+    frameIndex ? context.lineTo(p.x, p.y) : context.moveTo(p.x, p.y);
+  });
+  context.stroke();
+  context.strokeStyle = "#a85c4c"; context.lineWidth = 1.5;
+  context.beginPath();
+  frames.slice(0, index + 1).forEach((frame, frameIndex) => {
+    const p = point(frame[0]);
+    frameIndex ? context.lineTo(p.x, p.y) : context.moveTo(p.x, p.y);
+  });
+  context.stroke();
+  const colors = ["#a85c4c", "#42675e", "#75659b"];
+  (frames[index] || []).forEach((position, bodyIndex) => {
+    const p = point(position);
+    context.fillStyle = colors[bodyIndex];
+    context.beginPath(); context.arc(p.x, p.y, 4.2, 0, Math.PI * 2); context.fill();
+  });
+  const inset = { x: width - 137, y: height - 71, width: 118, height: 42 };
+  context.fillStyle = "rgba(244,238,226,.88)"; context.fillRect(inset.x - 5, inset.y - 15, inset.width + 11, inset.height + 22);
+  context.strokeStyle = "rgba(39,48,58,.18)"; context.strokeRect(inset.x - 5, inset.y - 15, inset.width + 11, inset.height + 22);
+  context.fillStyle = "#27303a"; context.font = "8px SFMono-Regular, Consolas, monospace";
+  context.fillText("separation from reference", inset.x - 1, inset.y - 5);
+  const separations = frames.map((frame, frameIndex) => Math.sqrt(frame.reduce((sum, position, bodyIndex) => {
+    const original = baseFrames[frameIndex]?.[bodyIndex] || position;
+    return sum + (position[0] - original[0]) ** 2 + (position[1] - original[1]) ** 2;
+  }, 0)));
+  const maxLog = Math.max(-4, ...separations.map(value => Math.log10(Math.max(value, 1e-8))));
+  context.beginPath();
+  separations.forEach((distance, frameIndex) => {
+    const px = inset.x + frameIndex / Math.max(1, separations.length - 1) * inset.width;
+    const py = inset.y + inset.height - (Math.log10(Math.max(distance, 1e-8)) + 8) / (maxLog + 8) * inset.height;
+    frameIndex ? context.lineTo(px, py) : context.moveTo(px, py);
+  });
+  context.strokeStyle = "#d7856f"; context.lineWidth = 1.3; context.stroke();
+  context.fillStyle = "#27303a"; context.font = "10px Baskerville, Georgia, serif";
+  context.fillText("A choreography, then a departure", 16, 18);
+  context.font = "9px SFMono-Regular, Consolas, monospace";
+  context.fillText(`δ = ${Number(selected.delta).toExponential(1)}`, 16, height - 8);
+}
+
+function interpolateGrid(axis, values, target) {
+  if (target <= axis[0]) return values[0];
+  if (target >= axis[axis.length - 1]) return values[values.length - 1];
+  let index = 0;
+  while (index < axis.length - 2 && axis[index + 1] < target) index += 1;
+  const fraction = (target - axis[index]) / (axis[index + 1] - axis[index]);
+  return values[index] * (1 - fraction) + values[index + 1] * fraction;
+}
+
+function jeansMassAt(data, temperature, logDensity) {
+  const temperatures = data.temperatureKelvin || [];
+  const densityAxis = data.log10NumberDensity || [];
+  const rows = data.solarMasses || [];
+  const byTemperature = rows.map(row => interpolateGrid(densityAxis, row, logDensity));
+  return interpolateGrid(temperatures, byTemperature, temperature);
+}
+
+function drawJeansMass(context, width, height, temperature, logDensity, computed) {
+  const data = computed.jeansMass || {};
+  const densityAxis = data.log10NumberDensity || [];
+  const box = chartBase(context, width, height, "Jeans threshold for a molecular cloud");
+  const allMasses = (data.solarMasses || []).flat();
+  const minLogMass = Math.floor(Math.log10(Math.min(...allMasses.filter(value => value > 0))));
+  const maxLogMass = Math.ceil(Math.log10(Math.max(...allMasses)));
+  const x = value => box.left + (Number(value) - 2) / 4 * box.plotWidth;
+  const y = value => box.bottom - (Math.log10(Math.max(value, 1e-12)) - minLogMass) / (maxLogMass - minLogMass) * box.plotHeight;
+  for (let power = minLogMass; power <= maxLogMass; power += 1) {
+    const py = y(10 ** power);
+    context.strokeStyle = "rgba(39,48,58,.1)"; context.beginPath(); context.moveTo(box.left, py); context.lineTo(box.right, py); context.stroke();
+    context.fillStyle = "rgba(39,48,58,.62)"; context.font = "8px SFMono-Regular, Consolas, monospace"; context.fillText(`10^${power}`, 2, py + 3);
+  }
+  [2, 3, 4, 5, 6].forEach(power => {
+    const px = x(power);
+    context.strokeStyle = "rgba(39,48,58,.08)"; context.beginPath(); context.moveTo(px, box.top); context.lineTo(px, box.bottom); context.stroke();
+    context.fillStyle = "rgba(39,48,58,.62)"; context.font = "8px SFMono-Regular, Consolas, monospace"; context.fillText(String(power), px - 2, box.bottom + 12);
+  });
+  context.beginPath();
+  densityAxis.forEach((density, index) => {
+    const mass = jeansMassAt(data, temperature, density);
+    index ? context.lineTo(x(density), y(mass)) : context.moveTo(x(density), y(mass));
+  });
+  context.strokeStyle = "#42675e"; context.lineWidth = 2; context.stroke();
+  const mass = jeansMassAt(data, temperature, logDensity);
+  const px = x(logDensity), py = y(mass);
+  context.fillStyle = "#a85c4c"; context.beginPath(); context.arc(px, py, 5, 0, Math.PI * 2); context.fill();
+  context.fillStyle = "#27303a"; context.font = "10px SFMono-Regular, Consolas, monospace";
+  context.fillText(`T ${Number(temperature).toFixed(0)} K · n 10^${Number(logDensity).toFixed(1)} cm⁻³`, box.left + 4, box.top + 12);
+  context.fillText(`M_J ≈ ${mass.toExponential(2)} M☉`, box.left + 4, box.top + 27);
+  context.fillText("log₁₀ n (cm⁻³)", box.right - 83, height - 5);
+}
+
+function interpolateSeries(axis, values, target) {
+  return interpolateGrid(axis, values, target);
+}
+
+function drawEddington(context, width, height, mass, inflow, computed) {
+  const data = computed.eddington || {};
+  const luminosity = interpolateSeries(data.massSolar || [], data.luminosityErgPerSecond || [], Number(mass));
+  context.clearRect(0, 0, width, height);
+  const cx = width * .34, cy = height * .45;
+  context.fillStyle = "#151821";
+  context.beginPath(); context.arc(cx, cy, 24, 0, Math.PI * 2); context.fill();
+  context.strokeStyle = "rgba(168,92,76,.72)"; context.lineWidth = 4;
+  context.beginPath(); context.ellipse(cx, cy, 42, 13, -.18, 0, Math.PI * 2); context.stroke();
+  context.strokeStyle = "rgba(215,133,111,.62)"; context.lineWidth = 2;
+  context.beginPath(); context.ellipse(cx, cy, 57, 19, -.18, 0, Math.PI * 2); context.stroke();
+  for (let i = 0; i < 7; i++) {
+    const angle = (i / 7) * Math.PI * 2 + (prefersReducedMotion ? 0 : timePhase(Date.now()));
+    const r = 70 + (i % 3) * 13;
+    const x = cx + Math.cos(angle) * r;
+    const y = cy + Math.sin(angle) * r * .45;
+    context.fillStyle = i % 2 ? "#ddbd72" : "#d7856f";
+    context.beginPath(); context.arc(x, y, 2.2, 0, Math.PI * 2); context.fill();
+  }
+  const left = width * .61, right = width - 24, lineY = height * .54;
+  const span = right - left;
+  const x = value => left + Math.min(1.6, Number(value)) / 1.6 * span;
+  context.fillStyle = "#27303a"; context.font = "11px Baskerville, Georgia, serif";
+  context.fillText(`M = ${Number(mass).toFixed(0)} M☉`, left, 20);
+  context.font = "9px SFMono-Regular, Consolas, monospace";
+  context.fillText(`L_Edd ≈ ${luminosity.toExponential(2)} erg/s`, left, 35);
+  context.strokeStyle = "rgba(39,48,58,.3)"; context.lineWidth = 2;
+  context.beginPath(); context.moveTo(left, lineY); context.lineTo(right, lineY); context.stroke();
+  context.fillStyle = "rgba(221,189,114,.38)"; context.fillRect(x(1), lineY - 12, Math.max(0, right - x(1)), 24);
+  context.fillStyle = "#a85c4c"; context.fillRect(left, lineY - 5, Math.max(0, x(Math.min(Number(inflow), 1)) - left), 10);
+  context.strokeStyle = "#ddbd72"; context.lineWidth = 2;
+  context.beginPath(); context.moveTo(x(1), lineY - 21); context.lineTo(x(1), lineY + 23); context.stroke();
+  const beadX = x(Math.min(Number(inflow), 1.6));
+  context.fillStyle = Number(inflow) > 1 ? "#ddbd72" : "#d7856f";
+  context.beginPath(); context.arc(beadX, lineY, 7, 0, Math.PI * 2); context.fill();
+  context.fillStyle = "#27303a";
+  context.fillText("steady inflow", left, lineY + 42);
+  context.fillText("L / L_Edd", right - 43, lineY + 42);
+  context.font = "12px Baskerville, Georgia, serif";
+  context.fillText(Number(inflow) > 1 ? "Radiation turns the excess back." : "The feed approaches balance.", left, height - 12);
+}
+
+function timePhase(timestamp) {
+  return (timestamp / 1000) % (Math.PI * 2);
+}
+
+function drawSchechter(context, width, height, alpha, computed) {
+  const data = computed.schechter || {};
+  const alphas = data.alpha || [];
+  const curves = data.phiOverPhiStar || [];
+  const index = alphas.reduce((best, value, i) => Math.abs(value - Number(alpha)) < Math.abs(alphas[best] - Number(alpha)) ? i : best, 0);
+  const xValues = data.luminosityOverLstar || [];
+  const yValues = curves[index] || [];
+  const box = chartBase(context, width, height, "Galaxy number density around L*");
+  const minX = -2, maxX = 1, minY = -6, maxY = 4;
+  const x = value => box.left + (Math.log10(value) - minX) / (maxX - minX) * box.plotWidth;
+  const y = value => box.bottom - (Math.log10(Math.max(value, 1e-12)) - minY) / (maxY - minY) * box.plotHeight;
+  [-6, -4, -2, 0, 2, 4].forEach(power => {
+    const py = box.bottom - (power - minY) / (maxY - minY) * box.plotHeight;
+    context.strokeStyle = "rgba(39,48,58,.1)"; context.beginPath(); context.moveTo(box.left, py); context.lineTo(box.right, py); context.stroke();
+    context.fillStyle = "rgba(39,48,58,.62)"; context.font = "8px SFMono-Regular, Consolas, monospace"; context.fillText(`10^${power}`, 2, py + 3);
+  });
+  const lstarX = x(1);
+  context.strokeStyle = "rgba(39,48,58,.35)"; context.setLineDash([3, 4]); context.beginPath(); context.moveTo(lstarX, box.top); context.lineTo(lstarX, box.bottom); context.stroke(); context.setLineDash([]);
+  context.beginPath();
+  yValues.forEach((value, pointIndex) => {
+    const px = x(xValues[pointIndex]);
+    const py = y(value);
+    pointIndex ? context.lineTo(px, py) : context.moveTo(px, py);
+  });
+  context.strokeStyle = "#a85c4c"; context.lineWidth = 2; context.stroke();
+  context.fillStyle = "#27303a"; context.font = "9px SFMono-Regular, Consolas, monospace";
+  context.fillText(`α = ${Number(alpha).toFixed(1)}`, box.left + 6, box.top + 13);
+  context.fillText("L / L*", box.right - 33, height - 5);
+  context.fillText("φ / φ*", 4, box.top - 6);
+  context.fillText("L*", lstarX + 3, box.top + 12);
+}
+
+function drawRubikCayley(context, width, height, selectedLayer) {
+  context.clearRect(0, 0, width, height);
+  const cx = width * .55, cy = height * .53;
+  const maxRadius = Math.min(width * .4, height * .43);
+  const layers = [
+    { name: "G₀", count: 12, generators: "U D L R F B", color: "#42675e" },
+    { name: "G₁", count: 10, generators: "U D L R quarter; F B half", color: "#75659b" },
+    { name: "G₂", count: 8, generators: "U D quarter; L R F B half", color: "#a85c4c" },
+    { name: "G₃", count: 6, generators: "all face turns half", color: "#c28a48" },
+    { name: "G₄", count: 1, generators: "identity", color: "#27303a" }
+  ];
+  const points = layers.map((layer, layerIndex) => {
+    const radius = layerIndex === layers.length - 1 ? 0 : maxRadius * (1 - layerIndex * .19);
+    return Array.from({ length: layer.count }, (_unused, index) => {
+      const angle = index / layer.count * Math.PI * 2 - Math.PI / 2;
+      return { x: cx + Math.cos(angle) * radius, y: cy + Math.sin(angle) * radius };
+    });
+  });
+  context.strokeStyle = "rgba(39,48,58,.22)"; context.lineWidth = 1;
+  for (let layerIndex = 0; layerIndex < points.length - 1; layerIndex++) {
+    points[layerIndex].forEach((point, index) => {
+      const next = points[layerIndex][(index + 1) % points[layerIndex].length];
+      context.beginPath(); context.moveTo(point.x, point.y); context.lineTo(next.x, next.y); context.stroke();
+      const inner = points[layerIndex + 1][Math.round(index * points[layerIndex + 1].length / points[layerIndex].length) % points[layerIndex + 1].length];
+      context.beginPath(); context.moveTo(point.x, point.y); context.lineTo(inner.x, inner.y); context.stroke();
+    });
+  }
+  layers.forEach((layer, layerIndex) => {
+    const radius = layerIndex === Number(selectedLayer) ? 4.4 : 3.1;
+    context.fillStyle = layer.color;
+    points[layerIndex].forEach(point => {
+      context.beginPath(); context.arc(point.x, point.y, radius, 0, Math.PI * 2); context.fill();
+    });
+  });
+  context.fillStyle = "#27303a"; context.font = "11px Baskerville, Georgia, serif";
+  context.fillText("nested subgroups; schematic Cayley landscape", 12, 18);
+  layers.forEach((layer, index) => {
+    const y = 34 + index * 22;
+    context.fillStyle = layer.color; context.beginPath(); context.arc(19, y, 4, 0, Math.PI * 2); context.fill();
+    context.fillStyle = "#27303a"; context.font = "9px SFMono-Regular, Consolas, monospace";
+    context.fillText(`${layer.name}  ${layer.generators}`, 29, y + 3);
+  });
+  context.fillStyle = "#6e716f"; context.font = "8px SFMono-Regular, Consolas, monospace";
+  context.fillText("vertices: positions   ·   edges: face turns", 12, height - 7);
+}
+
 function drawEuler(context, width, height, turns, time) {
   baseCanvas(context, width, height);
   const cx = width * .52, cy = height * .48, radius = Math.min(width, height) * .29;
@@ -283,6 +794,7 @@ function drawFourier(context, width, height, terms, time) {
 }
 
 function codeFor(entry) {
+  if (entry.machine?.command) return entry.machine.command;
   if (entry.visualType === "lorenz") return `# lorenz; one small machine\nσ, ρ, β = 10.0, ${entry.slider.value}, 8 / 3\nx, y, z = 0.1, 0.0, 0.0\nfor step in 1:9000\n    x, y, z = x + .008 * σ * (y - x), y + .008 * (x * (ρ - z) - y), z + .008 * (x * y - β * z)\nend\nprintln((x, y, z))`;
   if (entry.visualType === "phyllotaxis") return `# phyllotaxis; one small machine\nφ = (1 + sqrt(5)) / 2\nangle = 2π * (1 - 1 / φ)\nfor i in 0:219\n    r = sqrt((i + .5) / 220)\n    println((r * cos(i * angle), r * sin(i * angle)))\nend`;
   return `# ${entry.title.toLowerCase()}\n# the formula stays close to its picture\nprintln(${JSON.stringify(entry.formula)})`;
@@ -423,29 +935,58 @@ function wireAudioButton(button, entry, computed, slider) {
   };
 }
 
+function controlOutput(entry, control, rawValue) {
+  const value = Number(rawValue);
+  if (control.key === "halo") return `${Math.round(value * 100)}%`;
+  if (control.key === "perturbation") return `δ = ${(value / 1000).toExponential(1)}`;
+  if (control.key === "temperature") return `${value.toFixed(0)} K`;
+  if (control.key === "logDensity") return `10^${value.toFixed(1)} cm⁻³`;
+  if (control.key === "mass") return `${value.toFixed(0)} M☉`;
+  if (control.key === "inflow") return `${value.toFixed(2)} L/L_Edd`;
+  if (control.key === "alpha") return `α = ${value.toFixed(1)}`;
+  if (control.key === "layer") return `G${["₀", "₁", "₂", "₃", "₄"][Math.round(value)] || "₀"}`;
+  return prettyValue(value);
+}
+
 function wirePlate(plate, entry, computed, humansById) {
   const canvas = plate.querySelector("canvas");
-  const slider = plate.querySelector(".entry-slider");
-  const output = plate.querySelector(".slider-value");
+  const sliders = [...plate.querySelectorAll(".entry-slider")];
+  const controls = entry.controls || [entry.slider || { key: "parameter" }];
   const takeHome = plate.querySelector(".take-home");
   const audioButton = plate.querySelector(".sound-toggle");
+  const primarySlider = sliders[0];
   let frame;
   const draw = timestamp => {
     const { context, width, height } = canvasContext(canvas);
-    const value = slider.value;
+    const values = sliders.map(slider => Number(slider.value));
+    const value = values[0];
     if (entry.visualType === "euler") drawEuler(context, width, height, value, timestamp / 1000);
     else if (entry.visualType === "phyllotaxis") drawPhyllotaxis(context, width, height, value, computed.phyllotaxis);
     else if (entry.visualType === "lorenz") drawLorenz(context, width, height, value, computed.lorenz, timestamp / 1000);
     else if (entry.id === "fourier-series") drawFourier(context, width, height, value, timestamp / 1000);
+    else if (entry.visualType === "galaxy-rotation") drawGalaxyRotation(context, width, height, value, computed);
+    else if (entry.visualType === "three-body") drawThreeBody(context, width, height, value, computed, timestamp / 1000);
+    else if (entry.visualType === "jeans-mass") drawJeansMass(context, width, height, values[0], values[1], computed);
+    else if (entry.visualType === "eddington") drawEddington(context, width, height, values[0], values[1], computed);
+    else if (entry.visualType === "schechter") drawSchechter(context, width, height, value, computed);
+    else if (entry.visualType === "rubik-cayley") drawRubikCayley(context, width, height, value);
     else drawGeneric(context, width, height, entry, value, timestamp / 1000);
     if (!prefersReducedMotion) frame = requestAnimationFrame(draw);
   };
-  const restartAudio = wireAudioButton(audioButton, entry, computed, slider);
-  slider.addEventListener("input", () => {
-    output.value = prettyValue(slider.value);
-    output.textContent = prettyValue(slider.value);
-    if (prefersReducedMotion) draw(0);
-    if (restartAudio) restartAudio();
+  const restartAudio = wireAudioButton(audioButton, entry, computed, primarySlider);
+  sliders.forEach((slider, index) => {
+    const control = controls[index] || { key: slider.dataset.control };
+    const output = plate.querySelector(`[data-output="${CSS.escape(control.key || slider.dataset.control)}"]`);
+    if (output) {
+      output.value = controlOutput(entry, control, slider.value);
+      output.textContent = controlOutput(entry, control, slider.value);
+    }
+    slider.addEventListener("input", () => {
+      const shown = controlOutput(entry, control, slider.value);
+      if (output) { output.value = shown; output.textContent = shown; }
+      if (prefersReducedMotion) draw(0);
+      if (restartAudio) restartAudio();
+    });
   });
   takeHome.addEventListener("click", async () => {
     const original = takeHome.textContent;
@@ -473,9 +1014,19 @@ function wireRandom(entries) {
 }
 
 async function startBook() {
-  const data = await readData();
-  renderEntries(data.entries, data.humans, { phyllotaxis: data.phyllotaxis, lorenz: data.lorenz });
+  const data = await readData({ computed: true });
+  const computed = {
+    phyllotaxis: data.phyllotaxis,
+    lorenz: data.lorenz,
+    galaxyRotation: data["galaxy-rotation"],
+    threeBody: data["three-body"],
+    jeansMass: data["jeans-mass"],
+    eddington: data.eddington,
+    schechter: data.schechter
+  };
+  renderEntries(data.entries, data.humans, computed);
   wireRandom(data.entries);
+  wireRubikCubes(document);
 }
 
 function effectiveProblemStatus(problem, attempts = []) {
@@ -491,15 +1042,13 @@ function problemStatus(problem, attempts = []) {
 }
 
 function problemRow(problem, attempts = []) {
-  const source = problem.kind === "codex"
-    ? `<span class="problem-origin">The book</span>`
-    : `<a class="quiet-link" href="${escapeHtml(problem.source)}" target="_blank" rel="noreferrer">Source ↗</a>`;
+  const source = `${problem.kind === "codex" ? `<span class="problem-origin">The book</span>` : ""}${resourceLinksMarkup(problem.sources, problem.source)}`;
   return `<tr data-field="${escapeHtml(problem.field)}" data-millennium="${problem.millennium}" data-kind="${escapeHtml(problem.kind || "world")}">
     <td class="problem-number">${String(problem.number).padStart(2, "0")}</td>
-    <td class="problem-title"><a href="#${escapeHtml(problem.id)}">${escapeHtml(problem.title)}</a>${problem.millennium ? "<small>Millennium problem</small>" : problem.kind === "codex" ? `<small>${escapeHtml(problem.label || "Codex problem")}</small>` : ""}</td>
+    <td class="problem-title"><a href="solve.html?problem=${encodeURIComponent(problem.id)}">${escapeHtml(problem.title)}</a><small>${problem.kind === "codex" ? escapeHtml(problem.label || "Codex problem") : problem.millennium ? "Millennium problem" : "Open at the solving desk"}</small><a class="problem-details-link" href="#${escapeHtml(problem.id)}">Read the arena page</a></td>
     <td class="problem-summary">${escapeHtml(problem.summary)}</td>
     <td>${problemStatus(problem, attempts)}</td>
-    <td>${source}</td>
+    <td class="problem-source-links">${source}</td>
   </tr>`;
 }
 
@@ -624,7 +1173,7 @@ function problemPage(problem, attempts) {
     <div class="problem-page-top"><div><span class="problem-page-index">${escapeHtml(problem.label || `Problem ${String(problem.number).padStart(2, "0")}`)} · ${escapeHtml(problem.field)}</span><h3>${escapeHtml(problem.title)}</h3></div>${status}</div>
     ${house && problem.problemType ? `<p class="problem-type">Type; ${escapeHtml(problem.problemType)}</p>` : ""}
     <p class="problem-statement">${escapeHtml(statement)}</p>
-    <p class="problem-source-line"><span>Source line</span><a href="${escapeHtml(problem.source)}" target="_blank" rel="noreferrer">Open the source ↗</a></p>
+    <p class="problem-source-line"><span>Source line</span>${resourceLinksMarkup(problem.sources, problem.source)}<a href="solve.html?problem=${encodeURIComponent(problem.id)}">Open at the solving desk ↗</a></p>
     ${house && problem.approach ? `<p class="problem-approach"><span>A way in</span>${escapeHtml(problem.approach)}</p>` : ""}
     <section class="solutions-area" aria-label="Solutions and attempts for ${escapeHtml(problem.title)}">
       <div class="solutions-heading"><span>Solutions area</span><small>Attempted → under review → verified</small></div>
@@ -705,6 +1254,146 @@ function startProblems(data) {
   renderProblemPages(data.problems, data.attempts);
   renderAttempts(data.attempts, data.problems);
   scrollToCurrentHash();
+}
+
+function renderDesk(problem, data, method) {
+  const record = data.desk.find(item => item.problemId === problem.id) || { definitions: [], relatedEntries: [], machines: [] };
+  const attempts = data.attempts.filter(attempt => attempt.problemId === problem.id);
+  const entriesById = Object.fromEntries(data.entries.map(entry => [entry.id, entry]));
+  const kind = problem.kind === "codex" ? `House problem ${escapeHtml(problem.label || "")}` : "World problem";
+  const statement = problem.statement || problem.summary;
+  const problemBlock = document.querySelector("#desk-problem-block");
+  problemBlock.innerHTML = `<div class="desk-block-top"><span class="desk-block-number">01 / Selected question</span><span class="desk-problem-kind">${kind}</span></div>
+    <h2 id="desk-problem-title">${escapeHtml(problem.title)}</h2>
+    <div class="desk-problem-meta"><span><strong>Field</strong>${escapeHtml(problem.field)}</span><span><strong>Status</strong><em class="desk-open-status">${escapeHtml(problem.status)}</em></span><span><strong>Ledger ID</strong><code>${escapeHtml(problem.id)}</code></span></div>
+    <p class="desk-problem-statement">${escapeHtml(statement)}</p>
+    <div class="desk-source-row"><span>Sources</span>${resourceLinksMarkup(problem.sources, problem.source)}</div>
+    <a class="desk-arena-link" href="problems.html#${escapeHtml(problem.id)}">Read the full arena page ↗</a>`;
+
+  const definitionsBlock = document.querySelector("#desk-definitions-block");
+  const definitionCards = record.definitions.map(definition => {
+    const entry = entriesById[definition.entryId];
+    if (!entry) return "";
+    return `<article class="desk-definition"><h3>${escapeHtml(definition.term)}</h3><p>${escapeHtml(definition.explanation)}</p><a href="index.html#${escapeHtml(entry.id)}">${escapeHtml(entry.title)} · ${escapeHtml(entry.formula)} ↗</a></article>`;
+  }).join("");
+  definitionsBlock.innerHTML = `<div class="desk-block-top"><span class="desk-block-number">02 / Working vocabulary</span></div><h2 id="desk-definitions-title">Definitions in the book</h2>${definitionCards || `<p class="desk-empty">No directly relevant definition has a dedicated book entry yet.</p>`}`;
+
+  const platesBlock = document.querySelector("#desk-plates-block");
+  const plates = record.relatedEntries.map(id => entriesById[id]).filter(Boolean).map(entry => `<a class="desk-related-plate" href="index.html#${escapeHtml(entry.id)}"><span class="desk-related-number">${String(entry.number).padStart(2, "0")} / ${escapeHtml(entry.domain)}</span><strong>${escapeHtml(entry.title)}</strong><code>${escapeHtml(entry.formula)}</code><span>Open the plate ↗</span></a>`).join("");
+  platesBlock.innerHTML = `<div class="desk-block-top"><span class="desk-block-number">03 / A short bridge</span></div><h2 id="desk-plates-title">Related book plates</h2>${plates || `<p class="desk-empty">No directly related plate is in the book yet.</p>`}`;
+
+  const machinesBlock = document.querySelector("#desk-machines-block");
+  const machines = record.machines.map(machine => {
+    const servedPath = String(machine.path || "").startsWith("scripts/") ? `machines/${machine.path.slice(8)}` : machine.path;
+    return `<article class="desk-machine"><div><span class="desk-machine-title">${escapeHtml(machine.title)}</span><p>${escapeHtml(machine.description)}</p><a href="${escapeHtml(servedPath)}">Read the source file ↗</a></div><div><span class="desk-command-label">Exact rerun command, from the repository root</span><code class="desk-command">${escapeHtml(machine.command)}</code></div></article>`;
+  }).join("");
+  machinesBlock.innerHTML = `<div class="desk-block-top"><span class="desk-block-number">04 / Reproducible work</span></div><h2 id="desk-machines-title">Relevant take-home machines</h2>${machines || `<p class="desk-empty">No directly relevant runnable machine is attached to this question yet.</p>`}`;
+
+  const attemptsBlock = document.querySelector("#desk-attempts-block");
+  const attemptCards = attempts.length ? attempts.map(submissionMarkup).join("") : `<p class="desk-empty">No dated attempt is recorded for this problem.</p>`;
+  attemptsBlock.innerHTML = `<div class="desk-block-top"><span class="desk-block-number">05 / The public ledger</span></div><h2 id="desk-attempts-title">Named attempts</h2><p class="desk-attempt-status-line">Attempted → Under review → Verified, or Withdrawn.</p>${attemptCards}`;
+  loadSolutionFiles(attemptsBlock);
+
+  const result = document.querySelector("#desk-result");
+  const resultLabel = document.querySelector("#desk-result-label");
+  const means = { die: "The die settled", cube: "The cube settled", link: "The direct link opened", random: "The desk chose" };
+  resultLabel.textContent = `${means[method] || "The desk chose"} on ${problem.title}.`;
+  result.hidden = false;
+  const form = document.querySelector("#attempt-form");
+  form.dataset.problemId = problem.id;
+  form.onsubmit = event => {
+    event.preventDefault();
+    const values = new FormData(form);
+    const name = String(values.get("name") || "").trim();
+    const claim = String(values.get("claim") || "").trim().replace(/[\r\n]+/g, " ");
+    const workLink = String(values.get("link") || "").trim();
+    if (!name || !claim || !workLink) return;
+    let parsedLink;
+    try { parsedLink = new URL(workLink); } catch (_error) { return; }
+    if (!["http:", "https:"].includes(parsedLink.protocol)) return;
+    const now = new Date();
+    const date = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+    const body = [
+      "## Attempt for the public ledger",
+      "",
+      `- Name: ${name}`,
+      `- Date: ${date}`,
+      `- Problem ID: ${problem.id}`,
+      `- Claim: ${claim}`,
+      `- Work link: ${parsedLink.href}`,
+      "- Status: Attempted",
+      "",
+      "## Verification ladder",
+      "",
+      "Attempted → Under review → Verified, or Withdrawn.",
+      "An attempt appears on the static ledger only after a ledger pull request is reviewed and merged.",
+      "Verification requires a published peer-reviewed result or a checked formal proof."
+    ].join("\n");
+    const issue = new URL("https://github.com/Mascottz/codex-naturalis/issues/new");
+    issue.searchParams.set("title", `[Attempt] ${problem.id}: ${claim.slice(0, 80)}`);
+    issue.searchParams.set("body", body);
+    window.location.assign(issue.href);
+  };
+}
+
+async function startSolve() {
+  const data = await readData({ desk: true });
+  const openProblems = data.problems.filter(problem => problem.status === "open");
+  const stage = document.querySelector("#desk-roll-stage");
+  const rollStatus = document.querySelector("#desk-roll-status");
+  const dieButton = document.querySelector("#roll-die");
+  const cubeMount = document.querySelector("#desk-cube-mount");
+  cubeMount.innerHTML = rubikCubeMarkup("desk-rubik-cube", "desk");
+  wireRubikCubes(document, { onChoose: () => rollDesk("cube") });
+  const diePips = [...dieButton.querySelectorAll(".die-pip")];
+  const dieFaces = { 1: ["pip-center"], 2: ["pip-one", "pip-six"], 3: ["pip-one", "pip-center", "pip-six"], 4: ["pip-one", "pip-two", "pip-five", "pip-six"], 5: ["pip-one", "pip-two", "pip-center", "pip-five", "pip-six"], 6: ["pip-one", "pip-two", "pip-three", "pip-four", "pip-five", "pip-six"] };
+  const setDieFace = face => diePips.forEach(pip => { pip.style.opacity = dieFaces[face].includes([...pip.classList].find(name => name.startsWith("pip-"))) ? "1" : "0"; });
+  setDieFace(1);
+  const requestedId = new URLSearchParams(window.location.search).get("problem");
+  const requested = requestedId ? data.problems.find(problem => problem.id === requestedId) : null;
+  const invalidRequested = Boolean(requestedId && (!requested || requested.status !== "open"));
+  let isRolling = false;
+  let rollSequence = 0;
+  function rollDesk(method, fixedProblem = null) {
+    if (!openProblems.length || isRolling) return;
+    isRolling = true;
+    rollSequence += 1;
+    const sequence = rollSequence;
+    const problem = fixedProblem || openProblems[Math.floor(Math.random() * openProblems.length)];
+    const cube = cubeMount.querySelector(".rubik-toy");
+    stage.classList.add("is-rolling");
+    dieButton.disabled = true;
+    rollStatus.textContent = "The die and cube are moving through the same scramble.";
+    const moves = scrambleRubikCube(cube, 25);
+    let pipTurn = 0;
+    const pipTimer = window.setInterval(() => {
+      pipTurn = Math.floor(Math.random() * 6) + 1;
+      setDieFace(pipTurn);
+    }, 76);
+    window.setTimeout(() => {
+      if (sequence !== rollSequence) return;
+      window.clearInterval(pipTimer);
+      const finalFace = Math.floor(Math.random() * 6) + 1;
+      setDieFace(finalFace);
+      stage.classList.remove("is-rolling");
+      dieButton.disabled = false;
+      isRolling = false;
+      rollStatus.textContent = invalidRequested
+        ? `The linked problem is not open; the desk has drawn ${problem.title} from the open ledger.`
+        : `${moves.length} legal cube turns; the desk lands on ${problem.title}.`;
+      renderDesk(problem, data, method);
+    }, moves.length * 42 + 270);
+  }
+  dieButton.addEventListener("click", () => rollDesk("die"));
+  document.querySelector("#attempt-form").addEventListener("input", event => {
+    if (event.target.name === "claim") event.target.value = event.target.value.replace(/[\r\n]+/g, " ");
+  });
+  if (requested && requested.status === "open") {
+    rollDesk("link", requested);
+  } else {
+    if (requestedId) rollStatus.textContent = "That linked problem is not currently open. The desk will draw from every problem marked open.";
+    rollDesk("random");
+  }
 }
 
 function humanCard(human, entriesById, solvedById) {
@@ -1083,3 +1772,6 @@ if (document.body.dataset.page === "solved") {
   readData().then(startSolved).catch(error => showLoadError("#solved-list", "The closed pages are resting.", error));
 }
 if (document.body.dataset.page === "toys") startToys();
+if (document.body.dataset.page === "solve") {
+  startSolve().catch(error => showLoadError("#desk-roll-status", "The solving desk is resting.", error));
+}

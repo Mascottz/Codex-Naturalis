@@ -25,6 +25,28 @@ def require_fields(row, fields, kind):
             fail(f"{kind} {row.get('id', 'unknown')}; missing {field}")
 
 
+def validate_sources(sources, context, allow_internal=False):
+    for source in sources:
+        require_fields(source, ("title", "url"), f"{context} source")
+        url = source["url"]
+        if not re.match(r"^https?://", url) and not (allow_internal and url.startswith("index.html#")):
+            fail(f"{context}; source URL is invalid: {url}")
+
+
+def validate_machine(machine, context):
+    require_fields(machine, ("title", "path", "command", "description"), f"{context} machine")
+    path_text = machine["path"]
+    if not path_text.startswith("scripts/") or ".." in Path(path_text).parts or "\\" in path_text or not path_text.endswith(".jl"):
+        fail(f"{context}; unsafe machine path {path_text}")
+    if machine["command"] != f"julia {path_text}":
+        fail(f"{context}; exact rerun command must be `julia {path_text}`")
+    if not (ROOT / path_text).is_file():
+        fail(f"{context}; machine source is missing: {path_text}")
+    served = ROOT / "site" / "machines" / Path(path_text).name
+    if not served.is_file() or served.read_text(encoding="utf-8") != (ROOT / path_text).read_text(encoding="utf-8"):
+        fail(f"{context}; static machine source is missing or stale: {path_text}")
+
+
 def validate_solution(attempt):
     path_text = attempt.get("solutionPath")
     if not path_text:
@@ -73,9 +95,10 @@ def main():
     problems = load("problems.json")
     attempts = load("attempts.json")
     solved = load("solved.json")
+    desk = load("desk.json")
 
-    if len(entries) != 24:
-        fail(f"entries; expected 24, found {len(entries)}")
+    if len(entries) != 30:
+        fail(f"entries; expected 30, found {len(entries)}")
     if len(problems) > 200:
         fail("problems; more than 200 rows")
     if len(solved) != 12:
@@ -95,6 +118,15 @@ def main():
         for originator in entry["originators"]:
             if originator not in human_ids:
                 fail(f"entry {entry['id']}; unknown originator {originator}")
+        if entry.get("sources"):
+            validate_sources(entry["sources"], f"entry {entry['id']}", allow_internal=True)
+        if entry.get("machine"):
+            validate_machine(entry["machine"], f"entry {entry['id']}")
+        controls = entry.get("controls", [entry.get("slider")] if entry.get("slider") else [])
+        for control in controls:
+            require_fields(control, ("label", "min", "max", "step", "value"), f"entry {entry['id']} control")
+            if control["step"] <= 0 or control["min"] > control["value"] or control["value"] > control["max"]:
+                fail(f"entry {entry['id']}; invalid control range")
 
     for human in humans:
         if not human.get("note", "").startswith("I "):
@@ -108,6 +140,7 @@ def main():
 
     problem_ids = set()
     house_ids = set()
+    open_ids = set()
     for problem in problems:
         require_fields(problem, ("id", "number", "title", "field", "status", "millennium", "summary", "source"), "problem")
         if problem["id"] in problem_ids:
@@ -115,13 +148,43 @@ def main():
         problem_ids.add(problem["id"])
         if problem["status"] not in {"open", "under review", "verified", "withdrawn"}:
             fail(f"problem {problem['id']}; invalid status")
+        if problem["status"] == "open":
+            open_ids.add(problem["id"])
+            if not problem.get("statement", "").strip():
+                fail(f"problem {problem['id']}; open questions need a complete statement")
+        if problem.get("sources"):
+            validate_sources(problem["sources"], f"problem {problem['id']}")
         if problem["summary"].lower().startswith("i ask whether"):
             fail(f"problem {problem['id']}; the question must speak in its own voice")
         if problem.get("kind") == "codex":
             require_fields(problem, ("label", "statement", "problemType", "approach"), "house problem")
             house_ids.add(problem["id"])
-    if len(house_ids) != 5:
-        fail(f"house problems; expected five, found {len(house_ids)}")
+    if len(house_ids) != 7:
+        fail(f"house problems; expected seven, found {len(house_ids)}")
+
+    desk_ids = set()
+    for record in desk:
+        require_fields(record, ("problemId", "definitions", "relatedEntries", "machines"), "desk record")
+        problem_id = record["problemId"]
+        if problem_id not in open_ids:
+            fail(f"desk; {problem_id} is not an open problem")
+        if problem_id in desk_ids:
+            fail(f"desk; duplicate problem record {problem_id}")
+        desk_ids.add(problem_id)
+        if not all(isinstance(record[key], list) for key in ("definitions", "relatedEntries", "machines")):
+            fail(f"desk; definitions, relatedEntries, and machines must be arrays for {problem_id}")
+        related = set(record["relatedEntries"])
+        if not related.issubset(entry_ids):
+            fail(f"desk; {problem_id} references an unknown book entry")
+        for definition in record["definitions"]:
+            require_fields(definition, ("term", "explanation", "entryId"), f"desk {problem_id} definition")
+            if definition["entryId"] not in related:
+                fail(f"desk; {problem_id} definition is not attached to a related plate")
+        for machine in record["machines"]:
+            validate_machine(machine, f"desk {problem_id}")
+    if desk_ids != open_ids:
+        missing = sorted(open_ids - desk_ids)
+        fail(f"desk; every open problem needs a record; missing {', '.join(missing)}")
 
     attempt_ids = set()
     solution_paths = set()
@@ -170,6 +233,25 @@ def main():
         fail("lorenz; computed point count is not 900")
     if max(abs(point[0]) for point in lorenz["points"]) < 1:
         fail("lorenz; trajectory did not move")
+    galaxy = load("galaxy-rotation.json")
+    if not (len(galaxy.get("radiiKpc", [])) == len(galaxy.get("visibleKms", [])) == len(galaxy.get("haloIncludedKms", [])) == 80):
+        fail("galaxy rotation; computed curves must share 80 radii")
+    if galaxy["haloIncludedKms"][-1] <= galaxy["visibleKms"][-1]:
+        fail("galaxy rotation; halo must support the outer curve")
+    three_body = load("three-body.json")
+    if len(three_body.get("scenarios", [])) != 5 or any(len(item.get("positions", [])) != 301 for item in three_body["scenarios"]):
+        fail("three-body; expected five Julia-integrated 301-frame trajectories")
+    if any(len(frame) != 3 for item in three_body["scenarios"] for frame in item["positions"]):
+        fail("three-body; every frame must contain three bodies")
+    jeans = load("jeans-mass.json")
+    if len(jeans.get("temperatureKelvin", [])) != 10 or len(jeans.get("log10NumberDensity", [])) != 81 or any(len(row) != 81 for row in jeans.get("solarMasses", [])):
+        fail("Jeans mass; computed temperature-density grid has the wrong shape")
+    eddington = load("eddington.json")
+    if len(eddington.get("massSolar", [])) != 100 or len(eddington.get("luminosityErgPerSecond", [])) != 100:
+        fail("Eddington; computed mass-luminosity grid has the wrong shape")
+    schechter = load("schechter.json")
+    if len(schechter.get("alpha", [])) != 15 or len(schechter.get("luminosityOverLstar", [])) != 121 or any(len(row) != 121 for row in schechter.get("phiOverPhiStar", [])):
+        fail("Schechter; computed slope-luminosity grid has the wrong shape")
 
     source_root = ROOT / "site"
     for path in source_root.rglob("*"):

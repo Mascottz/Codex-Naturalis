@@ -4,13 +4,19 @@
 
 compute:
 	@mkdir -p site/data
-	@cp data/entries.json data/humans.json data/problems.json data/attempts.json data/solved.json site/data/
-	@rm -rf site/solutions
-	@mkdir -p site/solutions
+	@cp data/entries.json data/humans.json data/problems.json data/attempts.json data/solved.json data/desk.json site/data/
+	@rm -rf site/solutions site/machines
+	@mkdir -p site/solutions site/machines
 	@cp -R solutions/. site/solutions/
+	@cp scripts/*.jl site/machines/
 	@if command -v julia >/dev/null 2>&1 && \
 		julia scripts/phyllotaxis.jl > site/data/phyllotaxis.json && \
-		julia scripts/lorenz.jl > site/data/lorenz.json; then \
+		julia scripts/lorenz.jl > site/data/lorenz.json && \
+		julia scripts/galaxy_rotation.jl > site/data/galaxy-rotation.json && \
+		julia scripts/three_body.jl > site/data/three-body.json && \
+		julia scripts/jeans_mass.jl > site/data/jeans-mass.json && \
+		julia scripts/eddington.jl > site/data/eddington.json && \
+		julia scripts/schechter.jl > site/data/schechter.json; then \
 		:; \
 	else \
 		python3 scripts/compute_fallback.py; \
