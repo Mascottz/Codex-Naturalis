@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Four small mathematical toys in Codex Naturalis; each one carries a useful idea back to the book.">
+  <title>The toy shelf; Codex Naturalis</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body data-page="toys">
+  <a class="skip-link" href="#toy-shelf">Skip to the toy shelf</a>
+  <header class="site-header">
+    <a class="wordmark" href="index.html" aria-label="Codex Naturalis home"><span>codex</span><i>naturalis</i></a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html">The book</a>
+      <a class="active" href="toys.html">The toys</a>
+      <a href="problems.html">The arena <sup>200</sup></a>
+      <a href="humans.html">The hall</a>
+      <a href="solved.html">Closed pages</a>
+      <a href="contributing.html">The ladder</a>
+    </nav>
+    <a class="random-button" href="index.html">Return to the book <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="toy-shelf" class="page-width">
+    <section class="page-hero toy-hero">
+      <p class="eyebrow">The toy shelf</p>
+      <h1>Small machines; large consequences.</h1>
+      <p>I keep four little experiments here. Each one gives the hand something to do, then points back to the page whose mathematics it carries.</p>
+      <div class="toy-hero-line"><span>Four toys</span><span>Zero dependencies</span><span>Canvas, SVG, and a little chance</span></div>
+    </section>
+
+    <section class="toy-shelf-grid" aria-label="Mathematical toys">
+      <article class="toy-card toy-buffon" id="buffon-needles">
+        <div class="toy-heading"><span class="toy-number">01 / Randomness</span><h2>Buffon's needles</h2></div>
+        <p class="toy-intro">I drop unit needles onto unit-spaced ruled paper. The crossing count keeps a running estimate of π, one toss at a time.</p>
+        <div class="toy-stage buffon-stage">
+          <canvas id="buffon-canvas" class="toy-canvas" aria-label="Random unit-length needles falling across horizontal ruled lines"></canvas>
+          <div class="toy-readout" aria-live="polite"><span id="buffon-progress">Needles: 0 / 2,000</span><strong id="buffon-estimate">π ≈ waiting</strong><small id="buffon-crossings">Crossings: 0</small></div>
+        </div>
+        <div class="toy-controls">
+          <label for="buffon-count">Needle count</label>
+          <input id="buffon-count" type="range" min="100" max="10000" step="100" value="2000">
+          <output id="buffon-count-value" for="buffon-count">2,000</output>
+          <button class="toy-button" id="buffon-run" type="button">Drop again</button>
+        </div>
+        <p class="toy-invariant">The estimate is 2N/C when needle length and line spacing are both one.</p>
+        <a class="toy-entry-link" href="index.html#structure">Structure shelf <span aria-hidden="true">↗</span></a>
+      </article>
+
+      <article class="toy-card toy-galton" id="galton-board">
+        <div class="toy-heading"><span class="toy-number">02 / Many small choices</span><h2>The Galton board</h2></div>
+        <p class="toy-intro">I let beads choose left or right at each peg. The live histogram gathers the choices into a bell-shaped pile.</p>
+        <div class="toy-stage galton-stage">
+          <canvas id="galton-canvas" class="toy-canvas" aria-label="A Galton board with pegs and a live bead-count histogram"></canvas>
+          <div class="toy-readout" aria-live="polite"><span id="galton-progress">Beads: 0 / 1,200</span><strong id="galton-spread">12 rows; 13 bins</strong><small id="galton-most-common">The bins are waiting.</small></div>
+        </div>
+        <div class="toy-controls">
+          <label for="galton-count">Bead count</label>
+          <input id="galton-count" type="range" min="100" max="5000" step="100" value="1200">
+          <output id="galton-count-value" for="galton-count">1,200</output>
+          <button class="toy-button" id="galton-run" type="button">Release again</button>
+        </div>
+        <p class="toy-invariant">Each row doubles paths; the final bin is the sum of twelve independent left-or-right choices.</p>
+        <a class="toy-entry-link" href="index.html#boltzmann-entropy">Boltzmann's entropy <span aria-hidden="true">↗</span></a>
+      </article>
+
+      <article class="toy-card toy-chaos" id="chaos-game">
+        <div class="toy-heading"><span class="toy-number">03 / A shape from chance</span><h2>The chaos game</h2></div>
+        <p class="toy-intro">I start at the center, choose a corner at random, and jump halfway there. Repetition draws a Sierpiński triangle from almost nothing.</p>
+        <div class="toy-stage chaos-stage">
+          <canvas id="chaos-canvas" class="toy-canvas" aria-label="The chaos game drawing a Sierpiński triangle point by point"></canvas>
+          <div class="toy-readout" aria-live="polite"><span id="chaos-progress">Points: 0 / 20,000</span><strong>Halfway, every time</strong><small id="chaos-invariant">Each jump halves the distance to one corner.</small></div>
+        </div>
+        <div class="toy-controls">
+          <label for="chaos-count">Point count</label>
+          <input id="chaos-count" type="range" min="1000" max="50000" step="1000" value="20000">
+          <output id="chaos-count-value" for="chaos-count">20,000</output>
+          <button class="toy-button" id="chaos-run" type="button">Begin again</button>
+        </div>
+        <p class="toy-invariant">Each update contracts the distance to the chosen corner by exactly one half.</p>
+        <a class="toy-entry-link" href="index.html#lorenz-attractor">Lorenz attractor <span aria-hidden="true">↗</span></a>
+      </article>
+
+      <article class="toy-card toy-hotel" id="hilbert-hotel">
+        <div class="toy-heading"><span class="toy-number">04 / Infinity, with a door</span><h2>Hilbert's hotel</h2></div>
+        <p class="toy-intro">Every room is occupied, and a new guest arrives. Each resident moves from room n to room n + 1, leaving room one open.</p>
+        <div class="hotel-stage">
+          <div class="hotel-caption"><span id="hotel-arrivals">New arrivals: 0</span><span>Rooms keep going past the frame</span></div>
+          <ol class="hotel-rooms" id="hotel-rooms" aria-live="polite"></ol>
+          <p class="hotel-ellipsis" aria-hidden="true">⋯</p>
+        </div>
+        <div class="hotel-controls">
+          <button class="toy-button" id="hotel-arrive" type="button">Admit a guest</button>
+          <button class="toy-button quiet-toy-button" id="hotel-reset" type="button">Reset the hotel</button>
+        </div>
+        <p class="toy-invariant">The shift n ↦ n + 1 is a bijection from all occupied rooms to every room except the first.</p>
+        <div class="toy-entry-links"><a class="toy-entry-link" href="index.html#noether-theorem">Noether's theorem <span aria-hidden="true">↗</span></a><a class="toy-entry-link" href="index.html#structure">Structure shelf <span aria-hidden="true">↗</span></a></div>
+      </article>
+    </section>
+
+    <aside class="toy-colophon">
+      <span class="toy-colophon-mark">∴</span>
+      <p>I keep the play attached to a proof-shaped idea: a frequency estimate, a distribution, a contraction, a bijection. The toy is a door back into the mathematics.</p>
+    </aside>
+  </main>
+
+  <footer class="site-footer page-width">
+    <div><a class="wordmark" href="index.html"><span>codex</span><i>naturalis</i></a><p>A little play, with the invariant left visible.</p></div>
+    <div class="footer-links"><a href="index.html">The book</a><a href="problems.html">The arena</a><a href="solved.html">Closed pages</a><a href="humans.html">The hall</a></div>
+    <p class="footer-sources">The shelf runs in the browser with ordinary canvas, SVG, and Web Audio; nothing is fetched for an experiment.</p>
+  </footer>
+</body>
+</html>

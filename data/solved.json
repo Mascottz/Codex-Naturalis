@@ -1,0 +1,203 @@
+[
+  {
+    "id": "fermat-last-theorem",
+    "number": 1,
+    "title": "Fermat's last theorem",
+    "year": "1995",
+    "solvers": [
+      {
+        "name": "Andrew Wiles",
+        "humanId": "andrew-wiles"
+      },
+      {
+        "name": "Richard Taylor",
+        "humanId": "richard-taylor"
+      }
+    ],
+    "verificationType": "peer-reviewed",
+    "verification": "Wiles's modularity proof, repaired with Taylor and published in 1995, is a complete peer-reviewed proof.",
+    "source": "https://mathshistory.st-andrews.ac.uk/HistTopics/Fermats_last_theorem/"
+  },
+  {
+    "id": "poincare-conjecture",
+    "number": 2,
+    "title": "The Poincaré conjecture",
+    "year": "2003",
+    "solvers": [
+      {
+        "name": "Grigori Perelman",
+        "humanId": "grigori-perelman"
+      }
+    ],
+    "verificationType": "formal",
+    "verification": "A 2026 Lean formalization of the Hamilton–Perelman route is kernel-checked; Perelman declined the Fields Medal and the Clay prize.",
+    "source": "https://arxiv.org/abs/2609.33842"
+  },
+  {
+    "id": "four-color-theorem",
+    "number": 3,
+    "title": "The four color theorem",
+    "year": "1976",
+    "solvers": [
+      {
+        "name": "Kenneth Appel",
+        "humanId": "kenneth-appel"
+      },
+      {
+        "name": "Wolfgang Haken",
+        "humanId": "wolfgang-haken"
+      }
+    ],
+    "verificationType": "formal",
+    "verification": "Appel and Haken's computer-assisted proof was the first of its kind; Gonthier later checked a proof in Coq.",
+    "source": "https://doi.org/10.1145/1596550.1596574"
+  },
+  {
+    "id": "kepler-conjecture",
+    "number": 4,
+    "title": "The Kepler conjecture",
+    "year": "1998",
+    "solvers": [
+      {
+        "name": "Thomas Hales",
+        "humanId": "thomas-hales"
+      }
+    ],
+    "verificationType": "formal",
+    "verification": "Hales proved the density bound in 1998; the Flyspeck formalization was completed in 2014 and checked by proof assistants.",
+    "source": "https://flyspeck.github.io/"
+  },
+  {
+    "id": "weil-conjectures",
+    "number": 5,
+    "title": "The Weil conjectures",
+    "year": "1974",
+    "solvers": [
+      {
+        "name": "Pierre Deligne",
+        "humanId": "pierre-deligne"
+      }
+    ],
+    "verificationType": "peer-reviewed",
+    "verification": "Deligne's published proof completed the last of the Weil conjectures and the program Grothendieck had set in motion.",
+    "source": "https://www.ihes.fr/~deligne/Weil_conjectures.pdf"
+  },
+  {
+    "id": "finite-simple-groups",
+    "number": 6,
+    "title": "The classification of finite simple groups",
+    "year": "c. 2004",
+    "solvers": [
+      {
+        "name": "Many hands"
+      }
+    ],
+    "verificationType": "peer-reviewed",
+    "verification": "The proof was assembled across a large body of peer-reviewed papers and surveyed as complete around 2004; no single author owns the closing.",
+    "source": "https://bookstore.ams.org/surv-40/"
+  },
+  {
+    "id": "weak-goldbach",
+    "number": 7,
+    "title": "The weak Goldbach conjecture",
+    "year": "2013",
+    "solvers": [
+      {
+        "name": "Harald Helfgott",
+        "humanId": "harald-helfgott"
+      }
+    ],
+    "verificationType": "peer-reviewed",
+    "verification": "Helfgott's analytic proof combines a published argument with explicit computation over the finite range it leaves open.",
+    "source": "https://arxiv.org/abs/1305.2897"
+  },
+  {
+    "id": "prime-number-theorem",
+    "number": 8,
+    "title": "The prime number theorem",
+    "year": "1896",
+    "solvers": [
+      {
+        "name": "Jacques Hadamard",
+        "humanId": "jacques-hadamard"
+      },
+      {
+        "name": "Charles-Jean de la Vallée Poussin",
+        "humanId": "charles-de-la-vallee-poussin"
+      }
+    ],
+    "verificationType": "peer-reviewed",
+    "verification": "Hadamard and de la Vallée Poussin independently established a zero-free region for the zeta function, yielding the theorem.",
+    "source": "https://mathshistory.st-andrews.ac.uk/HistTopics/Prime_number_theorem/"
+  },
+  {
+    "id": "basel-problem",
+    "number": 9,
+    "title": "The Basel problem",
+    "year": "1734",
+    "formula": "Σ 1/n² = π²/6",
+    "solvers": [
+      {
+        "name": "Leonhard Euler",
+        "humanId": "leonhard-euler"
+      }
+    ],
+    "verificationType": "historical proof",
+    "verification": "Euler's published evaluation established the sum; later analysis supplied the convergence framework used in modern proofs.",
+    "source": "https://mathshistory.st-andrews.ac.uk/HistTopics/Basel_problem/"
+  },
+  {
+    "id": "quintic-refusal",
+    "number": 10,
+    "title": "The quintic's refusal",
+    "year": "1799 / 1824",
+    "formula": "No general formula in radicals",
+    "solvers": [
+      {
+        "name": "Paolo Ruffini",
+        "humanId": "paolo-ruffini"
+      },
+      {
+        "name": "Niels Henrik Abel",
+        "humanId": "niels-henrik-abel"
+      }
+    ],
+    "verificationType": "peer-reviewed",
+    "verification": "Abel's accepted impossibility proof rules out a general radical formula; Galois theory later explains the obstruction through nonsolvable groups.",
+    "source": "https://mathshistory.st-andrews.ac.uk/HistTopics/Quadratic_etc_equations/"
+  },
+  {
+    "id": "continuum-hypothesis",
+    "number": 11,
+    "title": "The continuum hypothesis",
+    "year": "1940 / 1963",
+    "solvers": [
+      {
+        "name": "Kurt Gödel",
+        "humanId": "kurt-godel"
+      },
+      {
+        "name": "Paul Cohen",
+        "humanId": "paul-cohen"
+      }
+    ],
+    "verificationType": "relative consistency",
+    "verification": "Gödel's constructible universe and Cohen's forcing established relative consistency in both directions, assuming ZFC itself is consistent.",
+    "source": "https://plato.stanford.edu/entries/continuum-hypothesis/"
+  },
+  {
+    "id": "irrationality-e",
+    "number": 12,
+    "title": "The irrationality of e",
+    "year": "1737",
+    "solvers": [
+      {
+        "name": "Leonhard Euler",
+        "humanId": "leonhard-euler"
+      }
+    ],
+    "verificationType": "historical proof",
+    "verification": "Euler's infinite continued fraction proves irrationality; the argument dates to 1737 and appeared in print in 1744.",
+    "source": "https://kconrad.math.uconn.edu/blurbs/analysis/irrational.pdf"
+  }
+]
