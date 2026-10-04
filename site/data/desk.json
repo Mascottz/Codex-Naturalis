@@ -61,7 +61,7 @@
     "definitions": [
       {
         "term": "Gauge field",
-        "explanation": "A field whose description has local symmetry; Maxwell's equations are the abelian example, while Yang–Mills theory uses a non-abelian gauge group.",
+        "explanation": "A field whose description has local symmetry; Maxwell's equations are the abelian example, while Yang-Mills theory uses a non-abelian gauge group.",
         "entryId": "maxwell-equations"
       }
     ],
@@ -155,7 +155,7 @@
     "definitions": [
       {
         "term": "Curvature integral",
-        "explanation": "Gauss–Bonnet connects integrated curvature to a topological invariant in two dimensions; Einstein metrics ask for a tensor-level curvature condition.",
+        "explanation": "Gauss-Bonnet connects integrated curvature to a topological invariant in two dimensions; Einstein metrics ask for a tensor-level curvature condition.",
         "entryId": "gauss-bonnet"
       }
     ],

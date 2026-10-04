@@ -30,7 +30,7 @@
     "millennium": true,
     "summary": "Does smooth three-dimensional fluid data stay smooth for all time.",
     "source": "https://www.claymath.org/millennium-problems/navier-stokes-existence-and-smoothness/",
-    "statement": "For smooth, divergence-free initial velocity with finite energy in three dimensions, do the incompressible Navier–Stokes equations always have a global smooth solution, or can a finite-time singularity form?"
+    "statement": "For smooth, divergence-free initial velocity with finite energy in three dimensions, do the incompressible Navier-Stokes equations always have a global smooth solution, or can a finite-time singularity form?"
   },
   {
     "id": "birch-swinnerton-dyer",
@@ -41,7 +41,7 @@
     "millennium": true,
     "summary": "Do the rational points on an elliptic curve match the vanishing of its L-function at one.",
     "source": "https://www.claymath.org/millennium-problems/birch-and-swinnerton-dyer-conjecture/",
-    "statement": "For every elliptic curve E over the rational numbers, is the rank of E(Q) equal to the order of vanishing of its Hasse–Weil L-function L(E,s) at s = 1?"
+    "statement": "For every elliptic curve E over the rational numbers, is the rank of E(Q) equal to the order of vanishing of its Hasse-Weil L-function L(E,s) at s = 1?"
   },
   {
     "id": "hodge-conjecture",
@@ -63,7 +63,7 @@
     "millennium": true,
     "summary": "Does a mathematically complete quantum Yang-Mills theory exist with a positive mass gap.",
     "source": "https://www.claymath.org/millennium-problems/yang-mills-and-the-mass-gap/",
-    "statement": "For every compact simple gauge group, construct a nontrivial quantum Yang–Mills theory on four-dimensional spacetime satisfying the accepted axioms and prove that its spectrum has a positive mass gap."
+    "statement": "For every compact simple gauge group, construct a nontrivial quantum Yang-Mills theory on four-dimensional spacetime satisfying the accepted axioms and prove that its spectrum has a positive mass gap."
   },
   {
     "id": "poincare-conjecture",
@@ -277,7 +277,7 @@
     "field": "cosmology",
     "status": "open",
     "millennium": false,
-    "summary": "Is the early–late disagreement in H₀ new physics, a systematic error, or a statistical fluctuation?",
+    "summary": "Is the early-late disagreement in H₀ new physics, a systematic error, or a statistical fluctuation?",
     "statement": "Determine whether the disagreement between the local distance-ladder value of H₀ and the value inferred from the cosmic microwave background under ΛCDM is caused by new physics, unrecognized systematics, or statistical fluctuation. Give a quantitative account that identifies which observations or calibrations distinguish the possibilities.",
     "source": "https://arxiv.org/abs/2112.04510",
     "sources": [
@@ -315,7 +315,7 @@
   {
     "id": "dark-halo-cusp-core",
     "number": 26,
-    "title": "The dark-halo cusp–core problem",
+    "title": "The dark-halo cusp-core problem",
     "field": "galactic astrophysics",
     "status": "open",
     "millennium": false,
@@ -370,7 +370,7 @@
     "kind": "codex",
     "label": "C7",
     "problemType": "Variational dynamics and periodic-orbit uniqueness",
-    "statement": "In the planar Newtonian three-body problem with equal masses and center of mass fixed at zero, normalize the total mass and period and impose the reflection and choreography symmetries used to construct the figure-eight orbit. Determine whether the Chenciner–Montgomery orbit is the unique global minimizer of the Newtonian action in this class, modulo rotation, time shift, and relabeling. Prove uniqueness or exhibit a distinct minimizer.",
+    "statement": "In the planar Newtonian three-body problem with equal masses and center of mass fixed at zero, normalize the total mass and period and impose the reflection and choreography symmetries used to construct the figure-eight orbit. Determine whether the Chenciner-Montgomery orbit is the unique global minimizer of the Newtonian action in this class, modulo rotation, time shift, and relabeling. Prove uniqueness or exhibit a distinct minimizer.",
     "approach": "The existence proof and a computer-assisted local-uniqueness theorem do not classify every global minimizer. Establish global bounds in the stated symmetry class or construct a second admissible orbit with a verified action comparison.",
     "sources": [
       {

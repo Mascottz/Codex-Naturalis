@@ -97,7 +97,7 @@
     "source": "MacTutor History of Mathematics archive; Planck, On the theory of the energy distribution law",
     "story": "I keep Planck's reluctance in view. The quantum began as a mathematical move he did not trust, then remade physics.",
     "status": "planned",
-    "derivation": "Quantized oscillator energies sum in discrete packets; division by the mode density and the Bose–Einstein occupation factor produces the spectrum."
+    "derivation": "Quantized oscillator energies sum in discrete packets; division by the mode density and the Bose-Einstein occupation factor produces the spectrum."
   },
   {
     "id": "laplace-tides",
@@ -496,7 +496,7 @@
     },
     "source": "MacTutor History of Mathematics archive; Heisenberg, Über den anschaulichen Inhalt der quantentheoretischen Kinematik",
     "status": "planned",
-    "derivation": "Applying Cauchy–Schwarz to position and momentum operators, together with their commutator, gives the lower bound."
+    "derivation": "Applying Cauchy-Schwarz to position and momentum operators, together with their commutator, gives the lower bound."
   },
   {
     "id": "pythagorean-theorem",
@@ -660,7 +660,7 @@
     ],
     "year": "1687 / 1890 / 1993 / 2000",
     "statement": "Newton's equations determine three mutual gravitational trajectories from masses and initial conditions. No general integral formula solves every three-body motion, yet special periodic solutions exist. In the equal-mass planar figure-eight choreography, each body traces the same curve at a time shift.",
-    "derivation": "For equal masses m, each body accelerates toward the other two by the inverse-square law shown above. Poincaré's nonintegrability result rules out a general integral-based solution, not individual periodic orbits. The reference initial conditions produce a periodic choreography in the normalized units G = m = 1; Julia integrates the orbit and nearby perturbed starts with fourth-order Runge–Kutta steps.",
+    "derivation": "For equal masses m, each body accelerates toward the other two by the inverse-square law shown above. Poincaré's nonintegrability result rules out a general integral-based solution, not individual periodic orbits. The reference initial conditions produce a periodic choreography in the normalized units G = m = 1; Julia integrates the orbit and nearby perturbed starts with fourth-order Runge-Kutta steps.",
     "intuition": "Three bodies follow one another around a shared track. A small nudge makes the repeated dance drift away from its exact choreography.",
     "visualType": "three-body",
     "status": "live",
@@ -838,7 +838,7 @@
         "url": "https://galaxiesbook.org/chapters/IV-02.-Extragalactic-Astronomy_2-Dark-matter-halos-and-their-galaxies.html"
       },
       {
-        "title": "The Hubble–Lemaître law plate",
+        "title": "The Hubble-Lemaître law plate",
         "url": "index.html#hubble-lemaitre"
       }
     ],
@@ -867,7 +867,7 @@
       "morley-davidson",
       "john-dethridge"
     ],
-    "year": "1974–2010",
+    "year": "1974-2010",
     "statement": "The fixed-center 3×3×3 cube's reachable positions form a finite group under the six legal quarter-turn generators U, D, L, R, F, and B. In the half-turn metric, the group's Cayley graph has diameter 20.",
     "derivation": "The six face quarter-turns generate every legal position; inverses are their third powers. Corner permutation and twist contribute 8!·3⁷ choices, while edge permutation and flip contribute 12!·2¹¹. Corner twists sum to 0 modulo 3, edge flips sum to 0 modulo 2, and corner and edge permutation parities must agree, supplying the final factor 1/2. Thus |G| = (8!·3⁷·12!·2¹¹)/2 = 43,252,003,274,489,856,000. Thistlethwaite’s chain is G₀ = ⟨U,D,L,R,F,B⟩, G₁ = ⟨U,D,L,R,F²,B²⟩, G₂ = ⟨U,D,L²,R²,F²,B²⟩, G₃ = ⟨U²,D²,L²,R²,F²,B²⟩, and G₄ = {e}; each stage restricts the available generators until only the identity remains. In the half-turn metric, each face quarter-turn, half-turn, or inverse quarter-turn costs one move. The superflip has distance 20, while the exhaustive proof shows every legal position lies within 20 turns of solved.",
     "intuition": "Each legal position is a vertex in a vast landscape; a face turn is an edge, and an algorithm is a path home. God's number is the graph's diameter, the length of its longest shortest path.",

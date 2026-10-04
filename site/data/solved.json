@@ -30,7 +30,7 @@
       }
     ],
     "verificationType": "formal",
-    "verification": "A 2026 Lean formalization of the Hamilton–Perelman route is kernel-checked; Perelman declined the Fields Medal and the Clay prize.",
+    "verification": "A 2026 Lean formalization of the Hamilton-Perelman route is kernel-checked; Perelman declined the Fields Medal and the Clay prize.",
     "source": "https://arxiv.org/abs/2609.33842"
   },
   {
