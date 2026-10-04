@@ -295,17 +295,32 @@ function humanCard(human) {
   </article>`;
 }
 
+function originYear(human) {
+  const text = String(human.years || "");
+  const match = text.match(/-?\d{3,4}/);
+  if (!match) return 0;
+  const value = Number(match[0]);
+  return /bce/i.test(text) ? -Math.abs(value) : value;
+}
+
+function originYearLabel(human) {
+  const year = originYear(human);
+  return year < 0 ? `${Math.abs(year)} BCE` : String(year);
+}
+
 function renderTimeline(humans) {
   const timeline = document.querySelector("#timeline");
-  const years = humans.map(human => { const match = human.years.match(/-?\d{3,4}/); return match ? Math.abs(Number(match[0])) : 1900; });
-  const first = Math.min(...years), last = Math.max(...years);
-  const origin = `<div class="timeline-item" style="left:2%"><strong>Babylon</strong><small>mesopotamia · c. 1800 BCE</small></div>`;
-  const now = `<div class="timeline-item" style="left:96%"><strong>Now</strong><small>the margin stays open</small></div>`;
-  timeline.innerHTML = origin + humans.filter((human, index) => index % 2 === 0).map(human => {
-    const match = human.years.match(/-?\d{3,4}/); const year = match ? Math.abs(Number(match[0])) : 1900;
-    const left = 5 + ((year - first) / (last - first)) * 90;
-    return `<div class="timeline-item" style="left:${left}%"><strong>${escapeHtml(human.name)}</strong><small>${escapeHtml(human.era)} · ${escapeHtml(human.region)}</small></div>`;
-  }).join("") + now;
+  const sorted = [...humans].sort((a, b) => originYear(a) - originYear(b) || a.name.localeCompare(b.name));
+  const nodes = [
+    { name: "Babylon", detail: "mesopotamia · c. 1800 BCE" },
+    ...sorted.map(human => ({ name: human.name, detail: `${originYearLabel(human)} · ${human.region}` })),
+    { name: "Now", detail: "the margin stays open" }
+  ];
+  timeline.innerHTML = nodes.map((node, index) => {
+    const left = 3 + (index / Math.max(nodes.length - 1, 1)) * 94;
+    const lane = index % 2 === 0 ? "above" : "below";
+    return `<div class="timeline-item ${lane}" style="left:${left}%"><strong>${escapeHtml(node.name)}</strong><small>${escapeHtml(node.detail)}</small></div>`;
+  }).join("");
 }
 
 function startHumanFilters(humans) {

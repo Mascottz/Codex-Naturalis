@@ -1,4 +1,11 @@
 {
   "cleanUrls": true,
-  "outputDirectory": "site"
+  "outputDirectory": "site",
+  "redirects": [
+    {
+      "source": "/contributing.md",
+      "destination": "/contributing.html",
+      "permanent": true
+    }
+  ]
 }
