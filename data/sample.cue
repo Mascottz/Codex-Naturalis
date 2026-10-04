@@ -25,7 +25,7 @@ problem: schemas.#Problem & {
   field: "number theory"
   status: "open"
   millennium: false
-  summary: "I ask whether every path reaches one."
+  summary: "Does every path reach one?"
   source: "https://oeis.org/A006577"
 }
 
@@ -34,7 +34,7 @@ attempt: schemas.#Attempt & {
   name: "M. Rivera"
   date: "2025-04-12"
   problemId: "collatz-conjecture"
-  link: "https://github.com/Mascottz/codex-naturalis-/pull/1"
+  link: "https://github.com/Mascottz/codex-naturalis/pull/1"
   status: "attempted"
   claim: "I record a computational exploration, not a proof."
 }

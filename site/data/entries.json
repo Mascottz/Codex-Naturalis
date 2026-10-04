@@ -49,7 +49,7 @@
     "derivation": "I expand the complex exponential as a power series and set the angle to π; cosine gives −1, sine gives 0, and the identity closes."
   },
   {
-    "id": "hubblem-lemaitre",
+    "id": "hubble-lemaitre",
     "number": 3,
     "domain": "sky",
     "title": "The Hubble-Lemaître law",
@@ -70,7 +70,7 @@
       "value": 70
     },
     "source": "MacTutor History of Mathematics archive; Lemaître 1927; Hubble 1929",
-    "story": "I name Lemaître's 1927 derivation beside Hubble's 1929 observations. The history is shared, and the name is still being repaired.",
+    "story": "I put Lemaître's 1927 derivation beside Hubble's 1929 observations; the shared history deserves both names.",
     "status": "planned",
     "derivation": "I write the scale factor as a(t), differentiate the physical distance, and read the local recession rate as H(t)d."
   },

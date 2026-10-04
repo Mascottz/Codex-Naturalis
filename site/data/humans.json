@@ -1,36 +1,597 @@
 [
-  {"id":"isaac-newton","name":"Isaac Newton","era":"early modern","region":"england","years":"1643–1727","role":"natural philosopher","note":"I put Newton's synthesis at the sky because force and orbit deserve to be one thought.","entryIds":["newton-kepler"]},
-  {"id":"johannes-kepler","name":"Johannes Kepler","era":"early modern","region":"germany","years":"1571–1630","role":"astronomer","note":"I put Kepler's ellipses before the force because a measured shape already deserves praise, and his botanical eye belongs in the golden-angle lineage.","entryIds":["newton-kepler","phyllotaxis"]},
-  {"id":"leonhard-euler","name":"Leonhard Euler","era":"early modern","region":"switzerland","years":"1707–1783","role":"mathematician","note":"I put Euler at the spiral because analysis deserves a place that feels almost musical.","entryIds":["eulers-identity"]},
-  {"id":"georges-lemaitre","name":"Georges Lemaître","era":"modern","region":"belgium","years":"1894–1966","role":"physicist and priest","note":"I put Lemaître's 1927 paper back in the name because an expanding universe deserves its first derivation.","entryIds":["hubblem-lemaitre"]},
-  {"id":"edwin-hubble","name":"Edwin Hubble","era":"modern","region":"united states","years":"1889–1953","role":"astronomer","note":"I put Hubble's deep-sky measures in the light because they made expansion visible, and the naming stays a shared history.","entryIds":["hubblem-lemaitre"]},
-  {"id":"max-planck","name":"Max Planck","era":"modern","region":"germany","years":"1858–1947","role":"physicist","note":"I put Planck's reluctant quantum at the start of a century because a mathematical rescue remade physics.","entryIds":["planck-blackbody"]},
-  {"id":"pierre-simon-laplace","name":"Pierre-Simon Laplace","era":"early modern","region":"france","years":"1749–1827","role":"mathematician and astronomer","note":"I put Laplace at the tide because celestial mechanics deserves the moving sea.","entryIds":["laplace-tides"]},
-  {"id":"joseph-fourier","name":"Joseph Fourier","era":"early modern","region":"france","years":"1768–1830","role":"mathematician and physicist","note":"I put Fourier in the ear because heat, sound, and shape deserve to be rebuilt from rotating pieces.","entryIds":["fourier-series"]},
-  {"id":"claude-navier","name":"Claude-Louis Navier","era":"modern","region":"france","years":"1785–1836","role":"engineer and physicist","note":"I put Navier's name on viscous flow because the engineer who wrote the friction in deserves the equation.","entryIds":["navier-stokes"]},
-  {"id":"george-stokes","name":"George Gabriel Stokes","era":"modern","region":"ireland","years":"1819–1903","role":"mathematician and physicist","note":"I put Stokes beside Navier because the continuum needed both, and both deserve the water.","entryIds":["navier-stokes"]},
-  {"id":"jean-le-rond-dalembert","name":"Jean le Rond d'Alembert","era":"early modern","region":"france","years":"1717–1783","role":"mathematician and physicist","note":"I put d'Alembert at the string because a traveling wave deserves its first equation.","entryIds":["wave-equation"]},
-  {"id":"edward-lorenz","name":"Edward Lorenz","era":"modern","region":"united states","years":"1917–2008","role":"meteorologist","note":"I put Lorenz at the weather because a handful of terms deserves the door it opened into chaos.","entryIds":["lorenz-attractor"]},
-  {"id":"james-clerk-maxwell","name":"James Clerk Maxwell","era":"modern","region":"scotland","years":"1831–1879","role":"physicist","note":"I put Maxwell's fields at the speed of light because the synthesis deserves Faraday's experiments beside it.","entryIds":["maxwell-equations"]},
-  {"id":"michael-faraday","name":"Michael Faraday","era":"modern","region":"england","years":"1791–1867","role":"experimental scientist","note":"I put Faraday's lines of force in the hall because the experimenter's picture was already a field.","entryIds":["maxwell-equations"]},
-  {"id":"fibonacci-of-pisa","name":"Fibonacci of Pisa","era":"medieval","region":"italy","years":"c. 1170–c. 1240","role":"mathematician","note":"I put Fibonacci's book in the lineage because Indian and Arabic mathematics deserve the carrying, not a European origin story.","entryIds":["phyllotaxis"]},
-  {"id":"vogel-martin","name":"Martin Vogel","era":"modern","region":"germany","years":"1933–2020","role":"biomathematician","note":"I put Vogel's disc in the sunflower because a 1979 spacing argument deserves to be seen.","entryIds":["phyllotaxis"]},
-  {"id":"alan-turing","name":"Alan Turing","era":"modern","region":"england","years":"1912–1954","role":"mathematician and computer scientist","note":"I put Turing's last paper at the skin of a living form because reaction and diffusion deserve that bridge.","entryIds":["turing-patterns"]},
-  {"id":"alfred-lotka","name":"Alfred Lotka","era":"modern","region":"united states","years":"1880–1949","role":"mathematician and biophysicist","note":"I put Lotka's cycles beside Volterra because chemistry and ecology deserve the same pulse.","entryIds":["lotka-volterra"]},
-  {"id":"vito-volterra","name":"Vito Volterra","era":"modern","region":"italy","years":"1860–1940","role":"mathematician and physicist","note":"I put Volterra's predator-prey model in the living world because a fishery deserves an equation that still breathes.","entryIds":["lotka-volterra"]},
-  {"id":"godfrey-hardy","name":"Godfrey Harold Hardy","era":"modern","region":"england","years":"1877–1947","role":"mathematician","note":"I put Hardy's algebra in the equilibrium because a law of inheritance deserves its number theorist, biology or not.","entryIds":["hardy-weinberg"]},
-  {"id":"wilhelm-weinberg","name":"Wilhelm Weinberg","era":"modern","region":"germany","years":"1862–1937","role":"physician","note":"I put Weinberg's independent result in equal type because a physician deserves the same equilibrium.","entryIds":["hardy-weinberg"]},
-  {"id":"alan-hodgkin","name":"Alan Hodgkin","era":"modern","region":"england","years":"1914–1998","role":"physiologist","note":"I put Hodgkin's measurements in the nerve because current and voltage deserve the axon they describe.","entryIds":["hodgkin-huxley"]},
-  {"id":"andrew-huxley","name":"Andrew Huxley","era":"modern","region":"england","years":"1917–2012","role":"physiologist","note":"I put Huxley's gating model beside the squid because a living membrane deserves a machine one can write down.","entryIds":["hodgkin-huxley"]},
-  {"id":"erwin-schrodinger","name":"Erwin Schrödinger","era":"modern","region":"austria","years":"1887–1961","role":"physicist","note":"I put Schrödinger's wave packet in space because probability deserves a shape without hiding the formalism.","entryIds":["schrodinger-equation"]},
-  {"id":"emmy-noether","name":"Emmy Noether","era":"modern","region":"germany","years":"1882–1935","role":"mathematician","note":"I put Noether's theorem at the center because symmetry and conservation deserve a center.","entryIds":["noether-theorem"]},
-  {"id":"ludwig-boltzmann","name":"Ludwig Boltzmann","era":"modern","region":"austria","years":"1844–1906","role":"physicist","note":"I put Boltzmann's logarithm at the arrow of time because the microstates deserve a number that holds them.","entryIds":["boltzmann-entropy"]},
-  {"id":"claude-shannon","name":"Claude Shannon","era":"modern","region":"united states","years":"1916–2001","role":"mathematician and engineer","note":"I put Shannon's bit at the measure of surprise because information deserves to be countable.","entryIds":["shannon-entropy"]},
-  {"id":"werner-heisenberg","name":"Werner Heisenberg","era":"modern","region":"germany","years":"1901–1976","role":"physicist","note":"I put Heisenberg's uncertainty in the structure of states because a limit deserves to be a law, not a flaw.","entryIds":["uncertainty-principle"]},
-  {"id":"pythagoras-of-samos","name":"Pythagoras of Samos","era":"ancient","region":"greece","years":"c. 570–c. 495 BCE","role":"philosopher and mathematician","note":"I put Pythagoras in the hall with care because the right triangle's secret deserves Babylonian tablets and the Chinese gougu tradition beside the name.","entryIds":["pythagorean-theorem"]},
-  {"id":"thomas-bayes","name":"Thomas Bayes","era":"early modern","region":"england","years":"c. 1701–1761","role":"minister and mathematician","note":"I put Bayes's essay at the seed of updating because a belief deserves new evidence.","entryIds":["bayes-theorem"]},
-  {"id":"richard-price","name":"Richard Price","era":"early modern","region":"wales","years":"1723–1791","role":"philosopher and minister","note":"I put Price beside Bayes because an editor, publisher, and mathematical interlocutor deserves the essay that reached us through his hands.","entryIds":["bayes-theorem"]},
-  {"id":"bernhard-riemann","name":"Bernhard Riemann","era":"modern","region":"germany","years":"1826–1866","role":"mathematician","note":"I put Riemann's zeta at the still-open line because analytic continuation deserves the zeros nobody has closed.","entryIds":["riemann-zeta"]},
-  {"id":"carl-friedrich-gauss","name":"Carl Friedrich Gauss","era":"early modern","region":"germany","years":"1777–1855","role":"mathematician and physicist","note":"I put Gauss's intrinsic curvature at the surface because a geometry deserves to know itself without the space around it.","entryIds":["gauss-bonnet"]},
-  {"id":"pierre-osian-bonnet","name":"Pierre Ossian Bonnet","era":"modern","region":"france","years":"1819–1892","role":"mathematician","note":"I put Bonnet's boundary in the theorem's full name because a conversation deserves both voices.","entryIds":["gauss-bonnet"]}
+  {
+    "id": "pythagoras-of-samos",
+    "name": "Pythagoras of Samos",
+    "era": "ancient",
+    "region": "greece",
+    "years": "c. 570–c. 495 BCE",
+    "role": "philosopher and mathematician",
+    "note": "I put Pythagoras in the hall with care because the right triangle's long history deserves Babylonian tablets and the Chinese gougu tradition beside his name.",
+    "entryIds": [
+      "pythagorean-theorem"
+    ]
+  },
+  {
+    "id": "fibonacci-of-pisa",
+    "name": "Fibonacci of Pisa",
+    "era": "medieval",
+    "region": "italy",
+    "years": "c. 1170–c. 1240",
+    "role": "mathematician",
+    "note": "I put Fibonacci in the seed lineage because his book carried Indian and Arabic arithmetic through a world that needed it.",
+    "entryIds": [
+      "phyllotaxis"
+    ]
+  },
+  {
+    "id": "johannes-kepler",
+    "name": "Johannes Kepler",
+    "era": "early modern",
+    "region": "germany",
+    "years": "1571–1630",
+    "role": "astronomer",
+    "note": "I put Kepler's measured ellipses at the sky's first turning because he made patient observation strong enough to move a planet.",
+    "entryIds": [
+      "newton-kepler",
+      "phyllotaxis"
+    ]
+  },
+  {
+    "id": "isaac-newton",
+    "name": "Isaac Newton",
+    "era": "early modern",
+    "region": "england",
+    "years": "1643–1727",
+    "role": "natural philosopher",
+    "note": "I put Newton's law beside Kepler's ellipses because his synthesis made the sky answer to the same gravity as the earth.",
+    "entryIds": [
+      "newton-kepler"
+    ]
+  },
+  {
+    "id": "thomas-bayes",
+    "name": "Thomas Bayes",
+    "era": "early modern",
+    "region": "england",
+    "years": "c. 1701–1761",
+    "role": "minister and mathematician",
+    "note": "I put Bayes at the first turn of belief because his quiet essay gave uncertainty a way to learn from evidence.",
+    "entryIds": [
+      "bayes-theorem"
+    ]
+  },
+  {
+    "id": "leonhard-euler",
+    "name": "Leonhard Euler",
+    "era": "early modern",
+    "region": "switzerland",
+    "years": "1707–1783",
+    "role": "mathematician",
+    "note": "I put Euler's identity in the spiral because his fearless fluency made five constants sound like one note.",
+    "entryIds": [
+      "eulers-identity"
+    ],
+    "solvedIds": [
+      "basel-problem",
+      "irrationality-e"
+    ]
+  },
+  {
+    "id": "jean-le-rond-dalembert",
+    "name": "Jean le Rond d'Alembert",
+    "era": "early modern",
+    "region": "france",
+    "years": "1717–1783",
+    "role": "mathematician and physicist",
+    "note": "I put d'Alembert at the plucked string because his equation let a moving disturbance keep its own shape.",
+    "entryIds": [
+      "wave-equation"
+    ]
+  },
+  {
+    "id": "richard-price",
+    "name": "Richard Price",
+    "era": "early modern",
+    "region": "wales",
+    "years": "1723–1791",
+    "role": "philosopher and minister",
+    "note": "I put Price beside Bayes because his editorial care carried the essay into print and made its argument reach us.",
+    "entryIds": [
+      "bayes-theorem"
+    ]
+  },
+  {
+    "id": "pierre-simon-laplace",
+    "name": "Pierre-Simon Laplace",
+    "era": "early modern",
+    "region": "france",
+    "years": "1749–1827",
+    "role": "mathematician and astronomer",
+    "note": "I put Laplace at the tide because he carried celestial mechanics' rigor into the breathing ocean.",
+    "entryIds": [
+      "laplace-tides"
+    ]
+  },
+  {
+    "id": "paolo-ruffini",
+    "name": "Paolo Ruffini",
+    "era": "early modern",
+    "region": "italy",
+    "years": "1765–1822",
+    "role": "mathematician and physician",
+    "note": "I put Ruffini at the quintic because he saw that the missing radical formula was a mathematical fact, not a gap to fill.",
+    "entryIds": [],
+    "solvedIds": [
+      "quintic-refusal"
+    ]
+  },
+  {
+    "id": "joseph-fourier",
+    "name": "Joseph Fourier",
+    "era": "early modern",
+    "region": "france",
+    "years": "1768–1830",
+    "role": "mathematician and physicist",
+    "note": "I put Fourier in the ear because his heat equation gave complex shapes a chorus of simple waves.",
+    "entryIds": [
+      "fourier-series"
+    ]
+  },
+  {
+    "id": "carl-friedrich-gauss",
+    "name": "Carl Friedrich Gauss",
+    "era": "early modern",
+    "region": "germany",
+    "years": "1777–1855",
+    "role": "mathematician and physicist",
+    "note": "I put Gauss at the surface because intrinsic curvature let geometry learn to measure itself.",
+    "entryIds": [
+      "gauss-bonnet"
+    ]
+  },
+  {
+    "id": "claude-navier",
+    "name": "Claude-Louis Navier",
+    "era": "modern",
+    "region": "france",
+    "years": "1785–1836",
+    "role": "engineer and physicist",
+    "note": "I put Navier at the moving water because he dared to give viscosity a mathematical voice.",
+    "entryIds": [
+      "navier-stokes"
+    ]
+  },
+  {
+    "id": "michael-faraday",
+    "name": "Michael Faraday",
+    "era": "modern",
+    "region": "england",
+    "years": "1791–1867",
+    "role": "experimental scientist",
+    "note": "I put Faraday's field lines beside Maxwell because the experimental imagination came before the equations and deserves its own light.",
+    "entryIds": [
+      "maxwell-equations"
+    ]
+  },
+  {
+    "id": "niels-henrik-abel",
+    "name": "Niels Henrik Abel",
+    "era": "early modern",
+    "region": "norway",
+    "years": "1802–1829",
+    "role": "mathematician",
+    "note": "I put Abel beside Ruffini because his clear impossibility proof gave the quintic's refusal its lasting form.",
+    "entryIds": [],
+    "solvedIds": [
+      "quintic-refusal"
+    ]
+  },
+  {
+    "id": "george-stokes",
+    "name": "George Gabriel Stokes",
+    "era": "modern",
+    "region": "ireland",
+    "years": "1819–1903",
+    "role": "mathematician and physicist",
+    "note": "I put Stokes beside Navier because his extension helped turn a working fluid model into a lasting law.",
+    "entryIds": [
+      "navier-stokes"
+    ]
+  },
+  {
+    "id": "pierre-osian-bonnet",
+    "name": "Pierre Ossian Bonnet",
+    "era": "modern",
+    "region": "france",
+    "years": "1819–1892",
+    "role": "mathematician",
+    "note": "I put Bonnet in the theorem's full name because his boundary term completes the conversation Gauss began.",
+    "entryIds": [
+      "gauss-bonnet"
+    ]
+  },
+  {
+    "id": "bernhard-riemann",
+    "name": "Bernhard Riemann",
+    "era": "modern",
+    "region": "germany",
+    "years": "1826–1866",
+    "role": "mathematician",
+    "note": "I put Riemann at the still-open line because his daring zeta function joined primes to the deep shape of analysis.",
+    "entryIds": [
+      "riemann-zeta"
+    ]
+  },
+  {
+    "id": "james-clerk-maxwell",
+    "name": "James Clerk Maxwell",
+    "era": "modern",
+    "region": "scotland",
+    "years": "1831–1879",
+    "role": "physicist",
+    "note": "I put Maxwell among the fields because his synthesis let electricity and magnetism travel as light.",
+    "entryIds": [
+      "maxwell-equations"
+    ]
+  },
+  {
+    "id": "ludwig-boltzmann",
+    "name": "Ludwig Boltzmann",
+    "era": "modern",
+    "region": "austria",
+    "years": "1844–1906",
+    "role": "physicist",
+    "note": "I put Boltzmann's logarithm beside entropy because he gave the invisible multitude of molecular states a measure.",
+    "entryIds": [
+      "boltzmann-entropy"
+    ]
+  },
+  {
+    "id": "max-planck",
+    "name": "Max Planck",
+    "era": "modern",
+    "region": "germany",
+    "years": "1858–1947",
+    "role": "physicist",
+    "note": "I put Planck's reluctant quantum at the century's hinge because one careful mathematical rescue opened a new physics.",
+    "entryIds": [
+      "planck-blackbody"
+    ]
+  },
+  {
+    "id": "vito-volterra",
+    "name": "Vito Volterra",
+    "era": "modern",
+    "region": "italy",
+    "years": "1860–1940",
+    "role": "mathematician and physicist",
+    "note": "I put Volterra beside Lotka because his model made ecological conflict move in equations and in real fisheries.",
+    "entryIds": [
+      "lotka-volterra"
+    ]
+  },
+  {
+    "id": "wilhelm-weinberg",
+    "name": "Wilhelm Weinberg",
+    "era": "modern",
+    "region": "germany",
+    "years": "1862–1937",
+    "role": "physician",
+    "note": "I put Weinberg beside Hardy because his independent insight gave the equilibrium a second, equally deserved origin.",
+    "entryIds": [
+      "hardy-weinberg"
+    ]
+  },
+  {
+    "id": "jacques-hadamard",
+    "name": "Jacques Hadamard",
+    "era": "modern",
+    "region": "france",
+    "years": "1865–1963",
+    "role": "mathematician",
+    "note": "I put Hadamard beside the prime number theorem because his 1896 zero-free argument made prime density yield to complex analysis.",
+    "entryIds": [],
+    "solvedIds": [
+      "prime-number-theorem"
+    ]
+  },
+  {
+    "id": "charles-de-la-vallee-poussin",
+    "name": "Charles-Jean de la Vallée Poussin",
+    "era": "modern",
+    "region": "belgium",
+    "years": "1866–1962",
+    "role": "mathematician",
+    "note": "I put de la Vallée Poussin beside Hadamard because his independent proof gave the same landmark a second route.",
+    "entryIds": [],
+    "solvedIds": [
+      "prime-number-theorem"
+    ]
+  },
+  {
+    "id": "godfrey-hardy",
+    "name": "Godfrey Harold Hardy",
+    "era": "modern",
+    "region": "england",
+    "years": "1877–1947",
+    "role": "mathematician",
+    "note": "I put Hardy at the inheritance balance because his algebra made a useful law visible, even beyond the field he loved.",
+    "entryIds": [
+      "hardy-weinberg"
+    ]
+  },
+  {
+    "id": "alfred-lotka",
+    "name": "Alfred Lotka",
+    "era": "modern",
+    "region": "united states",
+    "years": "1880–1949",
+    "role": "mathematician and biophysicist",
+    "note": "I put Lotka in the predator-prey rhythm because he saw a mathematical ecology in chemistry's changing concentrations.",
+    "entryIds": [
+      "lotka-volterra"
+    ]
+  },
+  {
+    "id": "emmy-noether",
+    "name": "Emmy Noether",
+    "era": "modern",
+    "region": "germany",
+    "years": "1882–1935",
+    "role": "mathematician",
+    "note": "I put Noether's theorem at the center because symmetry and conservation deserve a center.",
+    "entryIds": [
+      "noether-theorem"
+    ]
+  },
+  {
+    "id": "erwin-schrodinger",
+    "name": "Erwin Schrödinger",
+    "era": "modern",
+    "region": "austria",
+    "years": "1887–1961",
+    "role": "physicist",
+    "note": "I put Schrödinger in the wave's path because his equation gave quantum change a form the imagination could follow.",
+    "entryIds": [
+      "schrodinger-equation"
+    ]
+  },
+  {
+    "id": "edwin-hubble",
+    "name": "Edwin Hubble",
+    "era": "modern",
+    "region": "united states",
+    "years": "1889–1953",
+    "role": "astronomer",
+    "note": "I put Hubble's careful measures beside Lemaître's theory because he made expansion visible, and the shared history deserves both names.",
+    "entryIds": [
+      "hubble-lemaitre"
+    ]
+  },
+  {
+    "id": "georges-lemaitre",
+    "name": "Georges Lemaître",
+    "era": "modern",
+    "region": "belgium",
+    "years": "1894–1966",
+    "role": "physicist and priest",
+    "note": "I put Lemaître beside the expanding universe because his 1927 derivation deserves to be read before the name the world learned later.",
+    "entryIds": [
+      "hubble-lemaitre"
+    ]
+  },
+  {
+    "id": "werner-heisenberg",
+    "name": "Werner Heisenberg",
+    "era": "modern",
+    "region": "germany",
+    "years": "1901–1976",
+    "role": "physicist",
+    "note": "I put Heisenberg's limit in the structure of states because he turned a measurement boundary into a law, not a flaw.",
+    "entryIds": [
+      "uncertainty-principle"
+    ]
+  },
+  {
+    "id": "kurt-godel",
+    "name": "Kurt Gödel",
+    "era": "modern",
+    "region": "austria",
+    "years": "1906–1978",
+    "role": "mathematician and logician",
+    "note": "I put Gödel at the continuum's boundary because the constructible universe showed that one direction could not be refuted from ZFC.",
+    "entryIds": [],
+    "solvedIds": [
+      "continuum-hypothesis"
+    ]
+  },
+  {
+    "id": "alan-turing",
+    "name": "Alan Turing",
+    "era": "modern",
+    "region": "england",
+    "years": "1912–1954",
+    "role": "mathematician and computer scientist",
+    "note": "I put Turing at the edge of a living pattern because his final work showed how reaction and diffusion can make form.",
+    "entryIds": [
+      "turing-patterns"
+    ]
+  },
+  {
+    "id": "alan-hodgkin",
+    "name": "Alan Hodgkin",
+    "era": "modern",
+    "region": "england",
+    "years": "1914–1998",
+    "role": "physiologist",
+    "note": "I put Hodgkin at the axon because his patient measurements let nerve signals become a mechanism we can read.",
+    "entryIds": [
+      "hodgkin-huxley"
+    ]
+  },
+  {
+    "id": "claude-shannon",
+    "name": "Claude Shannon",
+    "era": "modern",
+    "region": "united states",
+    "years": "1916–2001",
+    "role": "mathematician and engineer",
+    "note": "I put Shannon's bit beside surprise because he made information measurable without asking what a message means.",
+    "entryIds": [
+      "shannon-entropy"
+    ]
+  },
+  {
+    "id": "andrew-huxley",
+    "name": "Andrew Huxley",
+    "era": "modern",
+    "region": "england",
+    "years": "1917–2012",
+    "role": "physiologist",
+    "note": "I put Huxley's gating model beside those measurements because he turned a living membrane into a working mathematical instrument.",
+    "entryIds": [
+      "hodgkin-huxley"
+    ]
+  },
+  {
+    "id": "edward-lorenz",
+    "name": "Edward Lorenz",
+    "era": "modern",
+    "region": "united states",
+    "years": "1917–2008",
+    "role": "meteorologist",
+    "note": "I put Lorenz at the weather because his spare equations made sensitive dependence impossible to ignore.",
+    "entryIds": [
+      "lorenz-attractor"
+    ]
+  },
+  {
+    "id": "wolfgang-haken",
+    "name": "Wolfgang Haken",
+    "era": "modern",
+    "region": "germany",
+    "years": "1928–2022",
+    "role": "mathematician",
+    "note": "I put Haken beside Appel because his structural insight helped turn the four-color question into a finite check.",
+    "entryIds": [],
+    "solvedIds": [
+      "four-color-theorem"
+    ]
+  },
+  {
+    "id": "kenneth-appel",
+    "name": "Kenneth Appel",
+    "era": "modern",
+    "region": "united states",
+    "years": "1932–2013",
+    "role": "mathematician",
+    "note": "I put Appel beside Haken because their four-color proof made the computer a visible mathematical witness.",
+    "entryIds": [],
+    "solvedIds": [
+      "four-color-theorem"
+    ]
+  },
+  {
+    "id": "vogel-martin",
+    "name": "Martin Vogel",
+    "era": "modern",
+    "region": "germany",
+    "years": "1933–2020",
+    "role": "biomathematician",
+    "note": "I put Vogel's spacing rule among the seeds because he gave a striking botanical pattern a clear mathematical shape.",
+    "entryIds": [
+      "phyllotaxis"
+    ]
+  },
+  {
+    "id": "paul-cohen",
+    "name": "Paul Cohen",
+    "era": "modern",
+    "region": "united states",
+    "years": "1934–2007",
+    "role": "mathematician",
+    "note": "I put Cohen beside Gödel because forcing showed the other direction could not be settled from ZFC either.",
+    "entryIds": [],
+    "solvedIds": [
+      "continuum-hypothesis"
+    ]
+  },
+  {
+    "id": "pierre-deligne",
+    "name": "Pierre Deligne",
+    "era": "modern",
+    "region": "belgium",
+    "years": "1944–present",
+    "role": "mathematician",
+    "note": "I put Deligne at the close of the Weil conjectures because he completed a structure Grothendieck had imagined.",
+    "entryIds": [],
+    "solvedIds": [
+      "weil-conjectures"
+    ]
+  },
+  {
+    "id": "andrew-wiles",
+    "name": "Andrew Wiles",
+    "era": "modern",
+    "region": "england",
+    "years": "1953–present",
+    "role": "mathematician",
+    "note": "I put Wiles on the closed page because his long pursuit joined elliptic curves to modular forms and changed what a proof could reach.",
+    "entryIds": [],
+    "solvedIds": [
+      "fermat-last-theorem"
+    ]
+  },
+  {
+    "id": "thomas-hales",
+    "name": "Thomas Hales",
+    "era": "modern",
+    "region": "united states",
+    "years": "1958–present",
+    "role": "mathematician",
+    "note": "I put Hales on the packing page because he turned Kepler's intuition into a proof that survived formal checking.",
+    "entryIds": [],
+    "solvedIds": [
+      "kepler-conjecture"
+    ]
+  },
+  {
+    "id": "richard-taylor",
+    "name": "Richard Taylor",
+    "era": "modern",
+    "region": "england",
+    "years": "1962–present",
+    "role": "mathematician",
+    "note": "I put Taylor beside Wiles because the repair that made the proof hold was shared work, not a footnote.",
+    "entryIds": [],
+    "solvedIds": [
+      "fermat-last-theorem"
+    ]
+  },
+  {
+    "id": "grigori-perelman",
+    "name": "Grigori Perelman",
+    "era": "modern",
+    "region": "russia",
+    "years": "1966–present",
+    "role": "mathematician",
+    "note": "I put Perelman in the hall because he carried Ricci flow through the singularities and declined the honors that followed.",
+    "entryIds": [],
+    "solvedIds": [
+      "poincare-conjecture"
+    ]
+  },
+  {
+    "id": "harald-helfgott",
+    "name": "Harald Helfgott",
+    "era": "modern",
+    "region": "peru",
+    "years": "1977–present",
+    "role": "mathematician",
+    "note": "I put Helfgott at weak Goldbach because his blend of analysis and careful computation closed a centuries-old question.",
+    "entryIds": [],
+    "solvedIds": [
+      "weak-goldbach"
+    ]
+  }
 ]
