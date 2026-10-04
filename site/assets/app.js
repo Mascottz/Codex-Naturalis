@@ -295,8 +295,16 @@ function entryPlate(entry, humansById) {
         </div>
         ${entry.id === "rubiks-cube-group" ? rubikCubeMarkup(`book-${entry.id}`, "book") : ""}
         ${bookplateMarkup(entry)}
+        ${askMarkup(entry)}
       </div>
     </article>`;
+}
+
+function askMarkup(entry) {
+  const number = String(entry.number).padStart(2, "0");
+  const title = encodeURIComponent(`Plate ${number}; ${entry.title}`);
+  const body = encodeURIComponent(`Asking about plate ${number}, ${entry.title}.\n\n${entry.formula}\n\nThe plate lives at https://naturaliis.vercel.app/#${entry.id}\n\n`);
+  return `<p class="plate-ask"><a href="https://github.com/Mascottz/codex-naturalis/discussions/new?category=q-a&amp;title=${title}&amp;body=${body}" target="_blank" rel="noreferrer noopener">${escapeHtml(`Ask about plate ${number}`)} <span aria-hidden="true">↗</span></a></p>`;
 }
 
 function renderEntries(entries, humans, computed) {
