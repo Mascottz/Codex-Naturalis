@@ -304,7 +304,7 @@ function askMarkup(entry) {
   const number = String(entry.number).padStart(2, "0");
   const title = encodeURIComponent(`Plate ${number}; ${entry.title}`);
   const body = encodeURIComponent(`Asking about plate ${number}, ${entry.title}.\n\n${entry.formula}\n\nThe plate lives at https://naturaliis.vercel.app/#${entry.id}\n\n`);
-  return `<p class="plate-ask"><a href="https://github.com/Mascottz/codex-naturalis/discussions/new?category=q-a&amp;title=${title}&amp;body=${body}" target="_blank" rel="noreferrer noopener">${escapeHtml(`Ask about plate ${number}`)} <span aria-hidden="true">↗</span></a></p>`;
+  return `<p class="plate-ask"><a href="https://github.com/Mascottz/Codex-Naturalis/discussions/new?category=q-a&amp;title=${title}&amp;body=${body}" target="_blank" rel="noreferrer noopener">${escapeHtml(`Ask about plate ${number}`)} <span aria-hidden="true">↗</span></a></p>`;
 }
 
 function renderEntries(entries, humans, computed) {
@@ -1337,7 +1337,7 @@ function renderDesk(problem, data, method) {
       "An attempt appears on the static ledger only after a ledger pull request is reviewed and merged.",
       "Verification requires a published peer-reviewed result or a checked formal proof."
     ].join("\n");
-    const issue = new URL("https://github.com/Mascottz/codex-naturalis/issues/new");
+    const issue = new URL("https://github.com/Mascottz/Codex-Naturalis/issues/new");
     issue.searchParams.set("title", `[Attempt] ${problem.id}: ${claim.slice(0, 80)}`);
     issue.searchParams.set("body", body);
     window.location.assign(issue.href);
