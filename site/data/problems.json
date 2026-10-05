@@ -223,7 +223,7 @@
     "summary": "Which Galton-board peg-removal patterns give exactly equal probability to every final bin?",
     "statement": "Which Galton-board peg-removal patterns give exactly equal probability to every final bin?",
     "approach": "Track each row as an exact rational distribution; a Julia search over every removal mask gives a small-n witness, while a proof must explain all n.",
-    "source": "https://github.com/Mascottz/codex-naturalis/blob/main/data/problems.json"
+    "source": "https://github.com/Mascottz/Codex-Naturalis/blob/main/data/problems.json"
   },
   {
     "id": "c3-piles-memory",
@@ -238,7 +238,7 @@
     "summary": "What fraction of the identity sandpile on a 2n × 2n grid has height exactly two as n grows?",
     "statement": "What fraction of the identity sandpile on a 2n × 2n grid has height exactly two as n grows?",
     "approach": "Use the burning test and the identity's recurrent structure, then compare exact finite grids with a provable finite-size bound.",
-    "source": "https://github.com/Mascottz/codex-naturalis/blob/main/data/problems.json"
+    "source": "https://github.com/Mascottz/Codex-Naturalis/blob/main/data/problems.json"
   },
   {
     "id": "c4-butterfly-period",
@@ -253,7 +253,7 @@
     "summary": "At what first ρ does the Lorenz return map acquire a primitive orbit of period three?",
     "statement": "At what first ρ does the Lorenz return map acquire a primitive orbit of period three?",
     "approach": "Locate a primitive fixed point of Pρ³, then enclose all three section points and the intervening flow with interval arithmetic.",
-    "source": "https://github.com/Mascottz/codex-naturalis/blob/main/data/problems.json"
+    "source": "https://github.com/Mascottz/Codex-Naturalis/blob/main/data/problems.json"
   },
   {
     "id": "c5-duelists-dice",
@@ -268,7 +268,7 @@
     "summary": "Can three fair six-sided dice form a non-transitive cycle with each win probability exactly two thirds?",
     "statement": "Can three fair six-sided dice form a non-transitive cycle with each win probability exactly two thirds?",
     "approach": "Write each pairwise win count as an integer out of 36, use the required two-thirds count to constrain the face orderings, and make an exhaustive search independently checkable.",
-    "source": "https://github.com/Mascottz/codex-naturalis/blob/main/data/problems.json"
+    "source": "https://github.com/Mascottz/Codex-Naturalis/blob/main/data/problems.json"
   },
   {
     "id": "hubble-tension",
