@@ -21,6 +21,10 @@ compute:
 	else \
 		python3 scripts/compute_fallback.py; \
 	fi
+	@if command -v julia >/dev/null 2>&1; then \
+		julia scripts/hubble_tension.jl; \
+		julia scripts/rubik_group_order.jl; \
+	fi
 	@printf '%s\n' 'compute; the small machines have written site/data'
 
 check: compute
